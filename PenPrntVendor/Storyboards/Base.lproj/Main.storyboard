@@ -685,7 +685,7 @@
         <!--MapVC-->
         <scene sceneID="mJI-gK-XNM">
             <objects>
-                <viewController storyboardIdentifier="MapVC" id="GLK-yd-qmb" customClass="MapVC" customModule="PenPrntVendor" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapVC" modalPresentationStyle="fullScreen" id="GLK-yd-qmb" customClass="MapVC" customModule="PenPrntVendor" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8w8-kJ-r2y" customClass="MapVCView" customModule="PenPrntVendor">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

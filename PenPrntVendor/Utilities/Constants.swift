@@ -23,3 +23,6 @@ struct URLs {
     // MARK:- base
     static let base = ""
 }
+struct UserDefaultsKeys {
+    static let token = "token"
+}

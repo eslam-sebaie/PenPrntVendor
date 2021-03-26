@@ -29,7 +29,7 @@ class SignUpView: UIView {
         signupView.dropShadow(scale: true, radius: 8, shadow: 4)
         upperSignUpView.setCornerRadius(radius: 8)
         upperSignUpView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-        uploadStoreDesign.setRadius(radius: 8, borderWidth: 1, borderColor: ColorName.storeBorder.color)
+        uploadStoreDesign.setBCdesign(borderWidth: 1, borderColor: ColorName.storeBorder.color, radius: 8)
         signUpDesign.setCornerRadius(radius: 8)
         
     }

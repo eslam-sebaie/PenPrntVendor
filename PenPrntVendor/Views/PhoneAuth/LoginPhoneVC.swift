@@ -64,6 +64,7 @@ class LoginPhoneVC: UIViewController {
     }
     
     func checkotp(){
+        // +201142373945
         loginPhoneView.phoneNumberWithCode = loginPhoneView.countryCode.text! + loginPhoneView.phoneTF.text!
         print(loginPhoneView.phoneNumberWithCode)
         PhoneAuthProvider.provider().verifyPhoneNumber(loginPhoneView.phoneNumberWithCode, uiDelegate: nil) { (verificationID, error) in

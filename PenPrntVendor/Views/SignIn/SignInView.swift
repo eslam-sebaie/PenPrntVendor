@@ -27,7 +27,7 @@ class SignInView: UIView {
         
         upperSignInView.setCornerRadius(radius: 8)
         upperSignInView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-        signInDesign.setRadius(radius: 8, borderWidth: 0, borderColor: .white)
+        signInDesign.setBCdesign(borderWidth: 0, borderColor: .white, radius: 8)
         
         
     }

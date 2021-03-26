@@ -102,6 +102,9 @@
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="45" id="1Wm-bS-8Pn"/>
                                                                         </constraints>
+                                                                        <connections>
+                                                                            <action selector="googlePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TPN-RE-BSH"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

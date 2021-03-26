@@ -401,6 +401,7 @@
 				969A50A426093951002990FB /* Frameworks */,
 				969A50A526093951002990FB /* Resources */,
 				4EB4CD3DD8805BB705C02C2B /* [CP] Embed Pods Frameworks */,
+				C881C2E396837C213D8C4E2C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -439,6 +440,7 @@
 				969A50C526093952002990FB /* Frameworks */,
 				969A50C626093952002990FB /* Resources */,
 				A3A103380A2F85ECCA371A3F /* [CP] Embed Pods Frameworks */,
+				A517487A06AC8461F50E505B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -619,6 +621,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PenPrntVendor-PenPrntVendorUITests/Pods-PenPrntVendor-PenPrntVendorUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A517487A06AC8461F50E505B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PenPrntVendor-PenPrntVendorUITests/Pods-PenPrntVendor-PenPrntVendorUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PenPrntVendor-PenPrntVendorUITests/Pods-PenPrntVendor-PenPrntVendorUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PenPrntVendor-PenPrntVendorUITests/Pods-PenPrntVendor-PenPrntVendorUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C881C2E396837C213D8C4E2C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PenPrntVendor/Pods-PenPrntVendor-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PenPrntVendor/Pods-PenPrntVendor-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PenPrntVendor/Pods-PenPrntVendor-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E0786C3E37D6CF3796810173 /* [CP] Check Pods Manifest.lock */ = {

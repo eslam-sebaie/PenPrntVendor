@@ -9,7 +9,8 @@ import UIKit
 import FacebookCore
 import FacebookLogin
 import SwiftyJSON
-import FirebaseAuth
+import Firebase
+import GoogleSignIn
 class WelcomeVC: UIViewController {
 
     
@@ -17,6 +18,8 @@ class WelcomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance()?.delegate = self
         welcomeView.updateUI()
     }
     
@@ -41,7 +44,12 @@ class WelcomeVC: UIViewController {
         handleFacebook()
     }
     
-    // MARK:- Google SignUp
+    @IBAction func googlePressed(_ sender: Any) {
+        GIDSignIn.sharedInstance().signIn()
+    }
+   
+    
+    
     
     
 }
@@ -100,6 +108,33 @@ extension WelcomeVC {
             
             // navigate to Continue Sign Up
             
+        }
+    }
+}
+extension WelcomeVC: GIDSignInDelegate {
+    // MARK:- Google SignUp
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+       
+        if let error = error {
+            print("failed To sign in", error)
+            return
+        }
+        guard let authentication  = user.authentication else {return}
+        let credintial = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+        
+        self.welcomeView.email = user.profile.email
+
+        Auth.auth().signIn(with: credintial) { (result, err) in
+            if let error = error {
+                print("failed To sign in", error)
+                return
+            }
+            guard let myEmail = result?.user.email else {return}
+            self.welcomeView.email = myEmail
+            print(self.welcomeView.email)
+            
+            // Navigate To Continue signUp
+
         }
     }
 }

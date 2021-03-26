@@ -19,6 +19,7 @@ target 'PenPrntVendor' do
     pod 'FacebookCore'
     pod 'FacebookLogin'
     pod 'FBSDKLoginKit'
+    pod 'GoogleSignIn'
     pod 'SwiftyJSON'
   target 'PenPrntVendorTests' do
     inherit! :search_paths

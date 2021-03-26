@@ -16,6 +16,10 @@ target 'PenPrntVendor' do
     pod "SGCodeTextField"
     pod 'Alamofire', '~> 5.2'
     pod 'SDWebImage', '~> 5.0'
+    pod 'FacebookCore'
+    pod 'FacebookLogin'
+    pod 'FBSDKLoginKit'
+    pod 'SwiftyJSON'
   target 'PenPrntVendorTests' do
     inherit! :search_paths
     # Pods for testing

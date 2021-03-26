@@ -6,7 +6,10 @@
 //
 
 import UIKit
-
+import FacebookCore
+import FacebookLogin
+import SwiftyJSON
+import FirebaseAuth
 class WelcomeView: UIView {
 
     @IBOutlet weak var logoImageView: UIImageView!
@@ -17,7 +20,9 @@ class WelcomeView: UIView {
     @IBOutlet weak var faceImage: UIImageView!
     @IBOutlet weak var googleImage: UIImageView!
     @IBOutlet weak var phoneImage: UIImageView!
-    
+    var name = ""
+    var email = ""
+
     func updateUI() {
         logoImageView.image = Asset.logo.image
         faceImage.image = Asset.facebookIcon.image
@@ -29,5 +34,10 @@ class WelcomeView: UIView {
         
         
     }
+    
+    
+    
+    
+    
     
 }

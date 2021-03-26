@@ -1,0 +1,6 @@
+framework module Pods_PenPrntVendor_PenPrntVendorUITests {
+  umbrella header "Pods-PenPrntVendor-PenPrntVendorUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

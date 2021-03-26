@@ -1,0 +1,33 @@
+//
+//  UIView.swift
+//  PenPrntVendor
+//
+//  Created by Eslam Sebaie on 3/22/21.
+//
+
+import UIKit
+extension UIView {
+    func setBCdesign(borderWidth: CGFloat, borderColor: UIColor, radius: CGFloat) {
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = borderColor.cgColor
+        self.layer.cornerRadius = radius
+        self.layer.masksToBounds = true
+    }
+    
+    func dropShadow(scale: Bool = true, radius: CGFloat, shadow: CGFloat) {
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = UIColor.darkGray.cgColor
+        self.layer.shadowOpacity = 0.4
+        self.layer.shadowOffset = .zero
+        self.layer.shadowRadius = shadow
+        self.layer.shouldRasterize = true
+        self.layer.cornerRadius = radius
+        self.layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+    }
+    
+    func setCornerRadius(radius: CGFloat) {
+        
+        self.layer.cornerRadius = radius
+        self.layer.masksToBounds = true
+    }
+}

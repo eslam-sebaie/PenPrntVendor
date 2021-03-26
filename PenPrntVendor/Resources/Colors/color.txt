@@ -1,0 +1,2 @@
+"welcomeBorder": #D6D6D6
+"storeBorder": #707070

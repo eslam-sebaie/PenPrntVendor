@@ -1,3 +1,8 @@
 "Eslam" = "Sebaie";
 "signInLabel" = "Sign in into your Account";
 "signUpLabel" = "Fill your information to be able to sell products";
+"StartOrder" = "START ORDER";
+"CompleteOrder" = "COMPLETE ORDER";
+"New Order" = "New Order";
+"In Progress" = "In Progress";
+"Completed" = "Completed";

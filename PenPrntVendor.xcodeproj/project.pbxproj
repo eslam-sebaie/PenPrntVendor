@@ -42,6 +42,13 @@
 		969A512126094662002990FB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A512026094662002990FB /* UIView.swift */; };
 		969A5126260949BB002990FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A5125260949BB002990FB /* Constants.swift */; };
 		969A512F26094A38002990FB /* UIViewController+Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A512E26094A38002990FB /* UIViewController+Create.swift */; };
+		96A39CBE260F4A40003743F5 /* OrdersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A39CBD260F4A40003743F5 /* OrdersVC.swift */; };
+		96A39CC3260F4A59003743F5 /* OrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A39CC2260F4A59003743F5 /* OrdersView.swift */; };
+		96A39CC8260F4B0E003743F5 /* OrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A39CC7260F4B0E003743F5 /* OrdersTableViewCell.swift */; };
+		96A39CD2260F50B9003743F5 /* OrderConfirmation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96A39CD1260F50B9003743F5 /* OrderConfirmation.storyboard */; };
+		96A39CD8260F6231003743F5 /* OrdersStatusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A39CD7260F6231003743F5 /* OrdersStatusVC.swift */; };
+		96A39CE0260F627A003743F5 /* OrdersStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A39CDF260F627A003743F5 /* OrdersStatusView.swift */; };
+		96A39CE6260F6369003743F5 /* OrdersStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A39CE5260F6369003743F5 /* OrdersStatusTableViewCell.swift */; };
 		96E60F5D260D077A001646BF /* LoginPhoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E60F5C260D077A001646BF /* LoginPhoneVC.swift */; };
 		96E60F65260D078D001646BF /* LoginPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E60F64260D078D001646BF /* LoginPhoneView.swift */; };
 		96E60F8C260D151C001646BF /* PhoneVerifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E60F8B260D151C001646BF /* PhoneVerifyView.swift */; };
@@ -112,6 +119,13 @@
 		969A512026094662002990FB /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		969A5125260949BB002990FB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		969A512E26094A38002990FB /* UIViewController+Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Create.swift"; sourceTree = "<group>"; };
+		96A39CBD260F4A40003743F5 /* OrdersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersVC.swift; sourceTree = "<group>"; };
+		96A39CC2260F4A59003743F5 /* OrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersView.swift; sourceTree = "<group>"; };
+		96A39CC7260F4B0E003743F5 /* OrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewCell.swift; sourceTree = "<group>"; };
+		96A39CD1260F50B9003743F5 /* OrderConfirmation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderConfirmation.storyboard; sourceTree = "<group>"; };
+		96A39CD7260F6231003743F5 /* OrdersStatusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersStatusVC.swift; sourceTree = "<group>"; };
+		96A39CDF260F627A003743F5 /* OrdersStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersStatusView.swift; sourceTree = "<group>"; };
+		96A39CE5260F6369003743F5 /* OrdersStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersStatusTableViewCell.swift; sourceTree = "<group>"; };
 		96E60F5C260D077A001646BF /* LoginPhoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPhoneVC.swift; sourceTree = "<group>"; };
 		96E60F64260D078D001646BF /* LoginPhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPhoneView.swift; sourceTree = "<group>"; };
 		96E60F8B260D151C001646BF /* PhoneVerifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerifyView.swift; sourceTree = "<group>"; };
@@ -315,6 +329,7 @@
 			children = (
 				969A50B026093951002990FB /* Main.storyboard */,
 				96886C1B260BC12600E154F3 /* OrderDetails.storyboard */,
+				96A39CD1260F50B9003743F5 /* OrderConfirmation.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -329,6 +344,8 @@
 				96E60F5B260D0748001646BF /* PhoneAuth */,
 				96E60F8A260D14FD001646BF /* PhoneVerification */,
 				96886C20260BC14C00E154F3 /* TabBar */,
+				96A39CBC260F49ED003743F5 /* OrdersVC */,
+				96A39CD6260F6207003743F5 /* OrdersStatus */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -358,6 +375,42 @@
 				969A5125260949BB002990FB /* Constants.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		96A39CBC260F49ED003743F5 /* OrdersVC */ = {
+			isa = PBXGroup;
+			children = (
+				96A39CBD260F4A40003743F5 /* OrdersVC.swift */,
+				96A39CC2260F4A59003743F5 /* OrdersView.swift */,
+				96A39CCD260F4B19003743F5 /* TableViewCell */,
+			);
+			path = OrdersVC;
+			sourceTree = "<group>";
+		};
+		96A39CCD260F4B19003743F5 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				96A39CC7260F4B0E003743F5 /* OrdersTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		96A39CD6260F6207003743F5 /* OrdersStatus */ = {
+			isa = PBXGroup;
+			children = (
+				96A39CD7260F6231003743F5 /* OrdersStatusVC.swift */,
+				96A39CDF260F627A003743F5 /* OrdersStatusView.swift */,
+				96A39CE4260F6354003743F5 /* OrdersStatusCell */,
+			);
+			path = OrdersStatus;
+			sourceTree = "<group>";
+		};
+		96A39CE4260F6354003743F5 /* OrdersStatusCell */ = {
+			isa = PBXGroup;
+			children = (
+				96A39CE5260F6369003743F5 /* OrdersStatusTableViewCell.swift */,
+			);
+			path = OrdersStatusCell;
 			sourceTree = "<group>";
 		};
 		96E60F5B260D0748001646BF /* PhoneAuth */ = {
@@ -505,6 +558,7 @@
 				96886C1C260BC12600E154F3 /* OrderDetails.storyboard in Resources */,
 				969A50B726093952002990FB /* LaunchScreen.storyboard in Resources */,
 				969A50B426093952002990FB /* Assets.xcassets in Resources */,
+				96A39CD2260F50B9003743F5 /* OrderConfirmation.storyboard in Resources */,
 				969A50B226093951002990FB /* Main.storyboard in Resources */,
 				969A50E8260939E1002990FB /* swiftgen.yml in Resources */,
 			);
@@ -687,6 +741,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96886C0F260BB9D200E154F3 /* MapExtension.swift in Sources */,
+				96A39CD8260F6231003743F5 /* OrdersStatusVC.swift in Sources */,
 				9606CD0F260E0E75004EF042 /* APIRouter.swift in Sources */,
 				969A512F26094A38002990FB /* UIViewController+Create.swift in Sources */,
 				96886C14260BBE3A00E154F3 /* MapVCView.swift in Sources */,
@@ -701,11 +756,16 @@
 				969A50AF26093951002990FB /* WelcomeVC.swift in Sources */,
 				963EE28D260A7932003E56DA /* SignInView.swift in Sources */,
 				96E60F94260D152C001646BF /* PhoneVerifyVC.swift in Sources */,
+				96A39CE6260F6369003743F5 /* OrdersStatusTableViewCell.swift in Sources */,
+				96A39CE0260F627A003743F5 /* OrdersStatusView.swift in Sources */,
 				96886C22260BC16000E154F3 /* TabBarController.swift in Sources */,
 				969A50FF26093B0F002990FB /* Strings.swift in Sources */,
+				96A39CC8260F4B0E003743F5 /* OrdersTableViewCell.swift in Sources */,
 				969A50AB26093951002990FB /* AppDelegate.swift in Sources */,
 				963EE2CD260A87BB003E56DA /* SignUpView.swift in Sources */,
+				96A39CBE260F4A40003743F5 /* OrdersVC.swift in Sources */,
 				969A50AD26093951002990FB /* SceneDelegate.swift in Sources */,
+				96A39CC3260F4A59003743F5 /* OrdersView.swift in Sources */,
 				9606CD0A260E0E19004EF042 /* UserDefaultManager.swift in Sources */,
 				969A511B260944FB002990FB /* WelcomeView.swift in Sources */,
 				96E60F8C260D151C001646BF /* PhoneVerifyView.swift in Sources */,

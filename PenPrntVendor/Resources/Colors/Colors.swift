@@ -18,6 +18,18 @@ internal struct ColorName {
   internal let rgbaValue: UInt32
   internal var color: Color { return Color(named: self) }
 
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#2b2b2b"></span>
+  /// Alpha: 100% <br/> (0x2b2b2bff)
+  internal static let startColor = ColorName(rgbaValue: 0x2b2b2bff)
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#00bc41"></span>
+  /// Alpha: 100% <br/> (0x00bc41ff)
+  internal static let completeColor = ColorName(rgbaValue: 0x00bc41ff)
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#efa61d"></span>
+  /// Alpha: 100% <br/> (0xefa61dff)
+  internal static let progressColor = ColorName(rgbaValue: 0xefa61dff)
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#00aeef"></span>
+  /// Alpha: 100% <br/> (0x00aeefff)
+  internal static let skyColor = ColorName(rgbaValue: 0x00aeefff)
   /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#707070"></span>
   /// Alpha: 100% <br/> (0x707070ff)
   internal static let storeBorder = ColorName(rgbaValue: 0x707070ff)

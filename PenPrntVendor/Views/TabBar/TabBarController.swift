@@ -36,6 +36,11 @@ class TabBarController: UITabBarController {
         hideTabBarBorder()
     }
     
+    class func create() -> TabBarController {
+        let tabVC: TabBarController = UIViewController.create(storyboardName: Storyboards.OrderDetails, identifier: ViewControllers.TabBarController)
+        return tabVC
+    }
+    
     override func viewDidLayoutSubviews() {
           super.viewDidLayoutSubviews()
          coustmeTabBarView.frame = tabBar.frame

@@ -1,2 +1,6 @@
 "welcomeBorder": #D6D6D6
 "storeBorder": #707070
+"skyColor": #00AEEF
+"progressColor": #EFA61D
+"completeColor": #00BC41
+"StartColor": #2B2B2B

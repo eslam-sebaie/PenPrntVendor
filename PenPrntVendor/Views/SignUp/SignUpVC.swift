@@ -36,8 +36,8 @@ class SignUpVC: UIViewController, sendingAddress {
 
     
     @IBAction func signUpPressed(_ sender: Any) {
-        let sb = UIStoryboard(name: "OrderDetails", bundle: nil)
-        let tabVC = sb.instantiateViewController(withIdentifier: "TabBarController") as! TabBarController
+        
+        let tabVC = TabBarController.create()
         self.present(tabVC ,animated: true, completion: nil)
     }
 }

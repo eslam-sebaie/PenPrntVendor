@@ -9,6 +9,8 @@ import Foundation
 // Storyboards
 struct Storyboards {
     static let main = "Main"
+    static let OrderDetails = "OrderDetails"
+    static let OrderConfirmation = "OrderConfirmation"
 }
 
 // View Controllers
@@ -18,6 +20,9 @@ struct ViewControllers {
     static let signUpVC =  "SignUpVC"
     static let loginPhoneVC = "LoginPhoneVC"
     static let phoneVerifyVC = "PhoneVerifyVC"
+    static let TabBarController = "TabBarController"
+    static let OrdersStatusVC = "OrdersStatusVC"
+    
 }
 struct URLs {
     // MARK:- base
@@ -25,4 +30,7 @@ struct URLs {
 }
 struct UserDefaultsKeys {
     static let token = "token"
+}
+struct TableCells {
+    static let orderCell = "cell"
 }

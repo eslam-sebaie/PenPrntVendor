@@ -29,6 +29,9 @@
                                     <constraint firstAttribute="height" constant="20" id="QQB-kx-hvs"/>
                                 </constraints>
                                 <state key="normal" image="back"/>
+                                <connections>
+                                    <action selector="backPressed:" destination="BjU-1m-h4e" eventType="touchUpInside" id="5KZ-Os-hJl"/>
+                                </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m2P-ff-xw5">
                                 <rect key="frame" x="0.0" y="113" width="414" height="783"/>
@@ -218,6 +221,9 @@
                                                 <state key="normal" title="START ORDER">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="orderStatusPressed:" destination="BjU-1m-h4e" eventType="touchUpInside" id="cYp-P4-HWV"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

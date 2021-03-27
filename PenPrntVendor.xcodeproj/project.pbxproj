@@ -49,6 +49,9 @@
 		96A39CD8260F6231003743F5 /* OrdersStatusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A39CD7260F6231003743F5 /* OrdersStatusVC.swift */; };
 		96A39CE0260F627A003743F5 /* OrdersStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A39CDF260F627A003743F5 /* OrdersStatusView.swift */; };
 		96A39CE6260F6369003743F5 /* OrdersStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A39CE5260F6369003743F5 /* OrdersStatusTableViewCell.swift */; };
+		96A39CF4260F8120003743F5 /* ProductsInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96A39CF3260F8120003743F5 /* ProductsInfo.storyboard */; };
+		96A39CFA260F8F28003743F5 /* ProductInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A39CF9260F8F28003743F5 /* ProductInfoVC.swift */; };
+		96A39D02260F8F3D003743F5 /* ProductInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A39D01260F8F3D003743F5 /* ProductInfoView.swift */; };
 		96E60F5D260D077A001646BF /* LoginPhoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E60F5C260D077A001646BF /* LoginPhoneVC.swift */; };
 		96E60F65260D078D001646BF /* LoginPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E60F64260D078D001646BF /* LoginPhoneView.swift */; };
 		96E60F8C260D151C001646BF /* PhoneVerifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E60F8B260D151C001646BF /* PhoneVerifyView.swift */; };
@@ -126,6 +129,9 @@
 		96A39CD7260F6231003743F5 /* OrdersStatusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersStatusVC.swift; sourceTree = "<group>"; };
 		96A39CDF260F627A003743F5 /* OrdersStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersStatusView.swift; sourceTree = "<group>"; };
 		96A39CE5260F6369003743F5 /* OrdersStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersStatusTableViewCell.swift; sourceTree = "<group>"; };
+		96A39CF3260F8120003743F5 /* ProductsInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductsInfo.storyboard; sourceTree = "<group>"; };
+		96A39CF9260F8F28003743F5 /* ProductInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoVC.swift; sourceTree = "<group>"; };
+		96A39D01260F8F3D003743F5 /* ProductInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoView.swift; sourceTree = "<group>"; };
 		96E60F5C260D077A001646BF /* LoginPhoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPhoneVC.swift; sourceTree = "<group>"; };
 		96E60F64260D078D001646BF /* LoginPhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPhoneView.swift; sourceTree = "<group>"; };
 		96E60F8B260D151C001646BF /* PhoneVerifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerifyView.swift; sourceTree = "<group>"; };
@@ -330,6 +336,7 @@
 				969A50B026093951002990FB /* Main.storyboard */,
 				96886C1B260BC12600E154F3 /* OrderDetails.storyboard */,
 				96A39CD1260F50B9003743F5 /* OrderConfirmation.storyboard */,
+				96A39CF3260F8120003743F5 /* ProductsInfo.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -346,6 +353,7 @@
 				96886C20260BC14C00E154F3 /* TabBar */,
 				96A39CBC260F49ED003743F5 /* OrdersVC */,
 				96A39CD6260F6207003743F5 /* OrdersStatus */,
+				96A39CF8260F8EEF003743F5 /* ProductInformaction */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -411,6 +419,15 @@
 				96A39CE5260F6369003743F5 /* OrdersStatusTableViewCell.swift */,
 			);
 			path = OrdersStatusCell;
+			sourceTree = "<group>";
+		};
+		96A39CF8260F8EEF003743F5 /* ProductInformaction */ = {
+			isa = PBXGroup;
+			children = (
+				96A39CF9260F8F28003743F5 /* ProductInfoVC.swift */,
+				96A39D01260F8F3D003743F5 /* ProductInfoView.swift */,
+			);
+			path = ProductInformaction;
 			sourceTree = "<group>";
 		};
 		96E60F5B260D0748001646BF /* PhoneAuth */ = {
@@ -558,6 +575,7 @@
 				96886C1C260BC12600E154F3 /* OrderDetails.storyboard in Resources */,
 				969A50B726093952002990FB /* LaunchScreen.storyboard in Resources */,
 				969A50B426093952002990FB /* Assets.xcassets in Resources */,
+				96A39CF4260F8120003743F5 /* ProductsInfo.storyboard in Resources */,
 				96A39CD2260F50B9003743F5 /* OrderConfirmation.storyboard in Resources */,
 				969A50B226093951002990FB /* Main.storyboard in Resources */,
 				969A50E8260939E1002990FB /* swiftgen.yml in Resources */,
@@ -754,6 +772,7 @@
 				9606CD14260E1101004EF042 /* APIManager.swift in Sources */,
 				963EE288260A78E9003E56DA /* SignInVC.swift in Sources */,
 				969A50AF26093951002990FB /* WelcomeVC.swift in Sources */,
+				96A39CFA260F8F28003743F5 /* ProductInfoVC.swift in Sources */,
 				963EE28D260A7932003E56DA /* SignInView.swift in Sources */,
 				96E60F94260D152C001646BF /* PhoneVerifyVC.swift in Sources */,
 				96A39CE6260F6369003743F5 /* OrdersStatusTableViewCell.swift in Sources */,
@@ -765,6 +784,7 @@
 				963EE2CD260A87BB003E56DA /* SignUpView.swift in Sources */,
 				96A39CBE260F4A40003743F5 /* OrdersVC.swift in Sources */,
 				969A50AD26093951002990FB /* SceneDelegate.swift in Sources */,
+				96A39D02260F8F3D003743F5 /* ProductInfoView.swift in Sources */,
 				96A39CC3260F4A59003743F5 /* OrdersView.swift in Sources */,
 				9606CD0A260E0E19004EF042 /* UserDefaultManager.swift in Sources */,
 				969A511B260944FB002990FB /* WelcomeView.swift in Sources */,
@@ -949,6 +969,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K8C84U26G9;
 				INFOPLIST_FILE = PenPrntVendor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -968,6 +989,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K8C84U26G9;
 				INFOPLIST_FILE = PenPrntVendor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

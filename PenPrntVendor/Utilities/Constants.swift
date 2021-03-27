@@ -11,6 +11,7 @@ struct Storyboards {
     static let main = "Main"
     static let OrderDetails = "OrderDetails"
     static let OrderConfirmation = "OrderConfirmation"
+    static let ProductsInfo = "ProductsInfo"
 }
 
 // View Controllers
@@ -22,6 +23,7 @@ struct ViewControllers {
     static let phoneVerifyVC = "PhoneVerifyVC"
     static let TabBarController = "TabBarController"
     static let OrdersStatusVC = "OrdersStatusVC"
+    static let ProductInfoVC = "ProductInfoVC"
     
 }
 struct URLs {

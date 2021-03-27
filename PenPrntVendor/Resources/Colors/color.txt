@@ -4,3 +4,4 @@
 "progressColor": #EFA61D
 "completeColor": #00BC41
 "StartColor": #2B2B2B
+"borderColor": #EFEFF4

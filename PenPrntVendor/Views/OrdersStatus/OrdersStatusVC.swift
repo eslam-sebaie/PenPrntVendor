@@ -23,6 +23,17 @@ class OrdersStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
         return ordersStatusVC
     }
     
+    @IBAction func orderStatusPressed(_ sender: Any) {
+        let product = ProductInfoVC.create()
+        self.present(product, animated: true, completion: nil)
+    }
+    
+    
+    
+    @IBAction func backPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }

@@ -21,6 +21,8 @@ class OrdersStatusTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        orderColor.setBCdesign(borderWidth: 0, borderColor: .white, radius: 4)
+        orderSize.setBCdesign(borderWidth: 1, borderColor: ColorName.borderColor.color, radius: 4)
         orderMainView.dropShadow(radius: 10, shadow: 4)
     }
 

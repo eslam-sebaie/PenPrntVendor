@@ -15,19 +15,27 @@ class WelcomeVC: UIViewController {
 
     
     @IBOutlet var welcomeView: WelcomeView!
-    
+    private var welcomeViewModal: WelcomeViewModelProtocol!
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance()?.delegate = self
         welcomeView.updateUI()
+        
     }
+    override func viewWillAppear(_ animated: Bool) {
+        welcomeViewModal = WelcomeViewModel(view: self)
+    }
+    
     
    
     // MARK:- Public Methods
     class func create() -> WelcomeVC {
+        
         let welcomeVC: WelcomeVC = UIViewController.create(storyboardName: Storyboards.main, identifier: ViewControllers.welcomeVC)
+        welcomeVC.welcomeViewModal = WelcomeViewModel(view: welcomeVC)
         return welcomeVC
+        
     }
     
     @IBAction func signInPressed(_ sender: Any) {
@@ -106,7 +114,7 @@ extension WelcomeVC {
             print(self.welcomeView.name)
             print(self.welcomeView.email)
             
-            // navigate to Continue Sign Up
+            self.welcomeViewModal.SignUp(email: self.welcomeView.email)
             
         }
     }
@@ -132,9 +140,24 @@ extension WelcomeVC: GIDSignInDelegate {
             guard let myEmail = result?.user.email else {return}
             self.welcomeView.email = myEmail
             print(self.welcomeView.email)
-            
-            // Navigate To Continue signUp
-
+            self.welcomeViewModal.SignUp(email: self.welcomeView.email)
         }
+    }
+}
+extension WelcomeVC: SignUpProtocol {
+    func hideLoader() {
+        self.view.hideLoader()
+    }
+    
+    func showLoader() {
+        self.view.showLoader()
+    }
+    
+    func showAlert(title: String, msg: String) {
+        self.show_Alert(title, msg)
+    }
+    func presentTabBar() {
+        let tabVC = TabBarController.create()
+        self.present(tabVC ,animated: true, completion: nil)
     }
 }

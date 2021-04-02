@@ -25,6 +25,29 @@ extension UIView {
         self.layer.rasterizationScale = scale ? UIScreen.main.scale : 1
     }
     
+    func showLoader() {
+        let activityIndicator = setupActivityIndicator()
+        activityIndicator.startAnimating()
+        self.addSubview(activityIndicator)
+    }
+    
+    func hideLoader() {
+        if let activityIndicator = viewWithTag(333) {
+            activityIndicator.removeFromSuperview()
+        }
+    }
+    
+    private func setupActivityIndicator() -> UIActivityIndicatorView {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.frame = self.bounds
+        activityIndicator.color = .darkText
+        activityIndicator.tintColor = .blue
+        activityIndicator.center = self.center
+        activityIndicator.style = .gray
+        activityIndicator.tag = 333
+        return activityIndicator
+    }
+    
     func setCornerRadius(radius: CGFloat) {
         
         self.layer.cornerRadius = radius

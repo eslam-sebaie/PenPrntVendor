@@ -56,6 +56,10 @@
 		96E60F65260D078D001646BF /* LoginPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E60F64260D078D001646BF /* LoginPhoneView.swift */; };
 		96E60F8C260D151C001646BF /* PhoneVerifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E60F8B260D151C001646BF /* PhoneVerifyView.swift */; };
 		96E60F94260D152C001646BF /* PhoneVerifyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E60F93260D152C001646BF /* PhoneVerifyVC.swift */; };
+		96F2727A2617719E005EC012 /* SignUpViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F272792617719E005EC012 /* SignUpViewModal.swift */; };
+		96F272AB261777D8005EC012 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F272AA261777D8005EC012 /* Validator.swift */; };
+		96F272B126177AE7005EC012 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F272B026177AE7005EC012 /* SignInViewModel.swift */; };
+		96F272B726177C3A005EC012 /* WelcomeViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F272B626177C3A005EC012 /* WelcomeViewModal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +140,10 @@
 		96E60F64260D078D001646BF /* LoginPhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPhoneView.swift; sourceTree = "<group>"; };
 		96E60F8B260D151C001646BF /* PhoneVerifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerifyView.swift; sourceTree = "<group>"; };
 		96E60F93260D152C001646BF /* PhoneVerifyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerifyVC.swift; sourceTree = "<group>"; };
+		96F272792617719E005EC012 /* SignUpViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModal.swift; sourceTree = "<group>"; };
+		96F272AA261777D8005EC012 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		96F272B026177AE7005EC012 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		96F272B626177C3A005EC012 /* WelcomeViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModal.swift; sourceTree = "<group>"; };
 		9C3AB089B41003B2D827A06F /* Pods_PenPrntVendor_PenPrntVendorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PenPrntVendor_PenPrntVendorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -186,6 +194,7 @@
 				9606CD0E260E0E75004EF042 /* APIRouter.swift */,
 				9606CD13260E1101004EF042 /* APIManager.swift */,
 				9606CD09260E0E19004EF042 /* UserDefaultManager.swift */,
+				96F272AA261777D8005EC012 /* Validator.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -257,6 +266,7 @@
 				969A512A26094A18002990FB /* Utilities */,
 				9606CD08260E0DFB004EF042 /* Manager */,
 				969A5115260944C6002990FB /* Views */,
+				96F272772617717F005EC012 /* ViewModal */,
 				969A511126093BC0002990FB /* Storyboards */,
 				969A50DD2609395B002990FB /* Resources */,
 				969A50B526093952002990FB /* LaunchScreen.storyboard */,
@@ -446,6 +456,40 @@
 				96E60F8B260D151C001646BF /* PhoneVerifyView.swift */,
 			);
 			path = PhoneVerification;
+			sourceTree = "<group>";
+		};
+		96F272772617717F005EC012 /* ViewModal */ = {
+			isa = PBXGroup;
+			children = (
+				96F272B526177C26005EC012 /* Welcome */,
+				96F272AF26177AD2005EC012 /* SignIn */,
+				96F272782617718C005EC012 /* SignUp */,
+			);
+			path = ViewModal;
+			sourceTree = "<group>";
+		};
+		96F272782617718C005EC012 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				96F272792617719E005EC012 /* SignUpViewModal.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		96F272AF26177AD2005EC012 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				96F272B026177AE7005EC012 /* SignInViewModel.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		96F272B526177C26005EC012 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				96F272B626177C3A005EC012 /* WelcomeViewModal.swift */,
+			);
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 		BEC93398AF3A427FAF275635 /* Frameworks */ = {
@@ -761,12 +805,14 @@
 				96886C0F260BB9D200E154F3 /* MapExtension.swift in Sources */,
 				96A39CD8260F6231003743F5 /* OrdersStatusVC.swift in Sources */,
 				9606CD0F260E0E75004EF042 /* APIRouter.swift in Sources */,
+				96F2727A2617719E005EC012 /* SignUpViewModal.swift in Sources */,
 				969A512F26094A38002990FB /* UIViewController+Create.swift in Sources */,
 				96886C14260BBE3A00E154F3 /* MapVCView.swift in Sources */,
 				963EE2C7260A81E3003E56DA /* UIButton.swift in Sources */,
 				969A512126094662002990FB /* UIView.swift in Sources */,
 				96E60F65260D078D001646BF /* LoginPhoneView.swift in Sources */,
 				96E60F5D260D077A001646BF /* LoginPhoneVC.swift in Sources */,
+				96F272B126177AE7005EC012 /* SignInViewModel.swift in Sources */,
 				969A50F026093A1A002990FB /* AssetsManager.swift in Sources */,
 				969A510D26093B94002990FB /* Colors.swift in Sources */,
 				9606CD14260E1101004EF042 /* APIManager.swift in Sources */,
@@ -779,12 +825,14 @@
 				96A39CE0260F627A003743F5 /* OrdersStatusView.swift in Sources */,
 				96886C22260BC16000E154F3 /* TabBarController.swift in Sources */,
 				969A50FF26093B0F002990FB /* Strings.swift in Sources */,
+				96F272B726177C3A005EC012 /* WelcomeViewModal.swift in Sources */,
 				96A39CC8260F4B0E003743F5 /* OrdersTableViewCell.swift in Sources */,
 				969A50AB26093951002990FB /* AppDelegate.swift in Sources */,
 				963EE2CD260A87BB003E56DA /* SignUpView.swift in Sources */,
 				96A39CBE260F4A40003743F5 /* OrdersVC.swift in Sources */,
 				969A50AD26093951002990FB /* SceneDelegate.swift in Sources */,
 				96A39D02260F8F3D003743F5 /* ProductInfoView.swift in Sources */,
+				96F272AB261777D8005EC012 /* Validator.swift in Sources */,
 				96A39CC3260F4A59003743F5 /* OrdersView.swift in Sources */,
 				9606CD0A260E0E19004EF042 /* UserDefaultManager.swift in Sources */,
 				969A511B260944FB002990FB /* WelcomeView.swift in Sources */,

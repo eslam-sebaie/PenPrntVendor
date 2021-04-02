@@ -12,6 +12,7 @@ class PhoneVerifyVC: UIViewController {
     
     @IBOutlet var phoneVerifyView: PhoneVerifyView!
     var verificationID = ""
+    private var phoneViewModal: WelcomeViewModelProtocol!
     override func viewDidLoad() {
         super.viewDidLoad()
         phoneVerifyView.updateUI()
@@ -20,6 +21,7 @@ class PhoneVerifyVC: UIViewController {
     
     class func create() -> PhoneVerifyVC {
         let phoneVerifyVC: PhoneVerifyVC = UIViewController.create(storyboardName: Storyboards.main, identifier: ViewControllers.phoneVerifyVC)
+        phoneVerifyVC.phoneViewModal = WelcomeViewModel(view: phoneVerifyVC)
         return phoneVerifyVC
     }
     
@@ -30,16 +32,16 @@ class PhoneVerifyVC: UIViewController {
             let credienial = PhoneAuthProvider.provider().credential(withVerificationID: self.verificationID, verificationCode: self.phoneVerifyView.tf_otp.text!)
             Auth.auth().signIn(with: credienial) { (authData, error) in
                 if error != nil {
-                    self.show_Alert("Code Error")
+                    self.show_Alert("Sorry!", "Invalid Code")
                 }
                 else {
                     print("Auth success" + (authData?.user.phoneNumber)!)
-                    // write Api SignUp Function
+                    self.phoneViewModal.SignUp(email: (authData?.user.phoneNumber)!)
                 }
             }
         }
         else {
-            show_Alert("Please Complete Verification Number.")
+            show_Alert("Sorry!", "Please Complete Verification Number.")
         }
         
     }
@@ -61,6 +63,25 @@ class PhoneVerifyVC: UIViewController {
     }
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+}
+extension PhoneVerifyVC: SignUpProtocol{
+    
+    func hideLoader() {
+        self.view.hideLoader()
+    }
+    
+    func showLoader() {
+        self.view.showLoader()
+    }
+    
+    func showAlert(title: String, msg: String) {
+        self.show_Alert(title, msg)
+    }
+    func presentTabBar() {
+        let tabVC = TabBarController.create()
+        self.present(tabVC ,animated: true, completion: nil)
     }
     
 }

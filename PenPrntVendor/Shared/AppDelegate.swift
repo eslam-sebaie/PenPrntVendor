@@ -12,13 +12,15 @@ import FBSDKCoreKit
 import GoogleSignIn
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+    var window: UIWindow?
 
 
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
+        switchToWelcomeState()
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         FirebaseApp.configure()
@@ -27,8 +29,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application,
             didFinishLaunchingWithOptions: launchOptions
         )
-
+        
+        
         return true
+    }
+    func switchToWelcomeState() {
+        let welcomeVc = WelcomeVC.create()
+        let navigationController = UINavigationController(rootViewController: welcomeVc)
+        self.window?.rootViewController = navigationController
     }
           
  

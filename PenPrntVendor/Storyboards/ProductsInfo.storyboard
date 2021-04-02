@@ -84,7 +84,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oFR-dO-cnF">
-                                                <rect key="frame" x="32" y="86.666666666666657" width="350" height="30"/>
+                                                <rect key="frame" x="32" y="86.666666666666657" width="350" height="274"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWx-Aq-KxG">
                                                 <rect key="frame" x="24" y="380.66666666666669" width="32" height="20"/>
@@ -330,6 +330,7 @@
                                             <constraint firstItem="ycX-q5-NF9" firstAttribute="top" secondItem="WNt-4c-SJR" secondAttribute="bottom" constant="8" id="h0b-As-FVM"/>
                                             <constraint firstItem="wkM-qu-xG1" firstAttribute="leading" secondItem="RAj-sU-7vO" secondAttribute="leading" constant="24" id="hR0-ok-aKW"/>
                                             <constraint firstAttribute="trailing" secondItem="YMP-Z7-Adu" secondAttribute="trailing" constant="24" id="hUZ-rh-YCd"/>
+                                            <constraint firstItem="oFR-dO-cnF" firstAttribute="bottom" secondItem="YMP-Z7-Adu" secondAttribute="bottom" id="iMA-ml-UnQ"/>
                                             <constraint firstItem="tFq-Jo-uKb" firstAttribute="leading" secondItem="RAj-sU-7vO" secondAttribute="leading" constant="24" id="ikx-a6-63M"/>
                                             <constraint firstItem="EG5-1j-96q" firstAttribute="leading" secondItem="RAj-sU-7vO" secondAttribute="leading" constant="24" id="imR-Tc-Epb"/>
                                             <constraint firstItem="tFq-Jo-uKb" firstAttribute="top" secondItem="lrP-Gn-fA1" secondAttribute="bottom" constant="8" id="jSg-LF-iv2"/>

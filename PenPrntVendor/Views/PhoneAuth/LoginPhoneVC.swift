@@ -26,7 +26,7 @@ class LoginPhoneVC: UIViewController {
     
     @IBAction func nextPressed(_ sender: Any) {
         guard let phone = self.loginPhoneView.phoneTF.text, phone != "" else {
-            show_Alert("You Must Enter Phone Number.")
+            show_Alert("Sorry!", "You Must Enter Phone Number.")
             return
         }
         checkotp()
@@ -78,7 +78,7 @@ class LoginPhoneVC: UIViewController {
                 }
             }
             else {
-                self.show_Alert("You Are Blocked Try Later")
+                self.show_Alert("Sorry!", "You Are Blocked Try Later")
             }
         }
     }

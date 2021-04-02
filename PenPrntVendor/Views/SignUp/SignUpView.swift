@@ -16,6 +16,9 @@ class SignUpView: UIView {
     @IBOutlet weak var landlineTF: UITextField!
     @IBOutlet weak var storeNameTF: UITextField!
     @IBOutlet weak var storeLocationTF: UITextField!
+    
+    @IBOutlet weak var passwordTF: UITextField!
+    
     @IBOutlet weak var uploadStoreDesign: UIButton!
     
     @IBOutlet weak var signUpDesign: UIButton!

@@ -56,6 +56,9 @@
 		96E60F65260D078D001646BF /* LoginPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E60F64260D078D001646BF /* LoginPhoneView.swift */; };
 		96E60F8C260D151C001646BF /* PhoneVerifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E60F8B260D151C001646BF /* PhoneVerifyView.swift */; };
 		96E60F94260D152C001646BF /* PhoneVerifyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E60F93260D152C001646BF /* PhoneVerifyVC.swift */; };
+		96EA2040261885ED00900CE9 /* MyProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EA203F261885ED00900CE9 /* MyProductsVC.swift */; };
+		96EA20452618860200900CE9 /* MyProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EA20442618860200900CE9 /* MyProductsView.swift */; };
+		96EA204B2618862700900CE9 /* MyProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EA204A2618862700900CE9 /* MyProductsTableViewCell.swift */; };
 		96F2727A2617719E005EC012 /* SignUpViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F272792617719E005EC012 /* SignUpViewModal.swift */; };
 		96F272AB261777D8005EC012 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F272AA261777D8005EC012 /* Validator.swift */; };
 		96F272B126177AE7005EC012 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F272B026177AE7005EC012 /* SignInViewModel.swift */; };
@@ -140,6 +143,9 @@
 		96E60F64260D078D001646BF /* LoginPhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPhoneView.swift; sourceTree = "<group>"; };
 		96E60F8B260D151C001646BF /* PhoneVerifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerifyView.swift; sourceTree = "<group>"; };
 		96E60F93260D152C001646BF /* PhoneVerifyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerifyVC.swift; sourceTree = "<group>"; };
+		96EA203F261885ED00900CE9 /* MyProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductsVC.swift; sourceTree = "<group>"; };
+		96EA20442618860200900CE9 /* MyProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductsView.swift; sourceTree = "<group>"; };
+		96EA204A2618862700900CE9 /* MyProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductsTableViewCell.swift; sourceTree = "<group>"; };
 		96F272792617719E005EC012 /* SignUpViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModal.swift; sourceTree = "<group>"; };
 		96F272AA261777D8005EC012 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		96F272B026177AE7005EC012 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
@@ -364,6 +370,7 @@
 				96A39CBC260F49ED003743F5 /* OrdersVC */,
 				96A39CD6260F6207003743F5 /* OrdersStatus */,
 				96A39CF8260F8EEF003743F5 /* ProductInformaction */,
+				96EA203E261885BC00900CE9 /* MyProducts */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -456,6 +463,24 @@
 				96E60F8B260D151C001646BF /* PhoneVerifyView.swift */,
 			);
 			path = PhoneVerification;
+			sourceTree = "<group>";
+		};
+		96EA203E261885BC00900CE9 /* MyProducts */ = {
+			isa = PBXGroup;
+			children = (
+				96EA203F261885ED00900CE9 /* MyProductsVC.swift */,
+				96EA20442618860200900CE9 /* MyProductsView.swift */,
+				96EA20492618860E00900CE9 /* MyProductsCell */,
+			);
+			path = MyProducts;
+			sourceTree = "<group>";
+		};
+		96EA20492618860E00900CE9 /* MyProductsCell */ = {
+			isa = PBXGroup;
+			children = (
+				96EA204A2618862700900CE9 /* MyProductsTableViewCell.swift */,
+			);
+			path = MyProductsCell;
 			sourceTree = "<group>";
 		};
 		96F272772617717F005EC012 /* ViewModal */ = {
@@ -826,9 +851,12 @@
 				96886C22260BC16000E154F3 /* TabBarController.swift in Sources */,
 				969A50FF26093B0F002990FB /* Strings.swift in Sources */,
 				96F272B726177C3A005EC012 /* WelcomeViewModal.swift in Sources */,
+				96EA204B2618862700900CE9 /* MyProductsTableViewCell.swift in Sources */,
 				96A39CC8260F4B0E003743F5 /* OrdersTableViewCell.swift in Sources */,
+				96EA2040261885ED00900CE9 /* MyProductsVC.swift in Sources */,
 				969A50AB26093951002990FB /* AppDelegate.swift in Sources */,
 				963EE2CD260A87BB003E56DA /* SignUpView.swift in Sources */,
+				96EA20452618860200900CE9 /* MyProductsView.swift in Sources */,
 				96A39CBE260F4A40003743F5 /* OrdersVC.swift in Sources */,
 				969A50AD26093951002990FB /* SceneDelegate.swift in Sources */,
 				96A39D02260F8F3D003743F5 /* ProductInfoView.swift in Sources */,

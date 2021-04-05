@@ -14,6 +14,8 @@ class OrdersTableViewCell: UITableViewCell {
     @IBOutlet var orderStatus: UILabel!
     @IBOutlet var orderDate: UILabel!
     @IBOutlet var orderPrice: UILabel!
+    @IBOutlet weak var newOrderIcon: UIImageView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

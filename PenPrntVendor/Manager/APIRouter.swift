@@ -13,18 +13,20 @@ enum APIRouter: URLRequestConvertible {
     
     // The endpoint name
     // MARK:- Registration
-//    case vendorRegister(_ image: String,_ firstName: String, _ middleName: String)
+    case vendorRegister(_ storeName: String,_ emailNumber: String, _ landLine: String, _ storeLocation: String, _ storeFile: String, _ password: String)
+    
+    case vendorLogin(_ emailNumber: String,_ password: String)
     
   
     
     // MARK: - HttpMethod
     private var method: HTTPMethod {
         switch self {
-//        case.vendorRegister:
-//            return .post
-//
-//        default:
-//            return .delete
+        case.vendorRegister, .vendorLogin:
+            return .post
+
+        default:
+            return .delete
         }
         
     }
@@ -33,11 +35,14 @@ enum APIRouter: URLRequestConvertible {
     private var parameters: Parameters? {
         switch self {
         // MARK: - registerParameters
-//        case .vendorRegister(let firstName, let image , let middleName):
-//            return [ParameterKeys.firstName: firstName, ParameterKeys.image: image ,ParameterKeys.middleName: middleName]
-//
-//        default:
-//            return nil
+        case .vendorRegister(let storeName, let emailNumber, let landLine, let storeLocation, let storeFile, let password):
+            return [ParameterKeys.storeName: storeName, ParameterKeys.emailNumber: emailNumber, ParameterKeys.landLine: landLine, ParameterKeys.storeLocation: storeLocation, ParameterKeys.storeFile: storeFile, ParameterKeys.password: password]
+        case .vendorLogin(let emailNumber, let password):
+            return [ParameterKeys.emailNumber: emailNumber, ParameterKeys.password: password]
+
+            
+        default:
+            return nil
         }
     }
     // MARK: - Path
@@ -45,9 +50,10 @@ enum APIRouter: URLRequestConvertible {
         switch self {
             
         // MARK: - PathRegister
-//        case .patientRegister:
-//            return URLs.patientRegister
-       
+        case .vendorRegister:
+            return URLs.vendorSignUp
+        case .vendorLogin:
+            return URLs.login
         }
     }
     

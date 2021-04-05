@@ -12,6 +12,7 @@ protocol SignUpProtocol: class {
     func showLoader()
     func showAlert(title: String , msg: String)
     func presentTabBar()
+    func presentSignIn()
 }
 class SignUpVC: UIViewController, sendingAddress {
 
@@ -50,13 +51,17 @@ class SignUpVC: UIViewController, sendingAddress {
 
     
     @IBAction func signUpPressed(_ sender: Any) {
-//        self.signUpViewModel.SignUp(email: signupView.emailPhoneTF.text, landlineNumber: signupView.landlineTF.text, storeName: signupView.storeNameTF.text, storeLocation: signupView.storeLocationTF.text, password: signupView.passwordTF.text)
-        let tabVC = TabBarController.create()
-        self.present(tabVC ,animated: true, completion: nil)
+        self.signUpViewModel.SignUp(email: signupView.emailPhoneTF.text, landlineNumber: signupView.landlineTF.text, storeName: signupView.storeNameTF.text, storeLocation: signupView.storeLocationTF.text, password: signupView.passwordTF.text, image: "image")
+        
         
     }
 }
 extension SignUpVC: SignUpProtocol{
+    func presentSignIn() {
+        let signInVC = SignInVC.create()
+        self.present(signInVC ,animated: true, completion: nil)
+    }
+    
     
     func hideLoader() {
         self.view.hideLoader()

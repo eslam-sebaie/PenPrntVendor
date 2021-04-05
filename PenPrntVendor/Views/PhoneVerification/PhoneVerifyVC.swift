@@ -49,7 +49,6 @@ class PhoneVerifyVC: UIViewController {
     
     @IBAction func backPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-        
     }
     
     @objc func hide(sender: SGCodeTextField){
@@ -67,6 +66,11 @@ class PhoneVerifyVC: UIViewController {
     
 }
 extension PhoneVerifyVC: SignUpProtocol{
+    
+    func presentSignIn() {
+        let signInVC = SignInVC.create()
+        self.present(signInVC ,animated: true, completion: nil)
+    }
     
     func hideLoader() {
         self.view.hideLoader()

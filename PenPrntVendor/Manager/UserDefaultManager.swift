@@ -19,16 +19,16 @@ class UserDefaultsManager {
     // MARK:- Properties
 
     
-//    var Token: String? {
-//        set {
-//            UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.token)
-//        }
-//        get {
-//            guard UserDefaults.standard.object(forKey: UserDefaultsKeys.token) != nil else {
-//                return nil
-//            }
-//            return UserDefaults.standard.string(forKey: UserDefaultsKeys.token)
-//        }
-//    }
+    var Token: String? {
+        set {
+            UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.token)
+        }
+        get {
+            guard UserDefaults.standard.object(forKey: UserDefaultsKeys.token) != nil else {
+                return nil
+            }
+            return UserDefaults.standard.string(forKey: UserDefaultsKeys.token)
+        }
+    }
     
 }

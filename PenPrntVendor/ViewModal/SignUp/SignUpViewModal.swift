@@ -7,7 +7,7 @@
 
 import Foundation
 protocol SignUpViewModelProtocol {
-    func SignUp(email: String?, landlineNumber: String?, storeName: String?, storeLocation: String?, password: String?)
+    func SignUp(email: String?, landlineNumber: String?, storeName: String?, storeLocation: String?, password: String?, image: String?)
     
 }
 class SignUpViewModel{
@@ -21,7 +21,7 @@ class SignUpViewModel{
     }
 }
 extension SignUpViewModel: SignUpViewModelProtocol {
-    func SignUp(email: String?, landlineNumber: String?, storeName: String?, storeLocation: String?, password: String?) {
+    func SignUp(email: String?, landlineNumber: String?, storeName: String?, storeLocation: String?, password: String?, image: String?) {
         
         guard let email = email, email != "" else {
             self.view.showAlert(title: "Please", msg: "Enter Your Email")
@@ -39,9 +39,20 @@ extension SignUpViewModel: SignUpViewModelProtocol {
         case .failure(_, let message):
             self.view.showAlert(title: "Invalid", msg: message.localized())
         case .success:
-            // SignUp API And dismiss To SignIn
-            print("OK")
             
+            self.view.showLoader()
+            APIManager.VendorRegister(storeName: storeName ?? "", emailNumber: email, landLine: landlineNumber ?? "", storeLocation: storeLocation ?? "", storeFile: image ?? "" , password: password) { (response) in
+                switch response {
+                case .failure(let err):
+                    print(err)
+                    self.view.showAlert(title: "Sorry!", msg: "Email Is Aleardy Token.")
+                    self.view.hideLoader()
+                case .success(let result):
+                    print(result)
+                    self.view.hideLoader()
+                    self.view.presentSignIn()
+                }
+            }
         }
         
         

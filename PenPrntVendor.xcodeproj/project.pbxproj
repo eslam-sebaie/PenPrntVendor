@@ -24,6 +24,7 @@
 		96886C14260BBE3A00E154F3 /* MapVCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96886C13260BBE3A00E154F3 /* MapVCView.swift */; };
 		96886C1C260BC12600E154F3 /* OrderDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96886C1B260BC12600E154F3 /* OrderDetails.storyboard */; };
 		96886C22260BC16000E154F3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96886C21260BC16000E154F3 /* TabBarController.swift */; };
+		96921831261BA1FE00884CFE /* AuthModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96921830261BA1FE00884CFE /* AuthModal.swift */; };
 		969A50AB26093951002990FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A50AA26093951002990FB /* AppDelegate.swift */; };
 		969A50AD26093951002990FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A50AC26093951002990FB /* SceneDelegate.swift */; };
 		969A50AF26093951002990FB /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A50AE26093951002990FB /* WelcomeVC.swift */; };
@@ -105,6 +106,7 @@
 		96886C13260BBE3A00E154F3 /* MapVCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVCView.swift; sourceTree = "<group>"; };
 		96886C1B260BC12600E154F3 /* OrderDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderDetails.storyboard; sourceTree = "<group>"; };
 		96886C21260BC16000E154F3 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		96921830261BA1FE00884CFE /* AuthModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModal.swift; sourceTree = "<group>"; };
 		969A50A726093951002990FB /* PenPrntVendor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenPrntVendor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		969A50AA26093951002990FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		969A50AC26093951002990FB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -241,6 +243,14 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		96921826261BA1E500884CFE /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				96921830261BA1FE00884CFE /* AuthModal.swift */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
 		969A509E26093951002990FB = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +280,7 @@
 				969A50F426093A6E002990FB /* Shared */,
 				969A511F26094643002990FB /* Extension */,
 				969A512A26094A18002990FB /* Utilities */,
+				96921826261BA1E500884CFE /* Modal */,
 				9606CD08260E0DFB004EF042 /* Manager */,
 				969A5115260944C6002990FB /* Views */,
 				96F272772617717F005EC012 /* ViewModal */,
@@ -864,6 +875,7 @@
 				96A39CC3260F4A59003743F5 /* OrdersView.swift in Sources */,
 				9606CD0A260E0E19004EF042 /* UserDefaultManager.swift in Sources */,
 				969A511B260944FB002990FB /* WelcomeView.swift in Sources */,
+				96921831261BA1FE00884CFE /* AuthModal.swift in Sources */,
 				96E60F8C260D151C001646BF /* PhoneVerifyView.swift in Sources */,
 				96886C07260BB99E00E154F3 /* MapVC.swift in Sources */,
 				963EE2D5260A87CB003E56DA /* SignUpVC.swift in Sources */,

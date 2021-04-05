@@ -38,8 +38,20 @@ extension SignInViewModel: SignInViewModelProtocol {
         case .failure(_, let message):
             self.view.showAlert(title: "Invalid", msg: message.localized())
         case .success:
-            // SignIn API And Go To TabBar
-            print("OK")
+            self.view.showLoader()
+            APIManager.VendorLogin(emailNumber: email, password: password) { (response) in
+                switch response {
+                case .failure(let err):
+                    print(err)
+                    self.view.showAlert(title: "Sorry!", msg: "Email Or Password Is Wrong.")
+                    self.view.hideLoader()
+                case .success(let result):
+                    print(result)
+                    UserDefaultsManager.shared().Token = result.message
+                    self.view.hideLoader()
+                    self.view.presentTabBar()
+                }
+            }
             
         }
     }

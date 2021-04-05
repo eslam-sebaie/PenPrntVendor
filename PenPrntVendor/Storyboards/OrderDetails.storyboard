@@ -98,6 +98,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="mainView" destination="X8L-DJ-8zw" id="XD1-eI-AHW"/>
+                                            <outlet property="newOrderIcon" destination="IG7-nT-0wW" id="jxg-1t-h6o"/>
                                             <outlet property="orderDate" destination="BcR-qf-52e" id="oOR-0g-Cme"/>
                                             <outlet property="orderNumber" destination="BCt-ML-1wz" id="mWJ-S2-BCk"/>
                                             <outlet property="orderPrice" destination="NOG-b8-UVb" id="uWw-UW-1Ut"/>
@@ -132,7 +133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xz7-de-qYt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="460.86956521739131" y="182.8125"/>
+            <point key="canvasLocation" x="442" y="183"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="81O-M5-7bG">
@@ -148,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcv-Md-Zrf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1147.8260869565217" y="182.8125"/>
+            <point key="canvasLocation" x="1161" y="183"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="GPc-5t-ZGh">
@@ -164,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DVL-91-Pjp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1810.144927536232" y="182.8125"/>
+            <point key="canvasLocation" x="1841" y="183"/>
         </scene>
         <!--My ProductsVC-->
         <scene sceneID="y9T-E7-Kav">
@@ -405,7 +406,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="haN-Fi-rjb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2494.202898550725" y="182.8125"/>
+            <point key="canvasLocation" x="2535" y="183"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="aYQ-Pk-RDw">
@@ -427,7 +428,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eeb-oP-mMp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-449.27536231884062" y="182.8125"/>
+            <point key="canvasLocation" x="-296" y="183"/>
         </scene>
     </scenes>
     <resources>

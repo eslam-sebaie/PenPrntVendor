@@ -9,6 +9,17 @@ import Foundation
 import Alamofire
 class APIManager {
 
+    class func VendorRegister(storeName: String, emailNumber: String, landLine: String, storeLocation: String, storeFile: String, password: String, completion: @escaping(Result<SignUpResponse, Error>) -> Void) {
+        request(APIRouter.vendorRegister(storeName, emailNumber, landLine, storeLocation, storeFile, password)) { (response) in
+            completion(response)
+        }
+    }
+    
+    class func VendorLogin( emailNumber: String, password: String, completion: @escaping(Result<SignUpResponse, Error>) -> Void) {
+        request(APIRouter.vendorLogin(emailNumber, password)) { (response) in
+            completion(response)
+        }
+    }
     
 }
 

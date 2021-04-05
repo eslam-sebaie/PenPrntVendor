@@ -145,6 +145,12 @@ extension WelcomeVC: GIDSignInDelegate {
     }
 }
 extension WelcomeVC: SignUpProtocol {
+    
+    func presentSignIn() {
+        let signInVC = SignInVC.create()
+        self.present(signInVC ,animated: true, completion: nil)
+    }
+    
     func hideLoader() {
         self.view.hideLoader()
     }

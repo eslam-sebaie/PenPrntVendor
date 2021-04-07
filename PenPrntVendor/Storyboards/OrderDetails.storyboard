@@ -13,7 +13,7 @@
             <objects>
                 <viewController storyboardIdentifier="OrdersVC" modalPresentationStyle="fullScreen" id="JPc-IF-Y5F" customClass="OrdersVC" customModule="PenPrntVendor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b3e-m2-MDY" customClass="OrdersView" customModule="PenPrntVendor" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBY-Bt-UYQ">
@@ -140,7 +140,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="Mda-OT-pnY" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cng-hb-Bsy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="D78-vA-Hr0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -156,7 +156,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="0Gu-P6-r4j" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sFh-Yk-EiJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="PFz-p5-Mo9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -172,7 +172,7 @@
             <objects>
                 <viewController storyboardIdentifier="MyProductsVC" modalPresentationStyle="fullScreen" id="Qtf-Ug-b0Z" customClass="MyProductsVC" customModule="PenPrntVendor" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IYM-5a-okw" customClass="MyProductsView" customModule="PenPrntVendor">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Products" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzp-vs-LLm">
@@ -185,7 +185,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3O7-PQ-btA">
-                                <rect key="frame" x="16" y="125" width="382" height="580"/>
+                                <rect key="frame" x="16" y="125" width="382" height="526.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="150" id="Umk-a4-2wc" customClass="MyProductsTableViewCell" customModule="PenPrntVendor">
@@ -413,7 +413,7 @@
             <objects>
                 <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="Rtm-ry-3k3" customClass="TabBarController" customModule="PenPrntVendor" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="w6T-ZB-6nV">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="w6T-ZB-6nV">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

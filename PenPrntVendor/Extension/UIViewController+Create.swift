@@ -26,4 +26,15 @@ extension UIViewController {
         mapVC.delegate = (self as! sendingAddress)
         self.present(mapVC ,animated: true, completion: nil)
     }
+    
+    func convertTimeStamp(date: Int) -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(date))
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
+        dateFormatter.locale = NSLocale.current
+        dateFormatter.dateFormat = L10n.date
+        let strDate = dateFormatter.string(from: date)
+        let array = strDate.components(separatedBy: CharacterSet(charactersIn: "/"))
+        return array[0]
+    }
 }

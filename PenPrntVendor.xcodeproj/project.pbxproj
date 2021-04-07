@@ -43,6 +43,7 @@
 		969A512126094662002990FB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A512026094662002990FB /* UIView.swift */; };
 		969A5126260949BB002990FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A5125260949BB002990FB /* Constants.swift */; };
 		969A512F26094A38002990FB /* UIViewController+Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A512E26094A38002990FB /* UIViewController+Create.swift */; };
+		969AFA2A261E566F0053007D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969AFA29261E566F0053007D /* UIColor.swift */; };
 		96A39CBE260F4A40003743F5 /* OrdersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A39CBD260F4A40003743F5 /* OrdersVC.swift */; };
 		96A39CC3260F4A59003743F5 /* OrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A39CC2260F4A59003743F5 /* OrdersView.swift */; };
 		96A39CC8260F4B0E003743F5 /* OrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A39CC7260F4B0E003743F5 /* OrdersTableViewCell.swift */; };
@@ -133,6 +134,7 @@
 		969A512026094662002990FB /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		969A5125260949BB002990FB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		969A512E26094A38002990FB /* UIViewController+Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Create.swift"; sourceTree = "<group>"; };
+		969AFA29261E566F0053007D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		96A39CBD260F4A40003743F5 /* OrdersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersVC.swift; sourceTree = "<group>"; };
 		96A39CC2260F4A59003743F5 /* OrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersView.swift; sourceTree = "<group>"; };
 		96A39CC7260F4B0E003743F5 /* OrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewCell.swift; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 				969A512026094662002990FB /* UIView.swift */,
 				969A512E26094A38002990FB /* UIViewController+Create.swift */,
 				963EE2C6260A81E3003E56DA /* UIButton.swift */,
+				969AFA29261E566F0053007D /* UIColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -856,6 +859,7 @@
 				96A39CD8260F6231003743F5 /* OrdersStatusVC.swift in Sources */,
 				9606CD0F260E0E75004EF042 /* APIRouter.swift in Sources */,
 				96C863C5261CD0AE004D78BE /* OrderViewModal.swift in Sources */,
+				969AFA2A261E566F0053007D /* UIColor.swift in Sources */,
 				96F2727A2617719E005EC012 /* SignUpViewModal.swift in Sources */,
 				969A512F26094A38002990FB /* UIViewController+Create.swift in Sources */,
 				96886C14260BBE3A00E154F3 /* MapVCView.swift in Sources */,

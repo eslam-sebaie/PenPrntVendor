@@ -33,13 +33,18 @@ class OrdersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = ordersView.orderTableView.dequeueReusableCell(withIdentifier: TableCells.orderCell, for: indexPath) as! OrdersTableViewCell
+        let d = Int(orders[indexPath.row].orderDate!)!
+        let date = convertTimeStamp(date: d)
+        cell.orderDate.text = date
         cell.updateTableCell(cell: cell, indexPath: indexPath, orders: orders)
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let status = OrdersStatusVC.create()
-        status.inProgressOrder = true
+//        status.inProgressOrder = true
+        status.orderDetail = orders[indexPath.row]
         self.present(status, animated: true, completion: nil)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

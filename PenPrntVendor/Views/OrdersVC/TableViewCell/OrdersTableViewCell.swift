@@ -31,18 +31,11 @@ class OrdersTableViewCell: UITableViewCell {
     }
     
     func updateTableCell(cell: OrdersTableViewCell, indexPath: IndexPath, orders: [OrderInfo]) {
-        let d = Int(orders[indexPath.row].orderDate!)!
-        let date = Date(timeIntervalSince1970: TimeInterval(d))
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
-        dateFormatter.locale = NSLocale.current
-        dateFormatter.dateFormat = L10n.date
-        let strDate = dateFormatter.string(from: date)
-        let array = strDate.components(separatedBy: CharacterSet(charactersIn: "/"))
+        
         
         cell.orderNumber.text = orders[indexPath.row].orderNumber
         cell.orderPrice.text = "KD \(orders[indexPath.row].totalPrice ?? "")"
-        cell.orderDate.text = array[0]
+        
         if orders[indexPath.row].orderStatus == "0" {
             cell.orderStatus.text = L10n.newOrder
             cell.orderStatus.textColor = ColorName.skyColor.color

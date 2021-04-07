@@ -31,6 +31,7 @@ struct URLs {
     static let base = "http://penprnt.com/penprnt/api/"
     static let vendorSignUp = "signUp"
     static let login = "login"
+    static let order = "order"
 }
 struct ParameterKeys {
     static let storeName = "storeName"
@@ -43,6 +44,7 @@ struct ParameterKeys {
 }
 struct UserDefaultsKeys {
     static let token = "token"
+    static let email = "email"
 }
 struct TableCells {
     static let orderCell = "cell"

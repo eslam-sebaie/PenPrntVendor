@@ -10,20 +10,30 @@ import UIKit
 class OrdersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet var ordersView: OrdersView!
-    
+    var orderViewModal: OrderViewModelProtocol!
+    var orders = [OrderInfo]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
     
     }
+    override func viewWillAppear(_ animated: Bool) {
+        orderViewModal = OrderViewModel(view: self)
+//        orderViewModal.getOrders(email: UserDefaultsManager.shared().Email)m
+        orderViewModal.getOrders(email: UserDefaultsManager.shared().Email) {
+            self.orders = self.orderViewModal.returnOrder()
+            self.ordersView.orderTableView.reloadData()
+            
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return orders.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = ordersView.orderTableView.dequeueReusableCell(withIdentifier: TableCells.orderCell, for: indexPath) as! OrdersTableViewCell
-        cell.orderStatus.textColor = ColorName.skyColor.color
+        cell.updateTableCell(cell: cell, indexPath: indexPath, orders: orders)
         return cell
     }
     
@@ -37,4 +47,27 @@ class OrdersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
 
+}
+extension OrdersVC: SignUpProtocol {
+    
+    func presentSignIn() {
+        let signInVC = SignInVC.create()
+        self.present(signInVC ,animated: true, completion: nil)
+    }
+    
+    func hideLoader() {
+        self.view.hideLoader()
+    }
+    
+    func showLoader() {
+        self.view.showLoader()
+    }
+    
+    func showAlert(title: String, msg: String) {
+        self.show_Alert(title, msg)
+    }
+    func presentTabBar() {
+        let tabVC = TabBarController.create()
+        self.present(tabVC ,animated: true, completion: nil)
+    }
 }

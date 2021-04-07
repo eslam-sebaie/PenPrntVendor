@@ -53,6 +53,8 @@
 		96A39CF4260F8120003743F5 /* ProductsInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96A39CF3260F8120003743F5 /* ProductsInfo.storyboard */; };
 		96A39CFA260F8F28003743F5 /* ProductInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A39CF9260F8F28003743F5 /* ProductInfoVC.swift */; };
 		96A39D02260F8F3D003743F5 /* ProductInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A39D01260F8F3D003743F5 /* ProductInfoView.swift */; };
+		96C863BF261CCE58004D78BE /* OrderModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C863BE261CCE58004D78BE /* OrderModal.swift */; };
+		96C863C5261CD0AE004D78BE /* OrderViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C863C4261CD0AE004D78BE /* OrderViewModal.swift */; };
 		96E60F5D260D077A001646BF /* LoginPhoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E60F5C260D077A001646BF /* LoginPhoneVC.swift */; };
 		96E60F65260D078D001646BF /* LoginPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E60F64260D078D001646BF /* LoginPhoneView.swift */; };
 		96E60F8C260D151C001646BF /* PhoneVerifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E60F8B260D151C001646BF /* PhoneVerifyView.swift */; };
@@ -141,6 +143,8 @@
 		96A39CF3260F8120003743F5 /* ProductsInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductsInfo.storyboard; sourceTree = "<group>"; };
 		96A39CF9260F8F28003743F5 /* ProductInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoVC.swift; sourceTree = "<group>"; };
 		96A39D01260F8F3D003743F5 /* ProductInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoView.swift; sourceTree = "<group>"; };
+		96C863BE261CCE58004D78BE /* OrderModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModal.swift; sourceTree = "<group>"; };
+		96C863C4261CD0AE004D78BE /* OrderViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModal.swift; sourceTree = "<group>"; };
 		96E60F5C260D077A001646BF /* LoginPhoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPhoneVC.swift; sourceTree = "<group>"; };
 		96E60F64260D078D001646BF /* LoginPhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPhoneView.swift; sourceTree = "<group>"; };
 		96E60F8B260D151C001646BF /* PhoneVerifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerifyView.swift; sourceTree = "<group>"; };
@@ -247,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				96921830261BA1FE00884CFE /* AuthModal.swift */,
+				96C863BE261CCE58004D78BE /* OrderModal.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -458,6 +463,14 @@
 			path = ProductInformaction;
 			sourceTree = "<group>";
 		};
+		96C863C3261CD095004D78BE /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				96C863C4261CD0AE004D78BE /* OrderViewModal.swift */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
 		96E60F5B260D0748001646BF /* PhoneAuth */ = {
 			isa = PBXGroup;
 			children = (
@@ -500,6 +513,7 @@
 				96F272B526177C26005EC012 /* Welcome */,
 				96F272AF26177AD2005EC012 /* SignIn */,
 				96F272782617718C005EC012 /* SignUp */,
+				96C863C3261CD095004D78BE /* Order */,
 			);
 			path = ViewModal;
 			sourceTree = "<group>";
@@ -841,6 +855,7 @@
 				96886C0F260BB9D200E154F3 /* MapExtension.swift in Sources */,
 				96A39CD8260F6231003743F5 /* OrdersStatusVC.swift in Sources */,
 				9606CD0F260E0E75004EF042 /* APIRouter.swift in Sources */,
+				96C863C5261CD0AE004D78BE /* OrderViewModal.swift in Sources */,
 				96F2727A2617719E005EC012 /* SignUpViewModal.swift in Sources */,
 				969A512F26094A38002990FB /* UIViewController+Create.swift in Sources */,
 				96886C14260BBE3A00E154F3 /* MapVCView.swift in Sources */,
@@ -874,6 +889,7 @@
 				96F272AB261777D8005EC012 /* Validator.swift in Sources */,
 				96A39CC3260F4A59003743F5 /* OrdersView.swift in Sources */,
 				9606CD0A260E0E19004EF042 /* UserDefaultManager.swift in Sources */,
+				96C863BF261CCE58004D78BE /* OrderModal.swift in Sources */,
 				969A511B260944FB002990FB /* WelcomeView.swift in Sources */,
 				96921831261BA1FE00884CFE /* AuthModal.swift in Sources */,
 				96E60F8C260D151C001646BF /* PhoneVerifyView.swift in Sources */,

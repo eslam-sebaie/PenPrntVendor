@@ -51,7 +51,7 @@ class SignUpVC: UIViewController, sendingAddress {
 
     
     @IBAction func signUpPressed(_ sender: Any) {
-        self.signUpViewModel.SignUp(email: signupView.emailPhoneTF.text, landlineNumber: signupView.landlineTF.text, storeName: signupView.storeNameTF.text, storeLocation: signupView.storeLocationTF.text, password: signupView.passwordTF.text, image: "image")
+        self.signUpViewModel.SignUp(email: signupView.emailPhoneTF.text, landlineNumber: signupView.landlineTF.text, storeName: signupView.storeNameTF.text, storeLocation: signupView.storeLocationTF.text, password: signupView.passwordTF.text, image: "")
         
         
     }

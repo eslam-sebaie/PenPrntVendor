@@ -20,14 +20,15 @@ struct ErrorInfo: Codable, Error {
 }
 
 struct SignUpResponse: Codable {
-    let data: SignUpInfo
+    let data: SignUpInfo?
     let message, token: String
 }
 
 // MARK: - DataClass
 struct SignUpInfo: Codable {
-    let storeName, emailNumber, landLine, storeLocation: String
-    let storeFile, updatedAt, createdAt: String
+    let storeName, emailNumber, landLine, storeLocation: String?
+    let storeFile: String?
+    let updatedAt, createdAt: String
     let id: Int
 
     enum CodingKeys: String, CodingKey {

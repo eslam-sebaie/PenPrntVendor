@@ -14,6 +14,8 @@ internal enum L10n {
   internal static let completed = L10n.tr("Localizable", "Completed")
   /// COMPLETE ORDER
   internal static let completeOrder = L10n.tr("Localizable", "CompleteOrder")
+  /// E, d MMM yyyy/h:mm a
+  internal static let date = L10n.tr("Localizable", "Date")
   /// Sebaie
   internal static let eslam = L10n.tr("Localizable", "Eslam")
   /// In Progress

@@ -20,6 +20,11 @@ class APIManager {
             completion(response)
         }
     }
+    class func getOrder(emailNumber: String, completion: @escaping(Result<OrderResponse, Error>) -> Void ) {
+        request(APIRouter.getOrders(emailNumber)) { (response) in
+            completion(response)
+        }
+    }
     
 }
 

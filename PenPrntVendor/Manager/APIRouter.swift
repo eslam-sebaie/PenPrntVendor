@@ -14,9 +14,8 @@ enum APIRouter: URLRequestConvertible {
     // The endpoint name
     // MARK:- Registration
     case vendorRegister(_ storeName: String,_ emailNumber: String, _ landLine: String, _ storeLocation: String, _ storeFile: String, _ password: String)
-    
     case vendorLogin(_ emailNumber: String,_ password: String)
-    
+    case getOrders(_ emailNumber: String)
   
     
     // MARK: - HttpMethod
@@ -24,7 +23,8 @@ enum APIRouter: URLRequestConvertible {
         switch self {
         case.vendorRegister, .vendorLogin:
             return .post
-
+        case .getOrders:
+            return .get
         default:
             return .delete
         }
@@ -39,7 +39,8 @@ enum APIRouter: URLRequestConvertible {
             return [ParameterKeys.storeName: storeName, ParameterKeys.emailNumber: emailNumber, ParameterKeys.landLine: landLine, ParameterKeys.storeLocation: storeLocation, ParameterKeys.storeFile: storeFile, ParameterKeys.password: password]
         case .vendorLogin(let emailNumber, let password):
             return [ParameterKeys.emailNumber: emailNumber, ParameterKeys.password: password]
-
+        case .getOrders(let emailNumber):
+            return [ParameterKeys.emailNumber: emailNumber]
             
         default:
             return nil
@@ -54,6 +55,8 @@ enum APIRouter: URLRequestConvertible {
             return URLs.vendorSignUp
         case .vendorLogin:
             return URLs.login
+        case .getOrders:
+            return URLs.order
         }
     }
     

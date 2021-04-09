@@ -32,6 +32,7 @@ extension WelcomeViewModel: WelcomeViewModelProtocol {
                 self.view.hideLoader()
             case .success(let result):
                 print(result)
+                UserDefaultsManager.shared().Email = result.data?.emailNumber
                 self.view.hideLoader()
                 self.view.presentTabBar()
             }

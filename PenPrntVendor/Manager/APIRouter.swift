@@ -16,12 +16,12 @@ enum APIRouter: URLRequestConvertible {
     case vendorRegister(_ storeName: String,_ emailNumber: String, _ landLine: String, _ storeLocation: String, _ storeFile: String, _ password: String)
     case vendorLogin(_ emailNumber: String,_ password: String)
     case getOrders(_ emailNumber: String)
-  
+    case updateStatus(_ id: Int, _ orderStatus: Int)
     
     // MARK: - HttpMethod
     private var method: HTTPMethod {
         switch self {
-        case.vendorRegister, .vendorLogin:
+        case.vendorRegister, .vendorLogin, .updateStatus:
             return .post
         case .getOrders:
             return .get
@@ -41,6 +41,8 @@ enum APIRouter: URLRequestConvertible {
             return [ParameterKeys.emailNumber: emailNumber, ParameterKeys.password: password]
         case .getOrders(let emailNumber):
             return [ParameterKeys.emailNumber: emailNumber]
+        case .updateStatus(let id, let orderStatus):
+            return ["id": id, "orderStatus": orderStatus]
             
         default:
             return nil
@@ -57,6 +59,8 @@ enum APIRouter: URLRequestConvertible {
             return URLs.login
         case .getOrders:
             return URLs.order
+        case .updateStatus:
+            return URLs.updateStatusOrder
         }
     }
     

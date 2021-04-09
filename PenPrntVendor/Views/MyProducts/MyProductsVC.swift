@@ -17,6 +17,8 @@ class MyProductsVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
     
     @IBAction func addProductPressed(_ sender: Any) {
+        let productInfo = ProductInfoVC.create()
+        self.present(productInfo, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

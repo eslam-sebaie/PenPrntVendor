@@ -10,10 +10,12 @@ import SDWebImage
 class OrdersStatusVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet var orderStatusView: OrdersStatusView!
+    var orderStatusViewModal: OrderStatusViewModel!
     var newOrder = false
     var inProgressOrder = false
     var completeOrder = false
     var orderDetail = OrderInfo(id: 0, orderNumber: "", orderDate: "", orderStatus: "", totalPrice: "", orderDetails: [])
+    var isProgress = false
     override func viewDidLoad() {
         super.viewDidLoad()
         orderStatusView.setMainView(order: orderDetail)
@@ -25,13 +27,35 @@ class OrdersStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     
     class func create() -> OrdersStatusVC {
         let ordersStatusVC: OrdersStatusVC = UIViewController.create(storyboardName: Storyboards.OrderConfirmation, identifier: ViewControllers.OrdersStatusVC)
+        ordersStatusVC.orderStatusViewModal = OrderStatusViewModel(view: ordersStatusVC)
         return ordersStatusVC
     }
     
     @IBAction func orderStatusPressed(_ sender: Any) {
-        let product = ProductInfoVC.create()
-        self.present(product, animated: true, completion: nil)
-    }
+        
+        if orderDetail.orderStatus == "0" && isProgress == false{
+            orderStatusViewModal.updateStatus(id: orderDetail.id, orderStatus: 1) {
+                self.orderStatusView.orderStatusLabel.textColor = ColorName.progressColor.color
+                self.orderStatusView.orderStatusLabel.text = L10n.inProgress
+                self.orderStatusView.orderDesign.setTitle(L10n.completeOrder, for: .normal)
+                self.orderStatusView.orderDesign.backgroundColor = ColorName.skyColor.color
+                self.orderStatusView.orderDesign.isHidden = false
+                self.isProgress = true
+            }
+
+        }
+        else if orderDetail.orderStatus == "1" || isProgress == true{
+            orderStatusViewModal.updateStatus(id: orderDetail.id, orderStatus: 2) {
+                self.orderStatusView.orderStatusLabel.textColor = ColorName.completeColor.color
+                self.orderStatusView.orderStatusLabel.text = L10n.completed
+                self.orderStatusView.orderDesign.isHidden = true
+            }
+        }
+        else {
+            orderStatusView.orderDesign.isHidden = true
+        }
+        
+     }
     
     
     
@@ -57,4 +81,27 @@ class OrdersStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
         return 105
     }
     
+}
+extension OrdersStatusVC: SignUpProtocol {
+    
+    func presentSignIn() {
+        let signInVC = SignInVC.create()
+        self.present(signInVC ,animated: true, completion: nil)
+    }
+    
+    func hideLoader() {
+        self.view.hideLoader()
+    }
+    
+    func showLoader() {
+        self.view.showLoader()
+    }
+    
+    func showAlert(title: String, msg: String) {
+        self.show_Alert(title, msg)
+    }
+    func presentTabBar() {
+        let tabVC = TabBarController.create()
+        self.present(tabVC ,animated: true, completion: nil)
+    }
 }

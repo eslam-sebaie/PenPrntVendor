@@ -24,3 +24,14 @@ struct OrderDetail: Codable {
     let orderName, orderQuantity, orderColor, orderSize: String?
     let orderImage, orderPrice: String?
 }
+struct OrderStart: Codable {
+    let data: Int
+    let message: String
+}
+struct uploadImage: Decodable {
+    var data: String
+    
+    enum CodingKeys: String, CodingKey {
+        case data
+    }
+}

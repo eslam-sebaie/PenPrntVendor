@@ -37,4 +37,6 @@ extension UIViewController {
         let array = strDate.components(separatedBy: CharacterSet(charactersIn: "/"))
         return array[0]
     }
+    
+    
 }

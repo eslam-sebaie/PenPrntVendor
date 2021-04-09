@@ -23,7 +23,7 @@ class SignInViewModel{
 extension SignInViewModel: SignInViewModelProtocol {
     func SignIn(email: String?, password: String?) {
         guard let email = email, email != "" else {
-            self.view.showAlert(title: "Please", msg: "Enter Your Email")
+            self.view.showAlert(title: "Please", msg: "Enter Your Email Or Number")
             
             return
         }
@@ -32,7 +32,7 @@ extension SignInViewModel: SignInViewModelProtocol {
             return
         }
         
-        let response = Validation.shared.validate(values: (type: Validation.ValidationType.email, email),(Validation.ValidationType.password,password))
+        let response = Validation.shared.validate(values: (type: Validation.ValidationType.password,password))
         
         switch response {
         case .failure(_, let message):

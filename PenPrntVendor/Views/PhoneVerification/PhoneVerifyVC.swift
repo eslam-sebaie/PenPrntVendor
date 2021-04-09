@@ -32,6 +32,7 @@ class PhoneVerifyVC: UIViewController {
             let credienial = PhoneAuthProvider.provider().credential(withVerificationID: self.verificationID, verificationCode: self.phoneVerifyView.tf_otp.text!)
             Auth.auth().signIn(with: credienial) { (authData, error) in
                 if error != nil {
+                    print(error)
                     self.show_Alert("Sorry!", "Invalid Code")
                 }
                 else {

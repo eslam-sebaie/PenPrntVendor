@@ -369,6 +369,7 @@ PODS:
     - nanopb/encode (= 2.30906.0)
   - nanopb/decode (2.30906.0)
   - nanopb/encode (2.30906.0)
+  - OpalImagePicker (3.0.0)
   - PromisesObjC (1.2.11)
   - SDWebImage (5.10.0):
     - SDWebImage/Core (= 5.10.0)
@@ -389,6 +390,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - GoogleSignIn
   - IQKeyboardManagerSwift (= 6.2.1)
+  - OpalImagePicker
   - SDWebImage (~> 5.0)
   - SGCodeTextField
   - SKCountryPicker
@@ -424,6 +426,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - leveldb-library
     - nanopb
+    - OpalImagePicker
     - PromisesObjC
     - SDWebImage
     - SGCodeTextField
@@ -459,6 +462,7 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 0f0ae8935360b4003e6ea1ac7c19898f01e2f7c7
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
+  OpalImagePicker: 38e772dd93a54431fc516b33e1f337c50f745834
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   SDWebImage: 9169792e9eec3e45bba2a0c02f74bf8bd922d1ee
   SGCodeTextField: 751d41a1f0aecdea1e099a4be36edb9eb8d6ba94
@@ -466,6 +470,6 @@ SPEC CHECKSUMS:
   SwiftGen: 67860cc7c3cfc2ed25b9b74cfd55495fc89f9108
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 1ed1c8b0bc374bac53ed89e6c7a9dd411db244cb
+PODFILE CHECKSUM: a1bd6f4f7d508931ec623c669a964cbb10a236fc
 
 COCOAPODS: 1.9.1

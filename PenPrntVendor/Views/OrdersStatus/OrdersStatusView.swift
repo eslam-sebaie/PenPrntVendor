@@ -20,7 +20,7 @@ class OrdersStatusView: UIView {
     
     func setMainView(order: OrderInfo) {
         orderStatusView.dropShadow(radius: 10, shadow: 4)
-        orderNumberLabel.text = "Order \(order.orderNumber)"
+        orderNumberLabel.text = "Order \(order.orderNumber ?? "")"
     
         if order.orderStatus == "0" {
             orderStatusLabel.textColor = ColorName.skyColor.color

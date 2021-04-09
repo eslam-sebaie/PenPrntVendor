@@ -26,6 +26,8 @@ class ProductInfoView: UIView {
     @IBOutlet weak var uploadDesignView: UIView!
     @IBOutlet weak var saveDesign: UIButton!
     
+    @IBOutlet weak var upload: UIImageView!
+    @IBOutlet weak var uploadLabel: UILabel!
     
     func updateUI() {
         imageContainerView.dropShadow(radius: 12, shadow: 4)

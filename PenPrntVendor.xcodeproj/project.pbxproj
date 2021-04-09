@@ -14,6 +14,8 @@
 		9606CD0A260E0E19004EF042 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9606CD09260E0E19004EF042 /* UserDefaultManager.swift */; };
 		9606CD0F260E0E75004EF042 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9606CD0E260E0E75004EF042 /* APIRouter.swift */; };
 		9606CD14260E1101004EF042 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9606CD13260E1101004EF042 /* APIManager.swift */; };
+		963605B3262086720085ADC2 /* OrderStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963605B2262086720085ADC2 /* OrderStatusViewModel.swift */; };
+		963605BC26208BE00085ADC2 /* ProductInfoViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963605BB26208BE00085ADC2 /* ProductInfoViewModal.swift */; };
 		963EE288260A78E9003E56DA /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963EE287260A78E9003E56DA /* SignInVC.swift */; };
 		963EE28D260A7932003E56DA /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963EE28C260A7932003E56DA /* SignInView.swift */; };
 		963EE2C7260A81E3003E56DA /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963EE2C6260A81E3003E56DA /* UIButton.swift */; };
@@ -99,6 +101,8 @@
 		9606CD09260E0E19004EF042 /* UserDefaultManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		9606CD0E260E0E75004EF042 /* APIRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		9606CD13260E1101004EF042 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		963605B2262086720085ADC2 /* OrderStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusViewModel.swift; sourceTree = "<group>"; };
+		963605BB26208BE00085ADC2 /* ProductInfoViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoViewModal.swift; sourceTree = "<group>"; };
 		963EE287260A78E9003E56DA /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		963EE28C260A7932003E56DA /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		963EE2C6260A81E3003E56DA /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
@@ -211,6 +215,22 @@
 				96F272AA261777D8005EC012 /* Validator.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		963605B12620865E0085ADC2 /* OrderStatus */ = {
+			isa = PBXGroup;
+			children = (
+				963605B2262086720085ADC2 /* OrderStatusViewModel.swift */,
+			);
+			path = OrderStatus;
+			sourceTree = "<group>";
+		};
+		963605BA26208BBC0085ADC2 /* ProductInfo */ = {
+			isa = PBXGroup;
+			children = (
+				963605BB26208BE00085ADC2 /* ProductInfoViewModal.swift */,
+			);
+			path = ProductInfo;
 			sourceTree = "<group>";
 		};
 		963EE286260A78CB003E56DA /* SignIn */ = {
@@ -517,6 +537,8 @@
 				96F272AF26177AD2005EC012 /* SignIn */,
 				96F272782617718C005EC012 /* SignUp */,
 				96C863C3261CD095004D78BE /* Order */,
+				963605B12620865E0085ADC2 /* OrderStatus */,
+				963605BA26208BBC0085ADC2 /* ProductInfo */,
 			);
 			path = ViewModal;
 			sourceTree = "<group>";
@@ -856,6 +878,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96886C0F260BB9D200E154F3 /* MapExtension.swift in Sources */,
+				963605B3262086720085ADC2 /* OrderStatusViewModel.swift in Sources */,
 				96A39CD8260F6231003743F5 /* OrdersStatusVC.swift in Sources */,
 				9606CD0F260E0E75004EF042 /* APIRouter.swift in Sources */,
 				96C863C5261CD0AE004D78BE /* OrderViewModal.swift in Sources */,
@@ -866,6 +889,7 @@
 				963EE2C7260A81E3003E56DA /* UIButton.swift in Sources */,
 				969A512126094662002990FB /* UIView.swift in Sources */,
 				96E60F65260D078D001646BF /* LoginPhoneView.swift in Sources */,
+				963605BC26208BE00085ADC2 /* ProductInfoViewModal.swift in Sources */,
 				96E60F5D260D077A001646BF /* LoginPhoneVC.swift in Sources */,
 				96F272B126177AE7005EC012 /* SignInViewModel.swift in Sources */,
 				969A50F026093A1A002990FB /* AssetsManager.swift in Sources */,

@@ -21,6 +21,7 @@ target 'PenPrntVendor' do
     pod 'FBSDKLoginKit'
     pod 'GoogleSignIn'
     pod 'SwiftyJSON'
+    pod 'OpalImagePicker'
   target 'PenPrntVendorTests' do
     inherit! :search_paths
     # Pods for testing

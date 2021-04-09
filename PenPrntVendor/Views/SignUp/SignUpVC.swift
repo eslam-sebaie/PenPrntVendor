@@ -18,9 +18,12 @@ class SignUpVC: UIViewController, sendingAddress {
 
     @IBOutlet var signupView: SignUpView!
     private var signUpViewModel: SignUpViewModelProtocol!
+    var storeImg = ""
+    var imagePicker = UIImagePickerController()
     override func viewDidLoad() {
         super.viewDidLoad()
         signupView.updateUI()
+        imagePicker.delegate = self
         
     }
     
@@ -29,7 +32,9 @@ class SignUpVC: UIViewController, sendingAddress {
         signUpVC.signUpViewModel = SignUpViewModel(view: signUpVC)
         return signUpVC
     }
-    
+    @IBAction func uploadPressed(_ sender: Any) {
+        setImagePicker()
+    }
     
     @IBAction func backPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -46,12 +51,9 @@ class SignUpVC: UIViewController, sendingAddress {
     func send(address: String) {
         signupView.storeLocationTF.text = address
     }
-    
-    
 
-    
     @IBAction func signUpPressed(_ sender: Any) {
-        self.signUpViewModel.SignUp(email: signupView.emailPhoneTF.text, landlineNumber: signupView.landlineTF.text, storeName: signupView.storeNameTF.text, storeLocation: signupView.storeLocationTF.text, password: signupView.passwordTF.text, image: "")
+        self.signUpViewModel.SignUp(email: signupView.emailPhoneTF.text, landlineNumber: signupView.landlineTF.text, storeName: signupView.storeNameTF.text, storeLocation: signupView.storeLocationTF.text, password: signupView.passwordTF.text, image: storeImg)
         
         
     }
@@ -79,4 +81,19 @@ extension SignUpVC: SignUpProtocol{
         self.present(tabVC ,animated: true, completion: nil)
     }
     
+}
+extension SignUpVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func setImagePicker(){
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
+
+        storeImg = signUpViewModel.saveImage(image: image)
+        
+        picker.dismiss(animated: false, completion: nil)
+    }
 }

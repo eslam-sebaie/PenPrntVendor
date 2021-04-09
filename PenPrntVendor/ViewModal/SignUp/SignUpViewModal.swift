@@ -5,16 +5,16 @@
 //  Created by Eslam Sebaie on 4/2/21.
 //
 
-import Foundation
+import UIKit
 protocol SignUpViewModelProtocol {
     func SignUp(email: String?, landlineNumber: String?, storeName: String?, storeLocation: String?, password: String?, image: String?)
-    
+    func saveImage(image: UIImage?) -> String
 }
 class SignUpViewModel{
     
     // MARK:- Properties
     weak var view: SignUpProtocol!
-    
+    var imag: String = ""
     // MARK:- Initialization Methods
     init(view: SignUpProtocol) {
         self.view = view
@@ -57,6 +57,16 @@ extension SignUpViewModel: SignUpViewModelProtocol {
         
         
         
+    }
+    
+    func saveImage(image: UIImage?) -> String {
+        self.view.showLoader()
+        APIManager.uploadPhoto(image: image!) { (err, img) in
+            self.view.hideLoader()
+            print(img?.data ?? "")
+            self.imag = img?.data ?? ""
+        }
+        return imag
     }
     
     

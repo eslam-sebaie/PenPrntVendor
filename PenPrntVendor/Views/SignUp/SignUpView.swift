@@ -24,6 +24,7 @@ class SignUpView: UIView {
     @IBOutlet weak var signUpDesign: UIButton!
     @IBOutlet weak var upperSignUpView: UIView!
     
+    
     func updateUI(){
         
         signUpImage.image = Asset.signInBG.image

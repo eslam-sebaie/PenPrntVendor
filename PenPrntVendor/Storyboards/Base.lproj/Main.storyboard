@@ -556,6 +556,9 @@
                                                         <state key="normal" title="Upload Store Image">
                                                             <color key="titleColor" red="0.14117647059999999" green="0.1647058824" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="uploadPressed:" destination="g63-O4-gJq" eventType="touchUpInside" id="WV9-aH-fw3"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQx-sa-sXT">
                                                         <rect key="frame" x="20" y="722" width="342" height="45"/>

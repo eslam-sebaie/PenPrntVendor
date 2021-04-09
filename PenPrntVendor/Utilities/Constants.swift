@@ -34,6 +34,7 @@ struct URLs {
     static let order = "order"
     static let updateStatusOrder = "updateStatusOrder"
     static let uploadPhoto = base + "uploadImage"
+    static let product = "product"
 }
 struct ParameterKeys {
     static let storeName = "storeName"

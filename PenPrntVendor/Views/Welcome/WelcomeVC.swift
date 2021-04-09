@@ -107,15 +107,12 @@ extension WelcomeVC {
                 print("Fail")
                 return
             }
-            
             let json = JSON(result)
             self.welcomeView.name = json["name"].string ?? ""
             self.welcomeView.email = json["email"].string ?? ""
             print(self.welcomeView.name)
             print(self.welcomeView.email)
-            
             self.welcomeViewModal.SignUp(email: self.welcomeView.email)
-            
         }
     }
 }

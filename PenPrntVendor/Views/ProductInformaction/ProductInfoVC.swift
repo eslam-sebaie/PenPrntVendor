@@ -16,6 +16,7 @@ class ProductInfoVC: UIViewController {
     let productImagePicker = UIImagePickerController()
     var productInfoViewModal: ProductInfoViewModal!
     var productImg = ""
+    var imageArray = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
         productImagePicker.delegate = self
@@ -35,34 +36,62 @@ class ProductInfoVC: UIViewController {
         productInfoVC.productInfoViewModal = ProductInfoViewModal(view: productInfoVC)
         return productInfoVC
     }
-  
-//    @IBAction func photoLibraryTapped(_ sender: Any) {
-//        guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else {
-//            self.show_Alert("Sorry!", "SomeThing Went Wrong.")
-//            return
-//        }
-//        //Present Image Picker
-//        presentOpalImagePickerController(imagePicker, animated: true, select: { (_ img) in
-//            //Save Images, update UI
-//           let x = self.getAssetThumbnail(asset: img[0])
-//            self.imga.image = x
-//            //Dismiss Controller
-//            self.imagePicker.dismiss(animated: true, completion: nil)
-//        }, cancel: {
-//
-//        })
-//    }
-//
-//    func getAssetThumbnail(asset: PHAsset) -> UIImage {
-//        var retimage = UIImage()
-////        println(retimage)
-//        let manager = PHImageManager.default()
-//        manager.requestImage(for: asset, targetSize: CGSize(width: 100.0, height: 100.0), contentMode: .aspectFit, options: nil, resultHandler: {(result, info)->Void in
-//            retimage = result!
-//        })
-//        print(retimage)
-//        return retimage
-//    }
+    
+    @IBAction func virtualProductPressed(_ sender: UIButton) {
+        
+        if sender.isSelected {
+            sender.isSelected = false
+            productView.uploadHeight.constant = 0
+            productView.uploadDesignView.isHidden = true
+        }
+        else {
+            sender.isSelected = true
+            productView.uploadHeight.constant = 45
+            productView.uploadDesignView.isHidden = false
+        }
+    }
+    
+    @IBAction func uploadPressed(_ sender: Any) {
+        guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else {
+            self.show_Alert("Sorry!", "SomeThing Went Wrong.")
+            return
+        }
+        //Present Image Picker
+        presentOpalImagePickerController(imagePicker, animated: true, select: { (_ img) in
+            //Save Images, update UI
+            for i in img {
+                let x = self.getAssetThumbnail(asset: i)
+                let y = self.productInfoViewModal.saveImage(image: x)
+                self.imageArray.append(y)
+            }
+            //Dismiss Controller
+            self.imagePicker.dismiss(animated: true, completion: nil)
+        }, cancel: {
+
+        })
+    }
+    
+    @IBAction func savePressed(_ sender: Any) {
+        self.productInfoViewModal.check(emailNumber: UserDefaultsManager.shared().Email!, image: self.productImg, title: self.productView.titleTF.text, description: self.productView.descriptionTV.text, itemNo: self.productView.itemNoTF.text, brandName: self.productView.brandTF.text, price: self.productView.priceTF.text, wholeSale: self.productView.salePriceTF.text, quantity: self.productView.quantity.text, unit: self.productView.unitTF.text, barCode: self.productView.barCodeTF.text, stock: self.productView.stockTF.text, design: imageArray, isActive: true)
+    }
+    
+    @IBAction func backPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+ 
+
+    func getAssetThumbnail(asset: PHAsset) -> UIImage {
+        var retimage = UIImage()
+//        println(retimage)
+        let manager = PHImageManager.default()
+        manager.requestImage(for: asset, targetSize: CGSize(width: 100.0, height: 100.0), contentMode: .aspectFit, options: nil, resultHandler: {(result, info)->Void in
+            retimage = result!
+        })
+        print(retimage)
+        return retimage
+    }
 
 }
 extension ProductInfoVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

@@ -11,7 +11,7 @@
         <!--Product InfoVC-->
         <scene sceneID="fsX-TK-4ww">
             <objects>
-                <viewController storyboardIdentifier="ProductInfoVC" id="rhc-ey-6t2" customClass="ProductInfoVC" customModule="PenPrntVendor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductInfoVC" modalPresentationStyle="fullScreen" id="rhc-ey-6t2" customClass="ProductInfoVC" customModule="PenPrntVendor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pZb-At-Obt" customClass="ProductInfoView" customModule="PenPrntVendor" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,6 +29,9 @@
                                     <constraint firstAttribute="width" constant="10" id="uFl-up-VAN"/>
                                 </constraints>
                                 <state key="normal" image="back"/>
+                                <connections>
+                                    <action selector="backPressed:" destination="rhc-ey-6t2" eventType="touchUpInside" id="vGi-pd-XjV"/>
+                                </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IhS-03-cFL">
                                 <rect key="frame" x="0.0" y="113" width="414" height="783"/>
@@ -233,9 +236,12 @@
                                                 </constraints>
                                                 <state key="normal" image="uncheck"/>
                                                 <state key="selected" image="check"/>
+                                                <connections>
+                                                    <action selector="virtualProductPressed:" destination="rhc-ey-6t2" eventType="touchUpInside" id="Upf-F2-gde"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Virtual Product" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDk-gn-oPQ">
-                                                <rect key="frame" x="52" y="1327" width="97" height="17"/>
+                                                <rect key="frame" x="52" y="1327.3333333333333" width="97" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" red="0.69803921568627447" green="0.69803921568627447" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -251,6 +257,9 @@
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ts-0N-IJe">
                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="45"/>
+                                                        <connections>
+                                                            <action selector="uploadPressed:" destination="rhc-ey-6t2" eventType="touchUpInside" id="77l-To-n0m"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -274,13 +283,15 @@
                                                 <state key="normal" title="SAVE">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="savePressed:" destination="rhc-ey-6t2" eventType="touchUpInside" id="pH7-rN-Ogt"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="Vtq-J9-XxX" firstAttribute="leading" secondItem="RAj-sU-7vO" secondAttribute="leading" constant="24" id="1PB-3H-MTU"/>
                                             <constraint firstItem="Euj-JJ-TUg" firstAttribute="leading" secondItem="RAj-sU-7vO" secondAttribute="leading" constant="24" id="1yM-2Q-Qt2"/>
-                                            <constraint firstItem="YMP-Z7-Adu" firstAttribute="top" secondItem="qyY-i1-Hbv" secondAttribute="bottom" constant="16" id="2Qh-QT-3Mo"/>
                                             <constraint firstItem="Pca-md-UHh" firstAttribute="top" secondItem="yXZ-4C-ooc" secondAttribute="bottom" constant="16" id="2fM-k0-i7y"/>
                                             <constraint firstAttribute="trailing" secondItem="5Qi-2i-P05" secondAttribute="trailing" constant="24" id="3hb-Ot-0Rz"/>
                                             <constraint firstItem="qyY-i1-Hbv" firstAttribute="centerY" secondItem="wpt-eE-fIL" secondAttribute="centerY" id="42f-pp-aIe"/>
@@ -323,6 +334,7 @@
                                             <constraint firstAttribute="trailing" secondItem="fRK-rh-Vfo" secondAttribute="trailing" constant="24" id="gKW-AJ-iTl"/>
                                             <constraint firstItem="ycX-q5-NF9" firstAttribute="top" secondItem="WNt-4c-SJR" secondAttribute="bottom" constant="8" id="h0b-As-FVM"/>
                                             <constraint firstItem="wkM-qu-xG1" firstAttribute="leading" secondItem="RAj-sU-7vO" secondAttribute="leading" constant="24" id="hR0-ok-aKW"/>
+                                            <constraint firstItem="YMP-Z7-Adu" firstAttribute="top" secondItem="wpt-eE-fIL" secondAttribute="bottom" constant="17.670000000000002" id="hRt-GU-d7b"/>
                                             <constraint firstAttribute="trailing" secondItem="YMP-Z7-Adu" secondAttribute="trailing" constant="24" id="hUZ-rh-YCd"/>
                                             <constraint firstItem="tFq-Jo-uKb" firstAttribute="leading" secondItem="RAj-sU-7vO" secondAttribute="leading" constant="24" id="ikx-a6-63M"/>
                                             <constraint firstItem="EG5-1j-96q" firstAttribute="leading" secondItem="RAj-sU-7vO" secondAttribute="leading" constant="24" id="imR-Tc-Epb"/>
@@ -347,6 +359,11 @@
                                             <constraint firstItem="LeU-iZ-Mvr" firstAttribute="top" secondItem="wkM-qu-xG1" secondAttribute="bottom" constant="8" id="zif-UW-ijg"/>
                                             <constraint firstAttribute="trailing" secondItem="ycX-q5-NF9" secondAttribute="trailing" constant="24" id="zn3-eX-2IU"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="qyY-i1-Hbv"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -390,6 +407,7 @@
                             <outlet property="unitTF" destination="OtW-70-xIm" id="qq9-aL-fPD"/>
                             <outlet property="upload" destination="byy-sI-8CJ" id="QgZ-Kl-1cZ"/>
                             <outlet property="uploadDesignView" destination="Pca-md-UHh" id="kOb-GX-5UH"/>
+                            <outlet property="uploadHeight" destination="jBI-3N-rxQ" id="7X2-jF-LQx"/>
                             <outlet property="uploadLabel" destination="z9Y-B2-mDt" id="IfD-qP-y8Y"/>
                         </connections>
                     </view>

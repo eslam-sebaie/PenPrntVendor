@@ -32,6 +32,12 @@ class APIManager {
         }
     }
     
+    class func saveProduct(emailNumber:String,  image: String,  title: String,  description: String,  itemNo: String,  brandName: String,  price: String,  wholeSale: String,  quantity: String,  unit: String,  barCode: String,  stock: String,  design: [String],  isActive: Bool, completion: @escaping(Result<productRespnse, Error>) -> Void ) {
+        request(APIRouter.saveProduct(emailNumber, image, title, description, itemNo, brandName,price, wholeSale, quantity, unit, barCode, stock, design, isActive)) { (response) in
+            completion(response)
+        }
+    }
+    
     class func uploadPhoto(image: UIImage, completion: @escaping (_ error: Error?, _ upImage: uploadImage?)-> Void){
         
         AF.upload(multipartFormData: { (form: MultipartFormData) in

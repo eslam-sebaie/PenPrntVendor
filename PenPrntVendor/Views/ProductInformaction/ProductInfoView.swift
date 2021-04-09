@@ -29,7 +29,12 @@ class ProductInfoView: UIView {
     @IBOutlet weak var upload: UIImageView!
     @IBOutlet weak var uploadLabel: UILabel!
     
+    @IBOutlet weak var uploadHeight: NSLayoutConstraint!
+    
+    
     func updateUI() {
+        uploadHeight.constant = 0
+        uploadDesignView.isHidden = true
         imageContainerView.dropShadow(radius: 12, shadow: 4)
         descriptionTV.setBCdesign(borderWidth: 1, borderColor: ColorName.borderColor.color, radius: 8)
         saveDesign.setBCdesign(borderWidth: 0, borderColor: .white, radius: 12)

@@ -17,13 +17,14 @@ enum APIRouter: URLRequestConvertible {
     case vendorLogin(_ emailNumber: String,_ password: String)
     case getOrders(_ emailNumber: String)
     case updateStatus(_ id: Int, _ orderStatus: Int)
-    case saveProduct(_ emailNumber:String, _ image: String, _ title: String, _ description: String, _ itemNo: String, _ brandName: String, _ price: String, _ wholeSale: String, _ quantity: String, _ unit: String, _ barCode: String, _ stock: String, _ design: [String], _ isActive: Bool)
+    case saveProduct(_ emailNumber:String, _ image: String, _ title: String, _ description: String, _ itemNo: String, _ brandName: String, _ price: String, _ wholeSale: String, _ quantity: String, _ unit: String, _ barCode: String, _ stock: String, _ design: String, _ isActive: Bool)
+    case getProduct(_ emailNumber: String)
     // MARK: - HttpMethod
     private var method: HTTPMethod {
         switch self {
         case.vendorRegister, .vendorLogin, .updateStatus, .saveProduct:
             return .post
-        case .getOrders:
+        case .getOrders, .getProduct:
             return .get
         default:
             return .delete
@@ -45,6 +46,8 @@ enum APIRouter: URLRequestConvertible {
             return ["id": id, "orderStatus": orderStatus]
         case .saveProduct(let emailNumber, let image, let title, let description, let itemNo, let brandName, let price, let wholeSale, let quantity, let unit, let barCode, let stock, let design, let isActive):
             return [ParameterKeys.emailNumber: emailNumber, "image": image, "title": title, "description": description, "itemNo": itemNo, "brandName": brandName, "price": price, "wholeSale": wholeSale, "quantity": quantity, "unit": unit, "barCode": barCode, "stock": stock, "design": design, "isActive": isActive]
+        case .getProduct(let emailNumber):
+            return [ParameterKeys.emailNumber: emailNumber]
         default:
             return nil
         }
@@ -62,6 +65,8 @@ enum APIRouter: URLRequestConvertible {
         case .updateStatus:
             return URLs.updateStatusOrder
         case .saveProduct:
+            return URLs.product
+        case .getProduct:
             return URLs.product
         }
     }

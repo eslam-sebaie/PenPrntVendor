@@ -27,6 +27,7 @@
 		96886C14260BBE3A00E154F3 /* MapVCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96886C13260BBE3A00E154F3 /* MapVCView.swift */; };
 		96886C1C260BC12600E154F3 /* OrderDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96886C1B260BC12600E154F3 /* OrderDetails.storyboard */; };
 		96886C22260BC16000E154F3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96886C21260BC16000E154F3 /* TabBarController.swift */; };
+		968C315626220C150099B38B /* MyProductsViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968C315526220C150099B38B /* MyProductsViewModal.swift */; };
 		96921831261BA1FE00884CFE /* AuthModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96921830261BA1FE00884CFE /* AuthModal.swift */; };
 		969A50AB26093951002990FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A50AA26093951002990FB /* AppDelegate.swift */; };
 		969A50AD26093951002990FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A50AC26093951002990FB /* SceneDelegate.swift */; };
@@ -115,6 +116,7 @@
 		96886C13260BBE3A00E154F3 /* MapVCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVCView.swift; sourceTree = "<group>"; };
 		96886C1B260BC12600E154F3 /* OrderDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderDetails.storyboard; sourceTree = "<group>"; };
 		96886C21260BC16000E154F3 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		968C315526220C150099B38B /* MyProductsViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductsViewModal.swift; sourceTree = "<group>"; };
 		96921830261BA1FE00884CFE /* AuthModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModal.swift; sourceTree = "<group>"; };
 		969A50A726093951002990FB /* PenPrntVendor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenPrntVendor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		969A50AA26093951002990FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -269,6 +271,14 @@
 				96886C21260BC16000E154F3 /* TabBarController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		968C315426220BF20099B38B /* MyProducts */ = {
+			isa = PBXGroup;
+			children = (
+				968C315526220C150099B38B /* MyProductsViewModal.swift */,
+			);
+			path = MyProducts;
 			sourceTree = "<group>";
 		};
 		96921826261BA1E500884CFE /* Modal */ = {
@@ -542,6 +552,7 @@
 				96C863C3261CD095004D78BE /* Order */,
 				963605B12620865E0085ADC2 /* OrderStatus */,
 				963605BA26208BBC0085ADC2 /* ProductInfo */,
+				968C315426220BF20099B38B /* MyProducts */,
 			);
 			path = ViewModal;
 			sourceTree = "<group>";
@@ -910,6 +921,7 @@
 				96F272B726177C3A005EC012 /* WelcomeViewModal.swift in Sources */,
 				96EA204B2618862700900CE9 /* MyProductsTableViewCell.swift in Sources */,
 				96A39CC8260F4B0E003743F5 /* OrdersTableViewCell.swift in Sources */,
+				968C315626220C150099B38B /* MyProductsViewModal.swift in Sources */,
 				96EA2040261885ED00900CE9 /* MyProductsVC.swift in Sources */,
 				9674DCE5262103420078B51C /* productModel.swift in Sources */,
 				969A50AB26093951002990FB /* AppDelegate.swift in Sources */,

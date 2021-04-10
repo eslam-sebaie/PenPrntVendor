@@ -349,10 +349,13 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="activeDesign" destination="euq-Tw-WES" id="JjY-hu-oai"/>
+                                            <outlet property="activeIconeEye" destination="qK5-HF-EpL" id="fck-PH-CnO"/>
+                                            <outlet property="activeLabelEye" destination="3Ek-K4-uoa" id="Bdi-Ds-kdr"/>
                                             <outlet property="deactiveView" destination="ihz-QV-njr" id="fap-dC-qe7"/>
                                             <outlet property="editDesign" destination="Z7K-Or-14E" id="o46-L9-Z4D"/>
                                             <outlet property="editView" destination="Dl0-rO-pmL" id="JOd-Hj-vtP"/>
                                             <outlet property="mainView" destination="fMI-oE-C8n" id="gIf-fN-dFK"/>
+                                            <outlet property="priceLabel" destination="0KN-w5-w3A" id="zZM-ZB-XXV"/>
                                             <outlet property="productActiveImage" destination="OpG-Xe-V9z" id="vvd-fq-DZv"/>
                                             <outlet property="productActiveLabel" destination="pOn-Gh-k3H" id="yJx-dN-mmq"/>
                                             <outlet property="productDate" destination="EfR-84-2R9" id="HBN-f3-qC1"/>

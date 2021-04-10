@@ -8,15 +8,16 @@
 import UIKit
 import OpalImagePicker
 import Photos
-class ProductInfoVC: UIViewController {
-
+import MobileCoreServices
+class ProductInfoVC: UIViewController, UIDocumentPickerDelegate {
+    
     
     @IBOutlet var productView: ProductInfoView!
     let imagePicker = OpalImagePickerController()
     let productImagePicker = UIImagePickerController()
     var productInfoViewModal: ProductInfoViewModal!
     var productImg = ""
-    var imageArray = [String]()
+    var fileLink = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         productImagePicker.delegate = self
@@ -52,27 +53,18 @@ class ProductInfoVC: UIViewController {
     }
     
     @IBAction func uploadPressed(_ sender: Any) {
-        guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else {
-            self.show_Alert("Sorry!", "SomeThing Went Wrong.")
-            return
-        }
-        //Present Image Picker
-        presentOpalImagePickerController(imagePicker, animated: true, select: { (_ img) in
-            //Save Images, update UI
-            for i in img {
-                let x = self.getAssetThumbnail(asset: i)
-                let y = self.productInfoViewModal.saveImage(image: x)
-                self.imageArray.append(y)
-            }
-            //Dismiss Controller
-            self.imagePicker.dismiss(animated: true, completion: nil)
-        }, cancel: {
+        
+        let documentPicker = UIDocumentPickerViewController(documentTypes: [kUTTypePDF as String, kUTTypePNG as String, kUTTypeJPEG as String, kUTTypePDF as String, kUTTypeScript as String, kUTTypeURL as String, kUTTypeGIF as String, kUTTypeRTF as String, kUTTypeData as String, kUTTypeItem as String, kUTTypeText as String, kUTTypeFolder as String, kUTTypeFileURL as String, kUTTypePresentation as String, kUTTypeDatabase as String, kUTTypeZipArchive as String, kUTTypeVideo as String ], in: .import)
 
-        })
+        documentPicker.delegate = self
+        documentPicker.allowsMultipleSelection = false
+        present(documentPicker,animated: true,completion: nil)
     }
+ 
     
     @IBAction func savePressed(_ sender: Any) {
-        self.productInfoViewModal.check(emailNumber: UserDefaultsManager.shared().Email!, image: self.productImg, title: self.productView.titleTF.text, description: self.productView.descriptionTV.text, itemNo: self.productView.itemNoTF.text, brandName: self.productView.brandTF.text, price: self.productView.priceTF.text, wholeSale: self.productView.salePriceTF.text, quantity: self.productView.quantity.text, unit: self.productView.unitTF.text, barCode: self.productView.barCodeTF.text, stock: self.productView.stockTF.text, design: imageArray, isActive: true)
+     
+        self.productInfoViewModal.check(emailNumber: UserDefaultsManager.shared().Email!, image: self.productImg, title: self.productView.titleTF.text, description: self.productView.descriptionTV.text, itemNo: self.productView.itemNoTF.text, brandName: self.productView.brandTF.text, price: self.productView.priceTF.text, wholeSale: self.productView.salePriceTF.text, quantity: self.productView.quantity.text, unit: self.productView.unitTF.text, barCode: self.productView.barCodeTF.text, stock: self.productView.stockTF.text, design: self.fileLink, isActive: true)
     }
     
     @IBAction func backPressed(_ sender: Any) {
@@ -80,19 +72,8 @@ class ProductInfoVC: UIViewController {
     }
     
     
- 
-
-    func getAssetThumbnail(asset: PHAsset) -> UIImage {
-        var retimage = UIImage()
-//        println(retimage)
-        let manager = PHImageManager.default()
-        manager.requestImage(for: asset, targetSize: CGSize(width: 100.0, height: 100.0), contentMode: .aspectFit, options: nil, resultHandler: {(result, info)->Void in
-            retimage = result!
-        })
-        print(retimage)
-        return retimage
-    }
-
+    
+    
 }
 extension ProductInfoVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func setImagePicker(){
@@ -109,7 +90,10 @@ extension ProductInfoVC: UIImagePickerControllerDelegate, UINavigationController
         productView.productImage.image = image
         productView.productImage.layer.cornerRadius = 12 // To get Rounded Corner
         productView.productImage.clipsToBounds = true
-        productImg = productInfoViewModal.saveImage(image: productView.productImage.image)
+        productInfoViewModal.saveImage(image: productView.productImage.image) {
+            self.productImg = self.productInfoViewModal.retImg()
+        }
+        
         picker.dismiss(animated: false, completion: nil)
     }
 }
@@ -135,4 +119,42 @@ extension ProductInfoVC: SignUpProtocol {
         let tabVC = TabBarController.create()
         self.present(tabVC ,animated: true, completion: nil)
     }
+}
+extension PHAsset {
+    
+    var image : UIImage {
+        var thumbnail = UIImage()
+        let imageManager = PHCachingImageManager()
+        imageManager.requestImage(for: self, targetSize: CGSize(width: 100, height: 100), contentMode: .aspectFit, options: nil, resultHandler: { image, _ in
+            thumbnail = image!
+        })
+        return thumbnail
+    }
+}
+extension ProductInfoVC {
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        
+            var fileName = UUID().uuidString
+     
+            guard let documentURL = urls.first else {
+                return
+            }
+        print(documentURL)
+            let myData = NSData(contentsOf: documentURL)
+     
+        APIManager.uploadDocument(file: myData as! Data, fileName: fileName) { (err, str) in
+                if let err = err {
+                    print("#$%%")
+                    print(err)
+                }
+                else {
+                    print("#%")
+                    self.fileLink = str?.data ?? ""
+                    print(str?.data ?? "")
+                }
+            }
+        }
+    
+    
 }

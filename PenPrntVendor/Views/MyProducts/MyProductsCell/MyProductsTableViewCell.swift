@@ -19,6 +19,11 @@ class MyProductsTableViewCell: UITableViewCell {
     @IBOutlet var deactiveView: UIView!
     @IBOutlet var editDesign: UIButton!
     @IBOutlet var activeDesign: UIButton!
+    @IBOutlet weak var priceLabel: UILabel!
+    
+    @IBOutlet weak var activeIconeEye: UIImageView!
+    
+    @IBOutlet weak var activeLabelEye: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

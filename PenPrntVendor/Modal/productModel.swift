@@ -28,3 +28,32 @@ struct productInfo: Codable {
         case itemNo, brandName, price, wholeSale, quantity, unit, barCode, stock, design, isActive, id
     }
 }
+
+
+// MARK: - Welcome
+struct getProductRespnse: Codable {
+    let data: [getProductInfo]?
+    let message: String
+}
+
+// MARK: - Datum
+struct getProductInfo: Codable {
+    let id: Int?
+    let image: String?
+    let title, datumDescription, itemNo, brandName: String?
+    let price: String?
+    let wholeSale: String?
+    let quantity, unit, barCode: String?
+    let stock: String?
+    let design: String?
+    let productColor: String?
+    let isActive: Bool?
+    let vendorID: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id, image, title
+        case datumDescription = "description"
+        case itemNo, brandName, price, wholeSale, quantity, unit, barCode, stock, design, productColor, isActive
+        case vendorID = "vendorId"
+    }
+}

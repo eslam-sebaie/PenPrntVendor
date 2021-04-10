@@ -7,8 +7,9 @@
 
 import UIKit
 protocol ProductInfoViewModalProtocol {
-    func saveImage(image: UIImage?) -> String
-    func saveProduct(emailNumber:String,  image: String?,  title: String?,  description: String?,  itemNo: String?,  brandName: String?,  price: String?,  wholeSale: String?,  quantity: String?,  unit: String?,  barCode: String?,  stock: String?,  design: [String]?,  isActive: Bool?)
+    func saveImage(image: UIImage?, completion: @escaping() -> Void)
+    func retImg()-> String
+    func saveProduct(emailNumber:String,  image: String?,  title: String?,  description: String?,  itemNo: String?,  brandName: String?,  price: String?,  wholeSale: String?,  quantity: String?,  unit: String?,  barCode: String?,  stock: String?,  design: String?,  isActive: Bool?)
 }
 class ProductInfoViewModal{
     
@@ -16,11 +17,14 @@ class ProductInfoViewModal{
     weak var view: SignUpProtocol!
     var delegate: ProductInfoViewModalProtocol?
     var imag: String = ""
+    var imgArray = [String]()
+    let group = DispatchGroup()
+    var i = 0
     // MARK:- Initialization Methods
     init(view: SignUpProtocol) {
         self.view = view
     }
-    func check(emailNumber:String,  image: String?,  title: String?,  description: String?,  itemNo: String?,  brandName: String?,  price: String?,  wholeSale: String?,  quantity: String?,  unit: String?,  barCode: String?,  stock: String?,  design: [String]?,  isActive: Bool?) {
+    func check(emailNumber:String,  image: String?,  title: String?,  description: String?,  itemNo: String?,  brandName: String?,  price: String?,  wholeSale: String?,  quantity: String?,  unit: String?,  barCode: String?,  stock: String?,  design: String?,  isActive: Bool?) {
         
         guard let img = image, img != "" else {
             self.view.showAlert(title: "Sorry!", msg: "please Upload Product Image.")
@@ -54,7 +58,7 @@ class ProductInfoViewModal{
             self.view.showAlert(title: "Sorry!", msg: "please Enter Product BarCode.")
             return
         }
-        saveProduct(emailNumber: emailNumber, image: image!, title: title, description: description, itemNo: itemNo, brandName: brandName ?? "", price: price, wholeSale: wholeSale ?? "", quantity: quantity, unit: unit , barCode: barCode, stock: stock ?? "", design: design ?? [], isActive: isActive!)
+        saveProduct(emailNumber: emailNumber, image: image!, title: title, description: description, itemNo: itemNo, brandName: brandName ?? "", price: price, wholeSale: wholeSale ?? "", quantity: quantity, unit: unit , barCode: barCode, stock: stock ?? "", design: design ?? "", isActive: isActive!)
         
         
     }
@@ -62,20 +66,27 @@ class ProductInfoViewModal{
     
 }
 extension ProductInfoViewModal: ProductInfoViewModalProtocol {
-
-    func saveImage(image: UIImage?) -> String {
+    func retImg() -> String {
+        return imag
+    }
+    
+    
+    func saveImage(image: UIImage?, completion: @escaping() -> Void) {
         self.view.showLoader()
         APIManager.uploadPhoto(image: image!) { (err, img) in
             self.view.hideLoader()
             print(img?.data ?? "")
             self.imag = img?.data ?? ""
+            completion()
         }
-        return imag
+        
+        
     }
     
-    func saveProduct(emailNumber: String, image: String?, title: String?, description: String?, itemNo: String?, brandName: String?, price: String?, wholeSale: String?, quantity: String?, unit: String?, barCode: String?, stock: String?, design: [String]?, isActive: Bool?) {
+    
+    func saveProduct(emailNumber: String, image: String?, title: String?, description: String?, itemNo: String?, brandName: String?, price: String?, wholeSale: String?, quantity: String?, unit: String?, barCode: String?, stock: String?, design: String?, isActive: Bool?) {
         self.view.showLoader()
-        APIManager.saveProduct(emailNumber: emailNumber, image: image!, title: title!, description: description!, itemNo: itemNo!, brandName: brandName ?? "", price: price!, wholeSale: wholeSale ?? "", quantity: quantity!, unit: unit ?? "", barCode: barCode!, stock: stock ?? "", design: design ?? [], isActive: isActive!) { (response) in
+        APIManager.saveProduct(emailNumber: emailNumber, image: image!, title: title!, description: description!, itemNo: itemNo!, brandName: brandName ?? "", price: price!, wholeSale: wholeSale ?? "", quantity: quantity!, unit: unit ?? "", barCode: barCode!, stock: stock ?? "", design: design ?? "", isActive: isActive!) { (response) in
             switch response {
             case .failure(let err):
                 print(err)

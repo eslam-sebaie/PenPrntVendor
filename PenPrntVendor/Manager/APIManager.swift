@@ -32,8 +32,14 @@ class APIManager {
         }
     }
     
-    class func saveProduct(emailNumber:String,  image: String,  title: String,  description: String,  itemNo: String,  brandName: String,  price: String,  wholeSale: String,  quantity: String,  unit: String,  barCode: String,  stock: String,  design: [String],  isActive: Bool, completion: @escaping(Result<productRespnse, Error>) -> Void ) {
+    class func saveProduct(emailNumber:String,  image: String,  title: String,  description: String,  itemNo: String,  brandName: String,  price: String,  wholeSale: String,  quantity: String,  unit: String,  barCode: String,  stock: String,  design: String,  isActive: Bool, completion: @escaping(Result<productRespnse, Error>) -> Void ) {
         request(APIRouter.saveProduct(emailNumber, image, title, description, itemNo, brandName,price, wholeSale, quantity, unit, barCode, stock, design, isActive)) { (response) in
+            completion(response)
+        }
+    }
+    
+    class func getProduct(emailNumber: String, completion: @escaping(Result<getProductRespnse, Error>) -> Void ) {
+        request(APIRouter.getProduct(emailNumber)) { (response) in
             completion(response)
         }
     }
@@ -45,7 +51,7 @@ class APIManager {
             if let data = image.jpegData(compressionQuality: 0.75) {
                 form.append(data, withName: "storeFile", fileName: "storeFile.jpeg", mimeType: "storeFile/jpeg")
             }
-        }, to: URLs.uploadPhoto, usingThreshold: MultipartFormData.encodingMemoryThreshold, method: .post, headers: nil).response {
+        }, to: "http://penprnt.com/penprnt/api/uploadImage", usingThreshold: MultipartFormData.encodingMemoryThreshold, method: .post, headers: nil).response {
             response in
             guard response.error == nil else {
                 print(response.error!)
@@ -59,8 +65,8 @@ class APIManager {
             }
             
             do {
-                print("indata")
-                print(JSON(data))
+         
+                
                 let decoder = JSONDecoder()
                 let img = try decoder.decode(uploadImage.self, from: data)
                 
@@ -75,9 +81,9 @@ class APIManager {
         
         AF.upload(
             multipartFormData: { multipartFormData in
-                multipartFormData.append(file, withName: "fileName" , fileName: fileName, mimeType: "fileName/pdf")
+                multipartFormData.append(file, withName: "storeFile" , fileName: fileName, mimeType: "storeFile")
         },
-            to: "\(URLs.base)\(URLs.uploadPhoto)", method: .post , headers: nil)
+            to: "http://penprnt.com/penprnt/api/uploadImage", method: .post , headers: nil)
             .response { response in
                 guard response.error == nil else {
                     print(response.error!)
@@ -91,8 +97,7 @@ class APIManager {
                 }
                 
                 do {
-                    print("indata")
-                    print(JSON(data))
+                    
                     let decoder = JSONDecoder()
                     let img = try decoder.decode(uploadImage.self, from: data)
                     

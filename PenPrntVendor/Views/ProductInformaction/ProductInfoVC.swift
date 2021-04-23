@@ -9,7 +9,8 @@ import UIKit
 import OpalImagePicker
 import Photos
 import MobileCoreServices
-class ProductInfoVC: UIViewController, UIDocumentPickerDelegate {
+import IGColorPicker
+class ProductInfoVC: UIViewController, UIDocumentPickerDelegate, ColorPickerViewDelegate, ColorPickerViewDelegateFlowLayout {
     
     
     @IBOutlet var productView: ProductInfoView!
@@ -22,21 +23,82 @@ class ProductInfoVC: UIViewController, UIDocumentPickerDelegate {
         super.viewDidLoad()
         productImagePicker.delegate = self
         productView.updateUI()
-        
+        productView.colorPickrView.delegate = self
+        productView.colorPickrView.layoutDelegate = self
+        productView.colorPickrView.style = .circle
+        productView.colorPickrView.selectionStyle = .check
+        productView.colorPickrView.isSelectedColorTappable = false
+        productView.mainColorView.isHidden = true
         let tabGesture = UITapGestureRecognizer()
         tabGesture.addTarget(self, action: #selector(ProductInfoVC.openGallery(tabGesture:)))
         productView.productImage.isUserInteractionEnabled = true
         productView.productImage.addGestureRecognizer(tabGesture)
+        
+        
     }
     @objc func openGallery(tabGesture: UITapGestureRecognizer) {
         self.setImagePicker()
     }
+    
     
     class func create() -> ProductInfoVC {
         let productInfoVC: ProductInfoVC = UIViewController.create(storyboardName: Storyboards.ProductsInfo, identifier: ViewControllers.ProductInfoVC)
         productInfoVC.productInfoViewModal = ProductInfoViewModal(view: productInfoVC)
         return productInfoVC
     }
+    
+    @objc func popupHide() {
+        productView.savedView.isHidden = true
+    }
+    
+    
+    @IBAction func colorPressed(_ sender: Any) {
+        productView.mainColorView.isHidden = false
+    }
+    
+    @IBAction func donePress(_ sender: Any) {
+        for i in self.productView.colorArray {
+            self.productView.productColorTF.text! += "\(i), "
+        }
+        self.productView.colorArray = []
+        self.productView.mainColorView.isHidden = true
+    }
+    
+    // MARK: - ColorPickerViewDelegateFlowLayout
+    func colorPickerView(_ colorPickerView: ColorPickerView, didSelectItemAt indexPath: IndexPath) {
+        productView.savedView.isHidden = false
+        self.perform(#selector(self.popupHide), with: self, afterDelay: 1)
+        let colorBlueHex = productView.colorPickrView.colors[indexPath.item].toHexString()
+        self.productView.colorArray.append(colorBlueHex)
+    }
+    
+    func colorPickerView(_ colorPickerView: ColorPickerView, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 48, height: 48)
+    }
+    
+    func colorPickerView(_ colorPickerView: ColorPickerView, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 11
+    }
+    
+    func colorPickerView(_ colorPickerView: ColorPickerView, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 8
+    }
+    
+    func colorPickerView(_ colorPickerView: ColorPickerView, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+    }
+    
+    @IBAction func stockSegment(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            productView.stockValue = "Yes"
+        case 1:
+            productView.stockValue = "No"
+        default:
+            print("OL")
+        }
+    }
+    
     
     @IBAction func virtualProductPressed(_ sender: UIButton) {
         
@@ -63,8 +125,8 @@ class ProductInfoVC: UIViewController, UIDocumentPickerDelegate {
  
     
     @IBAction func savePressed(_ sender: Any) {
-     
-        self.productInfoViewModal.check(emailNumber: UserDefaultsManager.shared().Email!, image: self.productImg, title: self.productView.titleTF.text, description: self.productView.descriptionTV.text, itemNo: self.productView.itemNoTF.text, brandName: self.productView.brandTF.text, price: self.productView.priceTF.text, wholeSale: self.productView.salePriceTF.text, quantity: self.productView.quantity.text, unit: self.productView.unitTF.text, barCode: self.productView.barCodeTF.text, stock: self.productView.stockTF.text, design: self.fileLink, isActive: true)
+       
+        self.productInfoViewModal.check(emailNumber: UserDefaultsManager.shared().Email!, image: self.productImg, title: self.productView.titleTF.text, description: self.productView.descriptionTV.text, itemNo: self.productView.itemNoTF.text, brandName: self.productView.brandTF.text, price: self.productView.priceTF.text, wholeSale: self.productView.salePriceTF.text, quantity: self.productView.quantity.text, unit: self.productView.unitTF.text, barCode: self.productView.barCodeTF.text, stock: self.productView.stockValue, design: self.fileLink, isActive: true)
     }
     
     @IBAction func backPressed(_ sender: Any) {

@@ -25,8 +25,11 @@ class MyProductsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var activeLabelEye: UILabel!
     
+    @IBOutlet weak var activityIndicate: UIActivityIndicatorView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        activityIndicate.isHidden = false
         mainView.dropShadow(radius: 10, shadow: 3)
         productImage.setCornerRadius(radius: 8)
         editView.setCornerRadius(radius: 6)

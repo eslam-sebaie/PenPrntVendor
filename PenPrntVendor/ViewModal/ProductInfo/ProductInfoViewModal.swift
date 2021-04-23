@@ -58,7 +58,11 @@ class ProductInfoViewModal{
             self.view.showAlert(title: "Sorry!", msg: "please Enter Product BarCode.")
             return
         }
-        saveProduct(emailNumber: emailNumber, image: image!, title: title, description: description, itemNo: itemNo, brandName: brandName ?? "", price: price, wholeSale: wholeSale ?? "", quantity: quantity, unit: unit , barCode: barCode, stock: stock ?? "", design: design ?? "", isActive: isActive!)
+        guard let stock = stock, stock != "" else {
+            self.view.showAlert(title: "Sorry!", msg: "please Choose If In Stock Or Not")
+            return
+        }
+        saveProduct(emailNumber: emailNumber, image: image!, title: title, description: description, itemNo: itemNo, brandName: brandName ?? "", price: price, wholeSale: wholeSale ?? "", quantity: quantity, unit: unit , barCode: barCode, stock: stock, design: design ?? "", isActive: isActive!)
         
         
     }

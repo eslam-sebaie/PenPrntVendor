@@ -41,6 +41,7 @@ class MyProductsVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         cell.productImage.sd_setImage(with: URL(string: products[indexPath.row].image ?? ""), completed: nil)
         cell.productName.text = products[indexPath.row].title
         cell.priceLabel.text = "KD \(products[indexPath.row].price ?? "")"
+        cell.activityIndicate.isHidden = true
 //        let d = Int(products[indexPath.row].orderDate!)!
 //        let date = convertTimeStamp(date: d)
         if products[indexPath.row].isActive == true {

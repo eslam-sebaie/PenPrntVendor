@@ -28,13 +28,13 @@ struct SignUpResponse: Codable {
 struct SignUpInfo: Codable {
     let storeName, emailNumber, landLine, storeLocation: String?
     let storeFile: String?
-    let updatedAt, createdAt: String
+//    let updatedAt, createdAt: String
     let id: Int
 
     enum CodingKeys: String, CodingKey {
         case storeName, emailNumber, landLine, storeLocation, storeFile
-        case updatedAt = "updated_at"
-        case createdAt = "created_at"
+//        case updatedAt = "updated_at"
+//        case createdAt = "created_at"
         case id
     }
 }

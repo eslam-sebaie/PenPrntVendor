@@ -318,21 +318,26 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KD 35" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0KN-w5-w3A">
-                                                            <rect key="frame" x="301.5" y="99.5" width="40.5" height="17"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <rect key="frame" x="300.5" y="99.5" width="41.5" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                             <color key="textColor" red="0.0" green="0.68235294120000001" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Ygs-7N-S0Y">
+                                                            <rect key="frame" x="43.5" y="39.5" width="20" height="20"/>
+                                                        </activityIndicatorView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.97647058823529409" green="0.98039215686274506" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="MsQ-bW-Cr0" firstAttribute="leading" secondItem="fMI-oE-C8n" secondAttribute="leading" constant="16" id="4Nt-1r-R96"/>
                                                         <constraint firstItem="ihz-QV-njr" firstAttribute="centerY" secondItem="Dl0-rO-pmL" secondAttribute="centerY" id="4ke-Ts-ZFE"/>
                                                         <constraint firstAttribute="trailing" secondItem="S5b-mg-0Jh" secondAttribute="trailing" constant="16" id="GLV-7H-w5d"/>
+                                                        <constraint firstItem="Ygs-7N-S0Y" firstAttribute="centerY" secondItem="MsQ-bW-Cr0" secondAttribute="centerY" id="Icf-vS-f0K"/>
                                                         <constraint firstItem="Dl0-rO-pmL" firstAttribute="leading" secondItem="fMI-oE-C8n" secondAttribute="leading" constant="16" id="NZn-xJ-9hK"/>
                                                         <constraint firstItem="0KN-w5-w3A" firstAttribute="centerY" secondItem="ihz-QV-njr" secondAttribute="centerY" id="T4U-lm-mVY"/>
                                                         <constraint firstItem="ihz-QV-njr" firstAttribute="leading" secondItem="Dl0-rO-pmL" secondAttribute="trailing" constant="16" id="WMd-5y-53B"/>
                                                         <constraint firstItem="S5b-mg-0Jh" firstAttribute="leading" secondItem="MsQ-bW-Cr0" secondAttribute="trailing" constant="16" id="WhJ-uX-Slv"/>
+                                                        <constraint firstItem="Ygs-7N-S0Y" firstAttribute="centerX" secondItem="MsQ-bW-Cr0" secondAttribute="centerX" id="Y4g-mP-wy4"/>
                                                         <constraint firstItem="MsQ-bW-Cr0" firstAttribute="top" secondItem="fMI-oE-C8n" secondAttribute="top" constant="12" id="Z12-LJ-9a1"/>
                                                         <constraint firstItem="Dl0-rO-pmL" firstAttribute="top" secondItem="MsQ-bW-Cr0" secondAttribute="bottom" constant="8" id="bZX-Cp-DvK"/>
                                                         <constraint firstItem="S5b-mg-0Jh" firstAttribute="centerY" secondItem="MsQ-bW-Cr0" secondAttribute="centerY" id="cDU-if-nt8"/>
@@ -351,6 +356,7 @@
                                             <outlet property="activeDesign" destination="euq-Tw-WES" id="JjY-hu-oai"/>
                                             <outlet property="activeIconeEye" destination="qK5-HF-EpL" id="fck-PH-CnO"/>
                                             <outlet property="activeLabelEye" destination="3Ek-K4-uoa" id="Bdi-Ds-kdr"/>
+                                            <outlet property="activityIndicate" destination="Ygs-7N-S0Y" id="1ym-dc-1xy"/>
                                             <outlet property="deactiveView" destination="ihz-QV-njr" id="fap-dC-qe7"/>
                                             <outlet property="editDesign" destination="Z7K-Or-14E" id="o46-L9-Z4D"/>
                                             <outlet property="editView" destination="Dl0-rO-pmL" id="JOd-Hj-vtP"/>

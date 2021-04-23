@@ -362,8 +362,11 @@ PODS:
   - GTMSessionFetcher/Core (1.5.0)
   - GTMSessionFetcher/Full (1.5.0):
     - GTMSessionFetcher/Core (= 1.5.0)
+  - IGColorPicker (0.4.3):
+    - M13Checkbox
   - IQKeyboardManagerSwift (6.2.1)
   - leveldb-library (1.22)
+  - M13Checkbox (3.4.0)
   - nanopb (2.30906.0):
     - nanopb/decode (= 2.30906.0)
     - nanopb/encode (= 2.30906.0)
@@ -389,6 +392,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - GoogleSignIn
+  - IGColorPicker
   - IQKeyboardManagerSwift (= 6.2.1)
   - OpalImagePicker
   - SDWebImage (~> 5.0)
@@ -423,8 +427,10 @@ SPEC REPOS:
     - gRPC-Core
     - GTMAppAuth
     - GTMSessionFetcher
+    - IGColorPicker
     - IQKeyboardManagerSwift
     - leveldb-library
+    - M13Checkbox
     - nanopb
     - OpalImagePicker
     - PromisesObjC
@@ -459,8 +465,10 @@ SPEC CHECKSUMS:
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
+  IGColorPicker: f6034f8629aa90cce308a76ecc0fdf2afed0bf34
   IQKeyboardManagerSwift: 0f0ae8935360b4003e6ea1ac7c19898f01e2f7c7
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
+  M13Checkbox: 6f59404540ac98ba83a3d1afac335895a40c6a5d
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
   OpalImagePicker: 38e772dd93a54431fc516b33e1f337c50f745834
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
@@ -470,6 +478,6 @@ SPEC CHECKSUMS:
   SwiftGen: 67860cc7c3cfc2ed25b9b74cfd55495fc89f9108
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: a1bd6f4f7d508931ec623c669a964cbb10a236fc
+PODFILE CHECKSUM: 9ea6e3bfd1f15d00530c624cd7e654c8437c555c
 
 COCOAPODS: 1.9.1

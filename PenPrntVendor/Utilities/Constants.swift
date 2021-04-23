@@ -31,7 +31,7 @@ struct URLs {
     static let base = "http://penprnt.com/penprnt/api/"
     static let vendorSignUp = "signUp"
     static let login = "login"
-    static let order = "order"
+    static let order = "getALLOrderVendor"
     static let updateStatusOrder = "updateStatusOrder"
     static let uploadPhoto = base + "uploadImage"
     static let product = "product"

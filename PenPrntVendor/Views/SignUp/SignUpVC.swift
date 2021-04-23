@@ -91,7 +91,7 @@ extension SignUpVC: UIImagePickerControllerDelegate, UINavigationControllerDeleg
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
-        signupView.signUpImage.image = image
+//        signupView.signUpImage.image = image
         storeImg = signUpViewModel.saveImage(image: signupView.signUpImage.image)
         
         picker.dismiss(animated: false, completion: nil)

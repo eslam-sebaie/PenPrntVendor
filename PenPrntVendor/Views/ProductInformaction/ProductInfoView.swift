@@ -7,7 +7,7 @@
 
 import UIKit
 import IGColorPicker
-class ProductInfoView: UIView {
+class ProductInfoView: UIView, UIPickerViewDelegate {
 
     @IBOutlet weak var productHeaderLabel: UILabel!
     
@@ -20,7 +20,7 @@ class ProductInfoView: UIView {
     @IBOutlet weak var priceTF: UITextField!
     @IBOutlet weak var salePriceTF: UITextField!
     @IBOutlet weak var quantity: UITextField!
-    @IBOutlet weak var unitTF: UITextField!
+//    @IBOutlet weak var unitTF: UITextField!
     @IBOutlet weak var barCodeTF: UITextField!
 //    @IBOutlet weak var stockTF: UITextField!
     @IBOutlet weak var uploadDesignView: UIView!
@@ -40,9 +40,16 @@ class ProductInfoView: UIView {
     
     @IBOutlet weak var productCategoryTF: UITextField!
     @IBOutlet weak var savedView: UIView!
-    var stockValue = ""
+    var stockValue = false
     var colorArray = [String]()
+    var colorArray1 = [String]()
+    var savedSizeArray = [String]()
+    var sizePickerView = UIPickerView()
+    var categoryPickerView = UIPickerView()
+    var result = ""
+    var result1 = ""
     func updateUI() {
+        
         savedView.isHidden = true
         savedView.setCornerRadius(radius: 16)
         uploadHeight.constant = 0
@@ -52,7 +59,14 @@ class ProductInfoView: UIView {
         saveDesign.setBCdesign(borderWidth: 0, borderColor: .white, radius: 12)
         uploadDesignView.dropShadow(radius: 12, shadow: 2)
 //        colorPickrView.setCornerRadius(radius: 20)
-        
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy"
+        result1 = formatter.string(from: date)
+        let date1 = formatter.date(from: result1)
+        let dateStamp:TimeInterval = date1!.timeIntervalSince1970
+        let dateSt:Int = Int(dateStamp)
+        result = String(dateSt)
     }
     
     

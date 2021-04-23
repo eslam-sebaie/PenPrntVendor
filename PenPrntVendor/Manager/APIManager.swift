@@ -32,14 +32,20 @@ class APIManager {
         }
     }
     
-    class func saveProduct(emailNumber:String,  image: String,  title: String,  description: String,  itemNo: String,  brandName: String,  price: String,  wholeSale: String,  quantity: String,  unit: String,  barCode: String,  stock: String,  design: String,  isActive: Bool, completion: @escaping(Result<productRespnse, Error>) -> Void ) {
-        request(APIRouter.saveProduct(emailNumber, image, title, description, itemNo, brandName,price, wholeSale, quantity, unit, barCode, stock, design, isActive)) { (response) in
+    class func saveProduct(emailNumber:String,  image: String,  title: String,  description: String,  itemNo: String,  brandName: String,  price: String,  wholeSale: String,  quantity: String,  barCode: String, design: String,  isActive: Bool, productColor: [String], productSize: [String], productDate: String, categoryId: Int,completion: @escaping(Result<productRespnse, Error>) -> Void ) {
+        request(APIRouter.saveProduct(emailNumber, image, title, description, itemNo, brandName,price, wholeSale, quantity, barCode, design, isActive, productColor, productSize, productDate, categoryId)) { (response) in
             completion(response)
         }
     }
     
     class func getProduct(emailNumber: String, completion: @escaping(Result<getProductRespnse, Error>) -> Void ) {
         request(APIRouter.getProduct(emailNumber)) { (response) in
+            completion(response)
+        }
+    }
+    
+    class func getCategories(completion: @escaping(Result<CategoryResponse, Error>) -> Void ) {
+        request(APIRouter.getCategories) { (response) in
             completion(response)
         }
     }

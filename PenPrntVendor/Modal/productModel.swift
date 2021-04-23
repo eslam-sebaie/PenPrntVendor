@@ -46,14 +46,25 @@ struct getProductInfo: Codable {
     let quantity, unit, barCode: String?
     let stock: String?
     let design: String?
-    let productColor: String?
     let isActive: Bool?
     let vendorID: String?
-
+    let productColor, size: [String]?
+    let date: String?
+    let categoryId: String?
     enum CodingKeys: String, CodingKey {
         case id, image, title
         case datumDescription = "description"
-        case itemNo, brandName, price, wholeSale, quantity, unit, barCode, stock, design, productColor, isActive
+        case itemNo, brandName, price, wholeSale, quantity, unit, barCode, stock, design, productColor, isActive, size, date, categoryId
         case vendorID = "vendorId"
     }
+}
+struct CategoryResponse: Codable {
+    let data: [CategoryInfo]?
+    let message: String
+}
+
+// MARK: - Datum
+struct CategoryInfo: Codable {
+    let id: Int?
+    let name: String?
 }

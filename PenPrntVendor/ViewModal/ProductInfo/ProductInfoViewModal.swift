@@ -9,7 +9,7 @@ import UIKit
 protocol ProductInfoViewModalProtocol {
     func saveImage(image: UIImage?, completion: @escaping() -> Void)
     func retImg()-> String
-    func saveProduct(emailNumber:String,  image: String?,  title: String?,  description: String?,  itemNo: String?,  brandName: String?,  price: String?,  wholeSale: String?,  quantity: String?,  unit: String?,  barCode: String?,  stock: String?,  design: String?,  isActive: Bool?)
+    func saveProduct(emailNumber:String,  image: String?,  title: String?,  description: String?,  itemNo: String?,  brandName: String?,  price: String?,  wholeSale: String?,  quantity: String?, barCode: String?,  design: String?,  isActive: Bool?, productColor: [String]?, productSize: [String]?, productDate: String, categoryId: Int?)
 }
 class ProductInfoViewModal{
     
@@ -24,7 +24,7 @@ class ProductInfoViewModal{
     init(view: SignUpProtocol) {
         self.view = view
     }
-    func check(emailNumber:String,  image: String?,  title: String?,  description: String?,  itemNo: String?,  brandName: String?,  price: String?,  wholeSale: String?,  quantity: String?,  unit: String?,  barCode: String?,  stock: String?,  design: String?,  isActive: Bool?) {
+    func check(emailNumber:String,  image: String?,  title: String?,  description: String?,  itemNo: String?,  brandName: String?,  price: String?,  wholeSale: String?,  quantity: String?, barCode: String?,  design: String?,  isActive: Bool?, productColor: [String]?, productSize: [String]?, productDate: String, categoryId: Int?) {
         
         guard let img = image, img != "" else {
             self.view.showAlert(title: "Sorry!", msg: "please Upload Product Image.")
@@ -50,19 +50,26 @@ class ProductInfoViewModal{
             self.view.showAlert(title: "Sorry!", msg: "please Enter Product quantity.")
             return
         }
-        guard let unit = unit, unit != "" else {
-            self.view.showAlert(title: "Sorry!", msg: "please Enter Product unit.")
-            return
-        }
+       
         guard let barCode = barCode, barCode != "" else {
             self.view.showAlert(title: "Sorry!", msg: "please Enter Product BarCode.")
             return
         }
-        guard let stock = stock, stock != "" else {
-            self.view.showAlert(title: "Sorry!", msg: "please Choose If In Stock Or Not")
+        
+        guard let color = productColor, color != [] else {
+            self.view.showAlert(title: "Sorry!", msg: "please Enter Product Color.")
             return
         }
-        saveProduct(emailNumber: emailNumber, image: image!, title: title, description: description, itemNo: itemNo, brandName: brandName ?? "", price: price, wholeSale: wholeSale ?? "", quantity: quantity, unit: unit , barCode: barCode, stock: stock, design: design ?? "", isActive: isActive!)
+        guard let size = productSize, size != [] else {
+            self.view.showAlert(title: "Sorry!", msg: "please Enter Product Size.")
+            return
+        }
+        guard let cat = categoryId, cat != 0 else {
+            self.view.showAlert(title: "Sorry!", msg: "please Enter Product Category.")
+            return
+        }
+       
+        saveProduct(emailNumber: emailNumber, image: image!, title: title, description: description, itemNo: itemNo, brandName: brandName ?? "", price: price, wholeSale: wholeSale ?? "", quantity: quantity , barCode: barCode, design: design ?? "", isActive: isActive!,productColor: color,productSize: size, productDate: productDate, categoryId: categoryId)
         
         
     }
@@ -88,9 +95,9 @@ extension ProductInfoViewModal: ProductInfoViewModalProtocol {
     }
     
     
-    func saveProduct(emailNumber: String, image: String?, title: String?, description: String?, itemNo: String?, brandName: String?, price: String?, wholeSale: String?, quantity: String?, unit: String?, barCode: String?, stock: String?, design: String?, isActive: Bool?) {
+    func saveProduct(emailNumber: String, image: String?, title: String?, description: String?, itemNo: String?, brandName: String?, price: String?, wholeSale: String?, quantity: String?,  barCode: String?,  design: String?, isActive: Bool?, productColor: [String]?, productSize: [String]?, productDate: String, categoryId: Int?) {
         self.view.showLoader()
-        APIManager.saveProduct(emailNumber: emailNumber, image: image!, title: title!, description: description!, itemNo: itemNo!, brandName: brandName ?? "", price: price!, wholeSale: wholeSale ?? "", quantity: quantity!, unit: unit ?? "", barCode: barCode!, stock: stock ?? "", design: design ?? "", isActive: isActive!) { (response) in
+        APIManager.saveProduct(emailNumber: emailNumber, image: image!, title: title!, description: description!, itemNo: itemNo!, brandName: brandName ?? "", price: price!, wholeSale: wholeSale ?? "", quantity: quantity!, barCode: barCode!,  design: design ?? "", isActive: isActive!,productColor: productColor!, productSize: productSize!, productDate: productDate,categoryId: categoryId!) { (response) in
             switch response {
             case .failure(let err):
                 print(err)

@@ -20,6 +20,8 @@ enum APIRouter: URLRequestConvertible {
     case saveProduct(_ emailNumber:String, _ image: String, _ title: String, _ description: String, _ itemNo: String, _ brandName: String, _ price: String, _ wholeSale: String, _ quantity: String,  _ barCode: String, _ design: String, _ isActive: Bool, _ productColor: [String], _ productSize: [String], _ productDate: String, _ categoryId: Int)
     case getProduct(_ emailNumber: String)
     case getCategories
+    case changeActive(_ id: Int, _ isActive: Bool)
+    case editProduct(_ id:Int, _ image: String, _ title: String, _ description: String, _ itemNo: String, _ brandName: String, _ price: String, _ wholeSale: String, _ quantity: String,  _ barCode: String, _ design: String, _ isActive: Bool, _ productColor: [String], _ productSize: [String], _ productDate: String, _ categoryId: Int)
     // MARK: - HttpMethod
     private var method: HTTPMethod {
         switch self {
@@ -27,6 +29,8 @@ enum APIRouter: URLRequestConvertible {
             return .post
         case .getOrders, .getProduct, .getCategories:
             return .get
+        case .changeActive, .editProduct:
+            return .put
         default:
             return .delete
         }
@@ -46,9 +50,13 @@ enum APIRouter: URLRequestConvertible {
         case .updateStatus(let id, let orderStatus):
             return ["id": id, "orderStatus": orderStatus]
         case .saveProduct(let emailNumber, let image, let title, let description, let itemNo, let brandName, let price, let wholeSale, let quantity, let barCode, let design, let isActive, let productColor, let productSize, let productDate, let categoryId ):
-            return [ParameterKeys.emailNumber: emailNumber, "image": image, "title": title, "description": description, "itemNo": itemNo, "brandName": brandName, "price": price, "wholeSale": wholeSale, "quantity": quantity,  "barCode": barCode, "design": design, "isActive": isActive, "productColor": productColor,"size":productSize, "date": productDate, "categoryId": categoryId]
+            return [ParameterKeys.emailNumber: emailNumber, "image": image, "name": title, "description": description, "itemNo": itemNo, "brandName": brandName, "price": price, "wholeSale": wholeSale, "quantity": quantity,  "barCode": barCode, "design": design, "isActive": isActive, "productColor": productColor,"size":productSize, "date": productDate, "categoryId": categoryId]
         case .getProduct(let emailNumber):
             return [ParameterKeys.emailNumber: emailNumber]
+        case .changeActive(let id, let isActive):
+            return ["id": id, "isActive": isActive]
+        case .editProduct(let id, let image, let title, let description, let itemNo, let brandName, let price, let wholeSale, let quantity, let barCode, let design, let isActive, let productColor, let productSize, let productDate, let categoryId ):
+            return ["id": id, "image": image, "name": title, "description": description, "itemNo": itemNo, "brandName": brandName, "price": price, "wholeSale": wholeSale, "quantity": quantity,  "barCode": barCode, "design": design, "isActive": isActive, "productColor": productColor,"size":productSize, "date": productDate, "categoryId": categoryId]
         default:
             return nil
         }
@@ -71,6 +79,10 @@ enum APIRouter: URLRequestConvertible {
             return URLs.product
         case .getCategories:
             return URLs.createCategory
+        case .changeActive:
+            return URLs.product
+        case .editProduct:
+            return URLs.product
         }
     }
     

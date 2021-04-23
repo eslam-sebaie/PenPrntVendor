@@ -40,7 +40,10 @@ class ProductInfoView: UIView, UIPickerViewDelegate {
     
     @IBOutlet weak var productCategoryTF: UITextField!
     @IBOutlet weak var savedView: UIView!
-    var stockValue = false
+    
+    @IBOutlet weak var stockSeg: UISegmentedControl!
+    
+    var stockValue = true
     var colorArray = [String]()
     var colorArray1 = [String]()
     var savedSizeArray = [String]()

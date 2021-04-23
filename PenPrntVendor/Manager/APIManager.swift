@@ -37,9 +37,20 @@ class APIManager {
             completion(response)
         }
     }
+    class func editProduct(id:Int,  image: String,  title: String,  description: String,  itemNo: String,  brandName: String,  price: String,  wholeSale: String,  quantity: String,  barCode: String, design: String,  isActive: Bool, productColor: [String], productSize: [String], productDate: String, categoryId: Int,completion: @escaping(Result<ChangeActiveResponse, Error>) -> Void ) {
+        request(APIRouter.editProduct(id, image, title, description, itemNo, brandName,price, wholeSale, quantity, barCode, design, isActive, productColor, productSize, productDate, categoryId)) { (response) in
+            completion(response)
+        }
+    }
     
     class func getProduct(emailNumber: String, completion: @escaping(Result<getProductRespnse, Error>) -> Void ) {
         request(APIRouter.getProduct(emailNumber)) { (response) in
+            completion(response)
+        }
+    }
+    
+    class func changeActivate(id: Int, isActive: Bool, completion: @escaping(Result<ChangeActiveResponse, Error>) -> Void ) {
+        request(APIRouter.changeActive(id, isActive)) { (response) in
             completion(response)
         }
     }

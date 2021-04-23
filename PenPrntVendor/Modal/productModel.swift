@@ -40,7 +40,7 @@ struct getProductRespnse: Codable {
 struct getProductInfo: Codable {
     let id: Int?
     let image: String?
-    let title, datumDescription, itemNo, brandName: String?
+    let name, description, itemNo, brandName: String?
     let price: String?
     let wholeSale: String?
     let quantity, unit, barCode: String?
@@ -52,8 +52,8 @@ struct getProductInfo: Codable {
     let date: String?
     let categoryId: String?
     enum CodingKeys: String, CodingKey {
-        case id, image, title
-        case datumDescription = "description"
+        case id, image, name
+        case description
         case itemNo, brandName, price, wholeSale, quantity, unit, barCode, stock, design, productColor, isActive, size, date, categoryId
         case vendorID = "vendorId"
     }
@@ -67,4 +67,8 @@ struct CategoryResponse: Codable {
 struct CategoryInfo: Codable {
     let id: Int?
     let name: String?
+}
+struct ChangeActiveResponse: Codable {
+    let data: Int
+    let message: String
 }

@@ -10,6 +10,7 @@ import OpalImagePicker
 import Photos
 import MobileCoreServices
 import IGColorPicker
+import SDWebImage
 class ProductInfoVC: UIViewController, UIDocumentPickerDelegate, ColorPickerViewDelegate, ColorPickerViewDelegateFlowLayout, UIPickerViewDataSource, UIPickerViewDelegate {
     
     
@@ -25,8 +26,13 @@ class ProductInfoVC: UIViewController, UIDocumentPickerDelegate, ColorPickerView
     var catID = [Int]()
     var catName = [String]()
     var savedCatID = 0
+    var checkEditProduct = false
+    var receiveProductID = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("!@#$%%%")
+        print(receiveProductID)
+        
         productImagePicker.delegate = self
         
         productView.sizePickerView.delegate = self
@@ -50,8 +56,56 @@ class ProductInfoVC: UIViewController, UIDocumentPickerDelegate, ColorPickerView
         
         
     }
-    
+    var getCatID = ""
     override func viewWillAppear(_ animated: Bool) {
+        
+        if checkEditProduct == true {
+            APIManager.getProduct(emailNumber: UserDefaultsManager.shared().Email!) { (response) in
+                switch response {
+                case .failure(let err):
+                    print(err)
+                case .success(let result):
+                    for i in result.data! {
+                        if self.receiveProductID == i.id {
+                            self.getCatID = i.categoryId ?? ""
+                            self.productView.titleTF.text = i.name
+                            self.productView.descriptionTV.text = i.description
+                            self.productView.itemNoTF.text = i.itemNo
+                            self.productView.brandTF.text = i.brandName
+                            self.productView.priceTF.text = i.price
+                            self.productView.salePriceTF.text = i.wholeSale
+                            self.productView.quantity.text = i.quantity
+                            self.productView.barCodeTF.text = i.barCode
+                            self.productImg = i.image ?? ""
+                            self.productView.productImage.sd_setImage(with: URL(string: i.image ?? ""), completed: nil)
+                            self.productView.upload.isHidden = true
+                            self.productView.uploadLabel.isHidden = true
+                            self.productView.imageContainerView.dropShadow(radius: 12, shadow: 0)
+                            self.productView.productImage.layer.cornerRadius = 12
+                            self.productView.productImage.clipsToBounds = true
+                            for j in i.productColor ?? [] {
+                                self.productView.productColorTF.text! += "\(j) "
+                                self.productView.colorArray = i.productColor ?? []
+                                self.productView.colorArray1 = i.productColor ?? []
+                            }
+                            for j in i.size ?? [] {
+                                self.productView.productSizeTF.text! += "\(j) "
+                                self.productView.savedSizeArray = i.size ?? []
+                            }
+                            if i.isActive == true {
+                                self.productView.stockValue = true
+                                self.productView.stockSeg.selectedSegmentIndex = 0
+                            }
+                            else {
+                                self.productView.stockValue = false
+                                self.productView.stockSeg.selectedSegmentIndex = 1
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
         APIManager.getCategories { (response) in
             switch response {
             case .failure(let err):
@@ -60,7 +114,13 @@ class ProductInfoVC: UIViewController, UIDocumentPickerDelegate, ColorPickerView
                 for i in result.data ?? [] {
                     self.catID.append(i.id ?? 0)
                     self.catName.append(i.name ?? "")
+                    if self.checkEditProduct {
+                        if Int(self.getCatID) == i.id {
+                            self.productView.productCategoryTF.text = i.name
+                        }
+                    }
                 }
+            
             }
         }
     }
@@ -169,6 +229,7 @@ class ProductInfoVC: UIViewController, UIDocumentPickerDelegate, ColorPickerView
             }
         }
         else {
+            self.productView.productCategoryTF.text = catName[row]
             savedCatID = catID[row]
         }
        
@@ -212,8 +273,15 @@ class ProductInfoVC: UIViewController, UIDocumentPickerDelegate, ColorPickerView
  
     
     @IBAction func savePressed(_ sender: Any) {
-       
-        self.productInfoViewModal.check(emailNumber: UserDefaultsManager.shared().Email!, image: self.productImg, title: self.productView.titleTF.text, description: self.productView.descriptionTV.text, itemNo: self.productView.itemNoTF.text, brandName: self.productView.brandTF.text, price: self.productView.priceTF.text, wholeSale: self.productView.salePriceTF.text, quantity: self.productView.quantity.text, barCode: self.productView.barCodeTF.text, design: self.fileLink, isActive: self.productView.stockValue, productColor: self.productView.colorArray1, productSize: self.productView.savedSizeArray, productDate: self.productView.result, categoryId: 1)
+        
+        if checkEditProduct {
+            self.productInfoViewModal.checkEdit = true
+            self.productInfoViewModal.check1(id: receiveProductID, image: self.productImg, title: self.productView.titleTF.text, description: self.productView.descriptionTV.text, itemNo: self.productView.itemNoTF.text, brandName: self.productView.brandTF.text, price: self.productView.priceTF.text, wholeSale: self.productView.salePriceTF.text, quantity: self.productView.quantity.text, barCode: self.productView.barCodeTF.text, design: self.fileLink, isActive: self.productView.stockValue, productColor: self.productView.colorArray1, productSize: self.productView.savedSizeArray, productDate: self.productView.result, categoryId: 1)
+        }
+        else {
+            self.productInfoViewModal.check(emailNumber: UserDefaultsManager.shared().Email!, image: self.productImg, title: self.productView.titleTF.text, description: self.productView.descriptionTV.text, itemNo: self.productView.itemNoTF.text, brandName: self.productView.brandTF.text, price: self.productView.priceTF.text, wholeSale: self.productView.salePriceTF.text, quantity: self.productView.quantity.text, barCode: self.productView.barCodeTF.text, design: self.fileLink, isActive: self.productView.stockValue, productColor: self.productView.colorArray1, productSize: self.productView.savedSizeArray, productDate: self.productView.result, categoryId: 1)
+        }
+        
     }
     
     @IBAction func backPressed(_ sender: Any) {

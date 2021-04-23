@@ -6,6 +6,9 @@
 //
 
 import UIKit
+protocol productsDelegate: AnyObject {
+    func btnCloseTapped(cell: MyProductsTableViewCell)
+}
 
 class MyProductsTableViewCell: UITableViewCell {
 
@@ -26,7 +29,7 @@ class MyProductsTableViewCell: UITableViewCell {
     @IBOutlet weak var activeLabelEye: UILabel!
     
     @IBOutlet weak var activityIndicate: UIActivityIndicatorView!
-    
+    weak var delegate: productsDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
         activityIndicate.isHidden = false
@@ -41,11 +44,11 @@ class MyProductsTableViewCell: UITableViewCell {
         
     }
     @IBAction func editPressed(_ sender: Any) {
-        
+        delegate?.btnCloseTapped(cell: self)
     }
     
     @IBAction func activePressed(_ sender: Any) {
-        
+        delegate?.btnCloseTapped(cell: self)
     }
     
 

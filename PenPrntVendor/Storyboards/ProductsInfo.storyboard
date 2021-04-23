@@ -529,6 +529,7 @@
                             <outlet property="salePriceTF" destination="LeU-iZ-Mvr" id="CJF-kG-1M7"/>
                             <outlet property="saveDesign" destination="k8F-6e-uMX" id="N0D-Pa-UM1"/>
                             <outlet property="savedView" destination="d3M-I9-sgY" id="WDt-qd-pSL"/>
+                            <outlet property="stockSeg" destination="LN9-mJ-nTw" id="31o-wX-7Lj"/>
                             <outlet property="titleTF" destination="Euj-JJ-TUg" id="mdj-Mc-knd"/>
                             <outlet property="upload" destination="byy-sI-8CJ" id="QgZ-Kl-1cZ"/>
                             <outlet property="uploadDesignView" destination="Pca-md-UHh" id="kOb-GX-5UH"/>

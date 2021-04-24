@@ -36,7 +36,7 @@ extension OrderViewModel: OrderViewModelProtocol {
                     self.view.showAlert(title: "Sorry!", msg: "No Orders Found.")
                 }
                 else {
-                    self.orderInfo = result.data!
+                    self.orderInfo = result.data
                 }
                 
             }

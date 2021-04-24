@@ -21,6 +21,9 @@ class WelcomeVC: UIViewController {
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance()?.delegate = self
         welcomeView.updateUI()
+  
+        
+        
         
     }
     override func viewWillAppear(_ animated: Bool) {

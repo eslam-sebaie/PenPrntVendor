@@ -20,9 +20,9 @@ class OrdersStatusView: UIView {
     
     func setMainView(order: OrderInfo) {
         orderStatusView.dropShadow(radius: 10, shadow: 4)
-        orderNumberLabel.text = "Order \(order.orderNumber ?? "")"
+        orderNumberLabel.text = "Order \(order.orderID)"
     
-        if order.orderStatus == "0" {
+        if order.order.orderStatus == "0" {
             orderStatusLabel.textColor = ColorName.skyColor.color
             orderStatusLabel.text = L10n.newOrder
             orderDesign.setBCdesign(borderWidth: 0, borderColor: .white, radius: 8)
@@ -30,7 +30,7 @@ class OrdersStatusView: UIView {
             orderDesign.backgroundColor = ColorName.startColor.color
             orderDesign.isHidden = false
         }
-        else if order.orderStatus == "1" {
+        else if order.order.orderStatus == "1" {
             orderStatusLabel.textColor = ColorName.progressColor.color
             orderStatusLabel.text = L10n.inProgress
             orderDesign.setBCdesign(borderWidth: 0, borderColor: .white, radius: 8)
@@ -38,7 +38,7 @@ class OrdersStatusView: UIView {
             orderDesign.backgroundColor = ColorName.skyColor.color
             orderDesign.isHidden = false
         }
-        else if order.orderStatus == "2" {
+        else if order.order.orderStatus == "2" {
             orderStatusLabel.textColor = ColorName.completeColor.color
             orderStatusLabel.text = L10n.completed
             orderDesign.isHidden = true

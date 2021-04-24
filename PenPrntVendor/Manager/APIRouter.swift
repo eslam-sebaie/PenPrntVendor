@@ -48,7 +48,7 @@ enum APIRouter: URLRequestConvertible {
         case .getOrders(let emailNumber):
             return [ParameterKeys.emailNumber: emailNumber]
         case .updateStatus(let id, let orderStatus):
-            return ["id": id, "orderStatus": orderStatus]
+            return ["idOrder": id, "orderStatus": orderStatus]
         case .saveProduct(let emailNumber, let image, let title, let description, let itemNo, let brandName, let price, let wholeSale, let quantity, let barCode, let design, let isActive, let productColor, let productSize, let productDate, let categoryId ):
             return [ParameterKeys.emailNumber: emailNumber, "image": image, "name": title, "description": description, "itemNo": itemNo, "brandName": brandName, "price": price, "wholeSale": wholeSale, "quantity": quantity,  "barCode": barCode, "design": design, "isActive": isActive, "productColor": productColor,"size":productSize, "date": productDate, "categoryId": categoryId]
         case .getProduct(let emailNumber):

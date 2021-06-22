@@ -28,8 +28,8 @@ class OrdersStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         orderStatusView.setMainView(order: orderDetail)
 //        let d = Int(orderDetail.orderDate!)
-//        let date = convertTimeStamp(date: d!)
-        orderStatusView.orderStatusDate.text = orderDetail.order.orderDate
+        let date = convertTimeStamp(date: Int(orderDetail.order.orderDate) ?? 0)
+        orderStatusView.orderStatusDate.text = date
         orderStatusView.orderStatusTableView.reloadData()
     }
     

@@ -38,7 +38,8 @@ class OrdersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let cell = ordersView.orderTableView.dequeueReusableCell(withIdentifier: TableCells.orderCell, for: indexPath) as! OrdersTableViewCell
 //        let d = Int(orders[indexPath.row].orderDate!)!
 //        let date = convertTimeStamp(date: d)
-        cell.orderDate.text = orders[indexPath.row].order.orderDate
+        let date = convertTimeStamp(date: Int(orders[indexPath.row].order.orderDate) ?? 0)
+        cell.orderDate.text = date
         cell.updateTableCell(cell: cell, indexPath: indexPath, orders: orders)
         
         return cell

@@ -13,7 +13,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        if UserDefaultsManager.shared().Email != "" {
+      
+        if UserDefaultsManager.shared().Email != nil {
+            print("in 1")
             if let windowScene = scene as? UIWindowScene {
                    let window = UIWindow(windowScene: windowScene)
                 let storyboard = UIStoryboard(name: "OrderDetails", bundle: nil)
@@ -26,6 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                }
         }
         else {
+            
             if let windowScene = scene as? UIWindowScene {
                    let window = UIWindow(windowScene: windowScene)
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)

@@ -15,7 +15,8 @@ class OrdersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var newOrders = [OrderInfo]()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("@#$")
+        print(UserDefaultsManager.shared().Email)
     
     }
     override func viewWillAppear(_ animated: Bool) {

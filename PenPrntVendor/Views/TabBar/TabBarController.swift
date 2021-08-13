@@ -50,7 +50,7 @@ class TabBarController: UITabBarController {
         var newSafeArea = UIEdgeInsets()
 
         // Adjust the safe area to the height of the bottom views.
-        newSafeArea.bottom += coustmeTabBarView.bounds.size.height
+        newSafeArea.bottom = 20
 
         // Adjust the safe area insets of the
         //  embedded child view controller.

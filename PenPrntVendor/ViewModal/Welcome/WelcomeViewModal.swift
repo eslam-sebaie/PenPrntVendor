@@ -23,6 +23,19 @@ class WelcomeViewModel{
 extension WelcomeViewModel: WelcomeViewModelProtocol {
     func SignUp(email: String) {
         print(email)
-        // SignUp And Go To Tab Bar
+        self.view.showLoader()
+        APIManager.VendorRegister(storeName: "", emailNumber: email, landLine: "", storeLocation:  "", storeFile: "" , password: "") { (response) in
+            switch response {
+            case .failure(let err):
+                print(err)
+                self.view.showAlert(title: "Sorry!", msg: "Email Is Aleardy Token.")
+                self.view.hideLoader()
+            case .success(let result):
+                print(result)
+                UserDefaultsManager.shared().Email = result.data?.emailNumber
+                self.view.hideLoader()
+                self.view.presentTabBar()
+            }
+        }
     }
 }

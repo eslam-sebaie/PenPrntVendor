@@ -28,10 +28,29 @@ struct ViewControllers {
 }
 struct URLs {
     // MARK:- base
-    static let base = ""
+    static let base = "http://penprnt.com/penprnt/api/"
+    static let vendorSignUp = "signUp"
+    static let login = "login"
+    static let order = "getALLOrderVendor"
+    static let updateStatusOrder = "updateStatusOrder"
+    static let uploadPhoto = base + "uploadImage"
+    static let product = "product"
+    static let createCategory = "createCategory"
+    static let SubCategory = "SubCategory"
+}
+struct ParameterKeys {
+    static let storeName = "storeName"
+    static let emailNumber = "emailNumber"
+    static let landLine = "landLine"
+    static let storeLocation = "storeLocation"
+    static let storeFile = "storeFile"
+    static let password = "password"
+    
 }
 struct UserDefaultsKeys {
     static let token = "token"
+    static let email = "email"
+    static let VendorID = "VendorID"
 }
 struct TableCells {
     static let orderCell = "cell"

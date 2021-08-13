@@ -31,7 +31,8 @@ class Validation: NSObject {
     }
     enum RegEx: String {
         case email = "[A-Z0-9a-z.]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}" // Email
-        case password = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$" // Password length 6-15
+        case password = "[0-9]{1,10}"
+        //case password = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$" // Password length 6-15
         case alphabeticStringWithSpace = "(?<! )[-a-zA-Z' ]{2,200}" // e.g. hello sandeep
         case alphabeticStringFirstLetterCaps = "^[A-Z]+[a-zA-Z]*$" // SandsHell
         case phoneNo = "[0-9]{10,14}" // PhoneNo 10-14 Digits        //Change RegEx according to

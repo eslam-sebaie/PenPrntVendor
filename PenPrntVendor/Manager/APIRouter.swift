@@ -13,18 +13,27 @@ enum APIRouter: URLRequestConvertible {
     
     // The endpoint name
     // MARK:- Registration
-//    case vendorRegister(_ image: String,_ firstName: String, _ middleName: String)
-    
-  
-    
+    case vendorRegister(_ storeName: String,_ emailNumber: String, _ landLine: String, _ storeLocation: String, _ storeFile: String, _ password: String)
+    case vendorLogin(_ emailNumber: String,_ password: String)
+    case getOrders(_ emailNumber: String)
+    case updateStatus(_ id: Int, _ orderStatus: Int)
+    case saveProduct(_ emailNumber:String, _ image: String, _ title: String, _ description: String, _ itemNo: String, _ brandName: String, _ price: String, _ wholeSale: String, _ quantity: String,  _ barCode: String, _ design: String, _ isActive: Bool, _ productColor: [String], _ productSize: [String], _ productDate: String, _ categoryId: Int, _ subcategoryId: Int)
+    case getProduct(_ emailNumber: String)
+    case getCategories(_ vendorId: Int)
+    case getSubCategory(_ categoryId: Int)
+    case changeActive(_ id: Int, _ isActive: Bool)
+    case editProduct(_ id:Int, _ image: String, _ title: String, _ description: String, _ itemNo: String, _ brandName: String, _ price: String, _ wholeSale: String, _ quantity: String,  _ barCode: String, _ design: String, _ isActive: Bool, _ productColor: [String], _ productSize: [String], _ productDate: String, _ categoryId: Int, _ subcategoryId: Int)
     // MARK: - HttpMethod
     private var method: HTTPMethod {
         switch self {
-//        case.vendorRegister:
-//            return .post
-//
-//        default:
-//            return .delete
+        case.vendorRegister, .vendorLogin, .updateStatus, .saveProduct:
+            return .post
+        case .getOrders, .getProduct, .getCategories, .getSubCategory:
+            return .get
+        case .changeActive, .editProduct:
+            return .put
+        default:
+            return .delete
         }
         
     }
@@ -33,21 +42,54 @@ enum APIRouter: URLRequestConvertible {
     private var parameters: Parameters? {
         switch self {
         // MARK: - registerParameters
-//        case .vendorRegister(let firstName, let image , let middleName):
-//            return [ParameterKeys.firstName: firstName, ParameterKeys.image: image ,ParameterKeys.middleName: middleName]
-//
-//        default:
-//            return nil
+        case .vendorRegister(let storeName, let emailNumber, let landLine, let storeLocation, let storeFile, let password):
+            return [ParameterKeys.storeName: storeName, ParameterKeys.emailNumber: emailNumber, ParameterKeys.landLine: landLine, ParameterKeys.storeLocation: storeLocation, ParameterKeys.storeFile: storeFile, ParameterKeys.password: password]
+        case .vendorLogin(let emailNumber, let password):
+            return [ParameterKeys.emailNumber: emailNumber, ParameterKeys.password: password]
+        case .getOrders(let emailNumber):
+            return [ParameterKeys.emailNumber: emailNumber]
+        case .updateStatus(let id, let orderStatus):
+            return ["idOrder": id, "orderStatus": orderStatus]
+        case .saveProduct(let emailNumber, let image, let title, let description, let itemNo, let brandName, let price, let wholeSale, let quantity, let barCode, let design, let isActive, let productColor, let productSize, let productDate, let categoryId, let subcategoryId):
+            return [ParameterKeys.emailNumber: emailNumber, "image": image, "name": title, "description": description, "itemNo": itemNo, "brandName": brandName, "price": price, "wholeSale": wholeSale, "quantity": quantity,  "barCode": barCode, "design": design, "isActive": isActive, "productColor": productColor,"size":productSize, "date": productDate, "categoryId": categoryId, "subcategoryId": subcategoryId]
+        case .getProduct(let emailNumber):
+            return [ParameterKeys.emailNumber: emailNumber]
+        case .changeActive(let id, let isActive):
+            return ["id": id, "isActive": isActive]
+        case .editProduct(let id, let image, let title, let description, let itemNo, let brandName, let price, let wholeSale, let quantity, let barCode, let design, let isActive, let productColor, let productSize, let productDate, let categoryId, let subcategoryId):
+            return ["id": id, "image": image, "name": title, "description": description, "itemNo": itemNo, "brandName": brandName, "price": price, "wholeSale": wholeSale, "quantity": quantity,  "barCode": barCode, "design": design, "isActive": isActive, "productColor": productColor,"size":productSize, "date": productDate, "categoryId": categoryId, "subcategoryId": subcategoryId]
+        case .getCategories(let vendorId):
+            return ["vendorId": vendorId]
+        case .getSubCategory(let categoryId):
+            return ["categoryId": categoryId]
+        default:
+            return nil
         }
     }
     // MARK: - Path
     private var path: String {
         switch self {
-            
         // MARK: - PathRegister
-//        case .patientRegister:
-//            return URLs.patientRegister
-       
+        case .vendorRegister:
+            return URLs.vendorSignUp
+        case .vendorLogin:
+            return URLs.login
+        case .getOrders:
+            return URLs.order
+        case .updateStatus:
+            return URLs.updateStatusOrder
+        case .saveProduct:
+            return URLs.product
+        case .getProduct:
+            return URLs.product
+        case .getCategories:
+            return URLs.createCategory
+        case .getSubCategory:
+            return URLs.SubCategory
+        case .changeActive:
+            return URLs.product
+        case .editProduct:
+            return URLs.product
         }
     }
     

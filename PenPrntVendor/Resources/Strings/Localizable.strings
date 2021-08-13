@@ -6,3 +6,4 @@
 "New Order" = "New Order";
 "In Progress" = "In Progress";
 "Completed" = "Completed";
+"Date" = "E, d MMM yyyy/h:mm a";

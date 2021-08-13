@@ -12,6 +12,12 @@ class PhoneVerifyVC: UIViewController {
     
     @IBOutlet var phoneVerifyView: PhoneVerifyView!
     var verificationID = ""
+    var email = ""
+    var name = ""
+    var phone = ""
+    var address = ""
+    var image = ""
+    var password = ""
     private var phoneViewModal: WelcomeViewModelProtocol!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +38,25 @@ class PhoneVerifyVC: UIViewController {
             let credienial = PhoneAuthProvider.provider().credential(withVerificationID: self.verificationID, verificationCode: self.phoneVerifyView.tf_otp.text!)
             Auth.auth().signIn(with: credienial) { (authData, error) in
                 if error != nil {
+                    print(error)
                     self.show_Alert("Sorry!", "Invalid Code")
                 }
                 else {
-                    print("Auth success" + (authData?.user.phoneNumber)!)
-                    self.phoneViewModal.SignUp(email: (authData?.user.phoneNumber)!)
+                    self.phoneVerifyView.showLoader()
+                    APIManager.VendorRegister(storeName: self.name, emailNumber: self.email, landLine: self.phone, storeLocation: self.address, storeFile: self.image , password: self.password) { (response) in
+                        switch response {
+                        case .failure(let err):
+                            print(err)
+                            self.showAlert(title: "Sorry!", msg: "Email Is Aleardy Token.")
+                            self.phoneVerifyView.hideLoader()
+                        case .success(let result):
+                            print(result)
+                            self.phoneVerifyView.hideLoader()
+                            let signInVC = SignInVC.create()
+                            self.present(signInVC ,animated: true, completion: nil)
+                       
+                        }
+                    }
                 }
             }
         }
@@ -47,9 +67,11 @@ class PhoneVerifyVC: UIViewController {
     }
     
     
+    
+    
+    
     @IBAction func backPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-        
     }
     
     @objc func hide(sender: SGCodeTextField){
@@ -67,6 +89,11 @@ class PhoneVerifyVC: UIViewController {
     
 }
 extension PhoneVerifyVC: SignUpProtocol{
+    
+    func presentSignIn() {
+        let signInVC = SignInVC.create()
+        self.present(signInVC ,animated: true, completion: nil)
+    }
     
     func hideLoader() {
         self.view.hideLoader()

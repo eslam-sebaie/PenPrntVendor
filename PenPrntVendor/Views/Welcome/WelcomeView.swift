@@ -25,7 +25,7 @@ class WelcomeView: UIView {
 
     func updateUI() {
         logoImageView.image = Asset.logo.image
-        faceImage.image = Asset.facebookIcon.image
+        faceImage.image = Asset.logIn.image
         googleImage.image = Asset.googleIcon.image
         phoneImage.image = Asset.phone.image
         faceBookView.setBCdesign(borderWidth: 1, borderColor: ColorName.welcomeBorder.color, radius: 8)

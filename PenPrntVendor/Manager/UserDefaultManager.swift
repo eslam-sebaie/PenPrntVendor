@@ -19,16 +19,39 @@ class UserDefaultsManager {
     // MARK:- Properties
 
     
-//    var Token: String? {
-//        set {
-//            UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.token)
-//        }
-//        get {
-//            guard UserDefaults.standard.object(forKey: UserDefaultsKeys.token) != nil else {
-//                return nil
-//            }
-//            return UserDefaults.standard.string(forKey: UserDefaultsKeys.token)
-//        }
-//    }
+    var Token: String? {
+        set {
+            UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.token)
+        }
+        get {
+            guard UserDefaults.standard.object(forKey: UserDefaultsKeys.token) != nil else {
+                return nil
+            }
+            return UserDefaults.standard.string(forKey: UserDefaultsKeys.token)
+        }
+    }
+    
+    var Email: String? {
+        set {
+            UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.email)
+        }
+        get {
+            guard UserDefaults.standard.object(forKey: UserDefaultsKeys.email) != nil else {
+                return nil
+            }
+            return UserDefaults.standard.string(forKey: UserDefaultsKeys.email)
+        }
+    }
+    var VendorID: IntegerLiteralType? {
+        set {
+            UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.VendorID)
+        }
+        get {
+            guard UserDefaults.standard.object(forKey: UserDefaultsKeys.VendorID) != nil else {
+                return nil
+            }
+            return UserDefaults.standard.integer(forKey: UserDefaultsKeys.VendorID)
+        }
+    }
     
 }

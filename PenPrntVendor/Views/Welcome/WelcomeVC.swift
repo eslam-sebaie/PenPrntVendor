@@ -21,6 +21,9 @@ class WelcomeVC: UIViewController {
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance()?.delegate = self
         welcomeView.updateUI()
+  
+        
+        
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +52,9 @@ class WelcomeVC: UIViewController {
     }
 
     @IBAction func faceBookPressed(_ sender: Any) {
-        handleFacebook()
+        let signUp = SignUpVC.create()
+        self.present(signUp, animated: true, completion: nil)
+//        handleFacebook()
     }
     
     @IBAction func googlePressed(_ sender: Any) {
@@ -107,15 +112,12 @@ extension WelcomeVC {
                 print("Fail")
                 return
             }
-            
             let json = JSON(result)
             self.welcomeView.name = json["name"].string ?? ""
             self.welcomeView.email = json["email"].string ?? ""
             print(self.welcomeView.name)
             print(self.welcomeView.email)
-            
             self.welcomeViewModal.SignUp(email: self.welcomeView.email)
-            
         }
     }
 }
@@ -145,6 +147,12 @@ extension WelcomeVC: GIDSignInDelegate {
     }
 }
 extension WelcomeVC: SignUpProtocol {
+    
+    func presentSignIn() {
+        let signInVC = SignInVC.create()
+        self.present(signInVC ,animated: true, completion: nil)
+    }
+    
     func hideLoader() {
         self.view.hideLoader()
     }

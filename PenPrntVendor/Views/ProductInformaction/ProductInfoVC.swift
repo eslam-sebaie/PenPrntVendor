@@ -11,7 +11,14 @@ import Photos
 import MobileCoreServices
 import IGColorPicker
 import SDWebImage
-class ProductInfoVC: UIViewController, UIDocumentPickerDelegate, ColorPickerViewDelegate, ColorPickerViewDelegateFlowLayout, UIPickerViewDataSource, UIPickerViewDelegate {
+protocol ProductProtocol: class {
+    func hideLoader()
+    func showLoader()
+    func showAlert(title: String , msg: String)
+    func presentTabBar()
+    func presentSignIn()
+}
+class ProductInfoVC: UIViewController, UIDocumentPickerDelegate, ColorPickerViewDelegate, ColorPickerViewDelegateFlowLayout, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
     
     @IBOutlet var productView: ProductInfoView!
@@ -25,9 +32,19 @@ class ProductInfoVC: UIViewController, UIDocumentPickerDelegate, ColorPickerView
     var sizeCheck = false
     var catID = [Int]()
     var catName = [String]()
+    
+    var subCatID = [Int]()
+    var subCatName = [String]()
+    
     var savedCatID = 0
+    var savedSubCatID = 0
     var checkEditProduct = false
     var receiveProductID = 0
+    var newSizeArray = [String]()
+    
+    var colorName = ["White", "Silver","Gray", "Black", "Red","Maroon","Yellow", "Olive", "Lime","Green","Aqua","Blue", "Navy", "Fuchsia", "Purple", "Brown", "LightBlue","Pink", "Gold"]
+    var colorCode = ["#FFFFFF", "#C0C0C0","#808080","#000000","#FF0000","#800000", "#FFFF00","#808000", "#00FF00","#008000", "#00FFFF","#0000FF", "#000080", "#FF00FF", "#800080", "#A52A2A","#ADD8E6","#FFC0CB", "#FFD700"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("!@#$%%%")
@@ -38,16 +55,23 @@ class ProductInfoVC: UIViewController, UIDocumentPickerDelegate, ColorPickerView
         productView.sizePickerView.delegate = self
         productView.productSizeTF.inputView = productView.sizePickerView
         productView.categoryPickerView.delegate = self
+        productView.subCategoryPickerView.delegate = self
         productView.productCategoryTF.inputView = productView.categoryPickerView
+        productView.productSubCategoryTF.inputView = productView.subCategoryPickerView
+        
+        productView.productColoPickerView.delegate = self
+        productView.productColoPickerView.dataSource = self
+        productView.productColorTF.inputView = productView.productColoPickerView
         
         productView.sizePickerView.dataSource = self
         productView.categoryPickerView.dataSource = self
+        productView.subCategoryPickerView.dataSource = self
         productView.updateUI()
-        productView.colorPickrView.delegate = self
-        productView.colorPickrView.layoutDelegate = self
-        productView.colorPickrView.style = .circle
-        productView.colorPickrView.selectionStyle = .check
-        productView.colorPickrView.isSelectedColorTappable = false
+//        productView.colorPickrView.delegate = self
+//        productView.colorPickrView.layoutDelegate = self
+//        productView.colorPickrView.style = .circle
+//        productView.colorPickrView.selectionStyle = .check
+//        productView.colorPickrView.isSelectedColorTappable = false
         productView.mainColorView.isHidden = true
         let tabGesture = UITapGestureRecognizer()
         tabGesture.addTarget(self, action: #selector(ProductInfoVC.openGallery(tabGesture:)))
@@ -56,9 +80,18 @@ class ProductInfoVC: UIViewController, UIDocumentPickerDelegate, ColorPickerView
         
         
     }
-    var getCatID = ""
-    override func viewWillAppear(_ animated: Bool) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         
+        if textField == productView.productSubCategoryTF {
+            if productView.productCategoryTF.text == "" {
+                self.showAlert(title: "Sorry.", msg: "Choose Category First.")
+            }
+        }
+    }
+    var getCatID = ""
+    var getSubCatID = ""
+    override func viewWillAppear(_ animated: Bool) {
+        productView.productSubCategoryTF.delegate = self
         if checkEditProduct == true {
             APIManager.getProduct(emailNumber: UserDefaultsManager.shared().Email!) { (response) in
                 switch response {
@@ -68,6 +101,7 @@ class ProductInfoVC: UIViewController, UIDocumentPickerDelegate, ColorPickerView
                     for i in result.data! {
                         if self.receiveProductID == i.id {
                             self.getCatID = i.categoryId ?? ""
+                            self.getSubCatID = i.subcategoryId ?? ""
                             self.productView.titleTF.text = i.name
                             self.productView.descriptionTV.text = i.description
                             self.productView.itemNoTF.text = i.itemNo
@@ -106,24 +140,56 @@ class ProductInfoVC: UIViewController, UIDocumentPickerDelegate, ColorPickerView
             }
         }
         
-        APIManager.getCategories { (response) in
+        APIManager.getCategories(vendorId: UserDefaultsManager.shared().VendorID ?? 0) { (response) in
             switch response {
             case .failure(let err):
                 print(err)
             case .success(let result):
+                print("$%")
+                print(result)
                 for i in result.data ?? [] {
                     self.catID.append(i.id ?? 0)
                     self.catName.append(i.name ?? "")
                     if self.checkEditProduct {
                         if Int(self.getCatID) == i.id {
                             self.productView.productCategoryTF.text = i.name
+                            self.getSubCategoryID(categoryId: Int(self.getCatID) ?? 0)
                         }
+                        
                     }
                 }
-            
             }
         }
     }
+    var catInfo = [CategoryInfo]()
+    var x = [CategoryInfo]()
+    func getSubCategoryID(categoryId:Int) -> [CategoryInfo] {
+        self.productView.showLoader()
+        APIManager.getSubCategories(categoryId: categoryId) { (response) in
+            switch response {
+            case .failure(let err):
+                print(err)
+            case .success(let result):
+                print("$%")
+                print(result)
+                self.catInfo = result.data ?? []
+                for i in result.data ?? [] {
+                    self.subCatID.append(i.id ?? 0)
+                    self.subCatName.append(i.name ?? "")
+                    if self.checkEditProduct {
+                        if Int(self.getSubCatID) == i.id {
+                            print("INFFFFF")
+                            self.productView.productSubCategoryTF.text = i.name
+                        }
+                    }
+                }
+                self.productView.hideLoader()
+            }
+        }
+        return catInfo
+    }
+    
+    
     @objc func openGallery(tabGesture: UITapGestureRecognizer) {
         self.setImagePicker()
     }
@@ -135,14 +201,49 @@ class ProductInfoVC: UIViewController, UIDocumentPickerDelegate, ColorPickerView
         return productInfoVC
     }
     
+    @IBAction func addSizePressed(_ sender: Any) {
+        productView.sizeView.isHidden = false
+        
+    }
+    
+    @IBAction func saveSizePressed(_ sender: Any) {
+        guard let size = productView.sizeAddedTF.text, size != "" else {
+            showAlert(title: "Please!", msg: "Enter Product Size.")
+            return
+            
+        }
+        
+        if self.productView.savedSizeArray.contains(size) {
+            self.showAlert(title: "Sorry!", msg: "This Color Is Exist.")
+        }
+        else {
+            self.productView.savedSizeArray.append(size)
+            self.newSizeArray.append(size)
+        }
+        for  i in newSizeArray {
+            self.productView.productSizeTF.text! += "\(i), "
+        }
+        newSizeArray = []
+        self.productView.sizeAddedTF.text = ""
+        
+        
+        
+    }
+    
+    @IBAction func cancelSizePressed(_ sender: Any) {
+        self.productView.sizeView.isHidden = true
+    }
+    
     @objc func popupHide() {
         self.productView.savedView.isHidden = true
     }
     
     
+    
     @IBAction func colorPressed(_ sender: Any) {
         productView.mainColorView.isHidden = false
     }
+    
     
     @IBAction func donePress(_ sender: Any) {
         for i in self.productView.colorArray {
@@ -195,44 +296,56 @@ class ProductInfoVC: UIViewController, UIDocumentPickerDelegate, ColorPickerView
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView == self.productView.sizePickerView {
-            return sizeArray.count
+        if pickerView == self.productView.productColoPickerView {
+            return colorName.count
+        }
+        else if pickerView == self.productView.categoryPickerView {
+            return catID.count
         }
         else {
-            return catID.count
+            return catInfo.count
         }
         
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView == self.productView.sizePickerView {
-            return sizeArray[row]
+        if pickerView == self.productView.productColoPickerView {
+            return colorName[row]
         }
-        else {
+        else if pickerView == self.productView.categoryPickerView {
+            
             return catName[row]
         }
+        else {
+            return catInfo[row].name
+        }
     }
-    
+    var color = ""
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == self.productView.sizePickerView {
-            size = sizeArray[row]
+        if pickerView == self.productView.productColoPickerView {
+            color = colorCode[row]
             self.view.endEditing(true)
-            for i in 0..<self.productView.savedSizeArray.count {
-                if self.productView.savedSizeArray[i].contains(size) {
-                    self.showAlert(title: "Sorry!", msg: "This Size Is Exist.")
+            for i in 0..<self.productView.colorArray1.count {
+                if self.productView.colorArray1[i].contains(color) {
+                    self.showAlert(title: "Sorry!", msg: "This Color Is Exist.")
                     sizeCheck = true
                     self.view.endEditing(true)
                 }
             }
             if !sizeCheck {
-                self.productView.savedSizeArray.append(sizeArray[row])
-                self.productView.productSizeTF.text! += "\(sizeArray[row]) "
+                self.productView.colorArray1.append(colorCode[row])
+                self.productView.productColorTF.text! += "\(colorCode[row]) "
             }
         }
-        else {
+        else if pickerView == self.productView.categoryPickerView {
             self.productView.productCategoryTF.text = catName[row]
             savedCatID = catID[row]
+            self.productView.productSubCategoryTF.text = ""
+            self.getSubCategoryID(categoryId: savedCatID)
         }
-       
+        else  {
+            self.productView.productSubCategoryTF.text = catInfo[row].name
+            savedSubCatID = catInfo[row].id ?? 0
+        }
     }
     
     
@@ -265,21 +378,22 @@ class ProductInfoVC: UIViewController, UIDocumentPickerDelegate, ColorPickerView
     @IBAction func uploadPressed(_ sender: Any) {
         
         let documentPicker = UIDocumentPickerViewController(documentTypes: [kUTTypePDF as String, kUTTypePNG as String, kUTTypeJPEG as String, kUTTypePDF as String, kUTTypeScript as String, kUTTypeURL as String, kUTTypeGIF as String, kUTTypeRTF as String, kUTTypeData as String, kUTTypeItem as String, kUTTypeText as String, kUTTypeFolder as String, kUTTypeFileURL as String, kUTTypePresentation as String, kUTTypeDatabase as String, kUTTypeZipArchive as String, kUTTypeVideo as String ], in: .import)
-
+        
         documentPicker.delegate = self
         documentPicker.allowsMultipleSelection = false
         present(documentPicker,animated: true,completion: nil)
     }
- 
+    
     
     @IBAction func savePressed(_ sender: Any) {
-        
+        print("!#%@")
+        print(self.productView.savedSizeArray)
         if checkEditProduct {
             self.productInfoViewModal.checkEdit = true
-            self.productInfoViewModal.check1(id: receiveProductID, image: self.productImg, title: self.productView.titleTF.text, description: self.productView.descriptionTV.text, itemNo: self.productView.itemNoTF.text, brandName: self.productView.brandTF.text, price: self.productView.priceTF.text, wholeSale: self.productView.salePriceTF.text, quantity: self.productView.quantity.text, barCode: self.productView.barCodeTF.text, design: self.fileLink, isActive: self.productView.stockValue, productColor: self.productView.colorArray1, productSize: self.productView.savedSizeArray, productDate: self.productView.result, categoryId: savedCatID)
+            self.productInfoViewModal.check1(id: receiveProductID, image: self.productImg, title: self.productView.titleTF.text, description: self.productView.descriptionTV.text, itemNo: self.productView.itemNoTF.text, brandName: self.productView.brandTF.text, price: self.productView.priceTF.text, wholeSale: self.productView.salePriceTF.text, quantity: self.productView.quantity.text, barCode: self.productView.barCodeTF.text, design: self.fileLink, isActive: self.productView.stockValue, productColor: self.productView.colorArray1, productSize: self.productView.savedSizeArray, productDate: self.productView.result, categoryId: Int(getCatID) ?? 0, subcategoryId: Int(getSubCatID) ?? 0)
         }
         else {
-            self.productInfoViewModal.check(emailNumber: UserDefaultsManager.shared().Email!, image: self.productImg, title: self.productView.titleTF.text, description: self.productView.descriptionTV.text, itemNo: self.productView.itemNoTF.text, brandName: self.productView.brandTF.text, price: self.productView.priceTF.text, wholeSale: self.productView.salePriceTF.text, quantity: self.productView.quantity.text, barCode: self.productView.barCodeTF.text, design: self.fileLink, isActive: self.productView.stockValue, productColor: self.productView.colorArray1, productSize: self.productView.savedSizeArray, productDate: self.productView.result, categoryId: savedCatID)
+            self.productInfoViewModal.check(emailNumber: UserDefaultsManager.shared().Email!, image: self.productImg, title: self.productView.titleTF.text, description: self.productView.descriptionTV.text, itemNo: self.productView.itemNoTF.text, brandName: self.productView.brandTF.text, price: self.productView.priceTF.text, wholeSale: self.productView.salePriceTF.text, quantity: self.productView.quantity.text, barCode: self.productView.barCodeTF.text, design: self.fileLink, isActive: self.productView.stockValue, productColor: self.productView.colorArray1, productSize: self.productView.savedSizeArray, productDate: self.productView.result, categoryId: savedCatID, subcategoryId: savedSubCatID)
         }
         
     }
@@ -314,7 +428,7 @@ extension ProductInfoVC: UIImagePickerControllerDelegate, UINavigationController
         picker.dismiss(animated: false, completion: nil)
     }
 }
-extension ProductInfoVC: SignUpProtocol {
+extension ProductInfoVC: ProductProtocol {
     
     func presentSignIn() {
         let signInVC = SignInVC.create()
@@ -333,8 +447,7 @@ extension ProductInfoVC: SignUpProtocol {
         self.show_Alert(title, msg)
     }
     func presentTabBar() {
-        let tabVC = TabBarController.create()
-        self.present(tabVC ,animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 }
 extension PHAsset {
@@ -353,25 +466,25 @@ extension ProductInfoVC {
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         
         let fileName = UUID().uuidString
-     
-            guard let documentURL = urls.first else {
-                return
-            }
+        
+        guard let documentURL = urls.first else {
+            return
+        }
         print(documentURL)
-            let myData = NSData(contentsOf: documentURL)
-     
+        let myData = NSData(contentsOf: documentURL)
+        
         APIManager.uploadDocument(file: myData! as Data, fileName: fileName) { (err, str) in
-                if let err = err {
-                    print("#$%%")
-                    print(err)
-                }
-                else {
-                    print("#%")
-                    self.fileLink = str?.data ?? ""
-                    print(str?.data ?? "")
-                }
+            if let err = err {
+                print("#$%%")
+                print(err)
+            }
+            else {
+                print("#%")
+                self.fileLink = str?.data ?? ""
+                print(str?.data ?? "")
             }
         }
+    }
     
     
 }

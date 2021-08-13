@@ -49,6 +49,7 @@ extension SignInViewModel: SignInViewModelProtocol {
                     print(result)
                     UserDefaultsManager.shared().Token = result.message
                     UserDefaultsManager.shared().Email = result.data?.emailNumber
+                    UserDefaultsManager.shared().VendorID = result.data?.id
                     self.view.hideLoader()
                     self.view.presentTabBar()
                 }

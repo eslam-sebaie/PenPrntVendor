@@ -36,6 +36,7 @@ struct URLs {
     static let uploadPhoto = base + "uploadImage"
     static let product = "product"
     static let createCategory = "createCategory"
+    static let SubCategory = "SubCategory"
 }
 struct ParameterKeys {
     static let storeName = "storeName"
@@ -49,6 +50,7 @@ struct ParameterKeys {
 struct UserDefaultsKeys {
     static let token = "token"
     static let email = "email"
+    static let VendorID = "VendorID"
 }
 struct TableCells {
     static let orderCell = "cell"

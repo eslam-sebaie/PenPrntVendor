@@ -39,9 +39,19 @@ class ProductInfoView: UIView, UIPickerViewDelegate {
     @IBOutlet weak var productColorTF: UITextField!
     
     @IBOutlet weak var productCategoryTF: UITextField!
+    
+    @IBOutlet weak var productSubCategoryTF: UITextField!
+    
     @IBOutlet weak var savedView: UIView!
     
     @IBOutlet weak var stockSeg: UISegmentedControl!
+    
+    @IBOutlet var sizeView: UIView!
+    @IBOutlet var sizeAddedTF: UITextField!
+    @IBOutlet var sizeSaveDesign: UIButton!
+    
+    @IBOutlet var sizeAddDesign: UIButton!
+    
     
     var stockValue = true
     var colorArray = [String]()
@@ -49,11 +59,17 @@ class ProductInfoView: UIView, UIPickerViewDelegate {
     var savedSizeArray = [String]()
     var sizePickerView = UIPickerView()
     var categoryPickerView = UIPickerView()
+    var subCategoryPickerView = UIPickerView()
+    var productColoPickerView = UIPickerView()
     var result = ""
     var result1 = ""
     func updateUI() {
         
         savedView.isHidden = true
+        sizeView.isHidden = true
+        sizeView.dropShadow(radius: 16, shadow: 2)
+        sizeSaveDesign.setCornerRadius(radius: 8)
+        sizeAddDesign.setCornerRadius(radius: 8)
         savedView.setCornerRadius(radius: 16)
         uploadHeight.constant = 0
         uploadDesignView.isHidden = true

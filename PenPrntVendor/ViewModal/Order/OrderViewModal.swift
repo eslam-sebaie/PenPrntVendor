@@ -27,10 +27,12 @@ extension OrderViewModel: OrderViewModelProtocol {
     }
     
     func getOrders(email: String?, completion: @escaping()->())  {
+        self.view.showLoader()
         APIManager.getOrder(emailNumber: email!) { (response) in
             switch response {
             case .failure(let err):
                 print(err)
+                self.view.showAlert(title: "Sorry!", msg: "SomeThing Went Wrong.")
             case .success(let result):
                 if result.message == "faild" {
                     self.view.showAlert(title: "Sorry!", msg: "No Orders Found.")
@@ -38,7 +40,7 @@ extension OrderViewModel: OrderViewModelProtocol {
                 else {
                     self.orderInfo = result.data
                 }
-                
+                self.view.hideLoader()
             }
             completion()
         }

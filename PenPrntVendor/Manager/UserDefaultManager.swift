@@ -42,5 +42,16 @@ class UserDefaultsManager {
             return UserDefaults.standard.string(forKey: UserDefaultsKeys.email)
         }
     }
+    var VendorID: IntegerLiteralType? {
+        set {
+            UserDefaults.standard.set(newValue, forKey: UserDefaultsKeys.VendorID)
+        }
+        get {
+            guard UserDefaults.standard.object(forKey: UserDefaultsKeys.VendorID) != nil else {
+                return nil
+            }
+            return UserDefaults.standard.integer(forKey: UserDefaultsKeys.VendorID)
+        }
+    }
     
 }

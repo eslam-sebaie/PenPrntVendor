@@ -51,10 +51,11 @@ struct getProductInfo: Codable {
     let productColor, size: [String]?
     let date: String?
     let categoryId: String?
+    let subcategoryId: String?
     enum CodingKeys: String, CodingKey {
         case id, image, name
         case description
-        case itemNo, brandName, price, wholeSale, quantity, unit, barCode, stock, design, productColor, isActive, size, date, categoryId
+        case itemNo, brandName, price, wholeSale, quantity, unit, barCode, stock, design, productColor, isActive, size, date, categoryId, subcategoryId
         case vendorID = "vendorId"
     }
 }

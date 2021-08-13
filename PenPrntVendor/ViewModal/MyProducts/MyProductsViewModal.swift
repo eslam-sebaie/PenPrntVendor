@@ -27,6 +27,7 @@ extension MyProductViewModel: MyProductViewModelProtocol {
     }
     
     func getProducts(email: String?, completion: @escaping()->())  {
+        self.view.showLoader()
         APIManager.getProduct(emailNumber: email!) { (response) in
             switch response {
             case .failure(let err):
@@ -39,7 +40,7 @@ extension MyProductViewModel: MyProductViewModelProtocol {
                     print(result)
                     self.productInfo = result.data!
                 }
-                
+                self.view.hideLoader()
             }
             completion()
         }

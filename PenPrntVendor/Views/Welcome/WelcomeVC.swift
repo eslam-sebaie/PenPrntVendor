@@ -52,7 +52,9 @@ class WelcomeVC: UIViewController {
     }
 
     @IBAction func faceBookPressed(_ sender: Any) {
-        handleFacebook()
+        let signUp = SignUpVC.create()
+        self.present(signUp, animated: true, completion: nil)
+//        handleFacebook()
     }
     
     @IBAction func googlePressed(_ sender: Any) {

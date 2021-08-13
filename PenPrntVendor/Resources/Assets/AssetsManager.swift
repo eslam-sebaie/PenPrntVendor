@@ -44,6 +44,7 @@ internal enum Asset {
   internal static let logo = ImageAsset(name: "logo")
   internal static let phone = ImageAsset(name: "phone")
   internal static let chat1 = ImageAsset(name: "chat1")
+  internal static let logIn = ImageAsset(name: "log-in")
   internal static let lineMap = ImageAsset(name: "LineMap")
   internal static let lineMap2 = ImageAsset(name: "LineMap2")
   internal static let location = ImageAsset(name: "Location")

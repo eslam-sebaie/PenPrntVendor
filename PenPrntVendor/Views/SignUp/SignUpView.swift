@@ -24,7 +24,12 @@ class SignUpView: UIView {
     @IBOutlet weak var signUpDesign: UIButton!
     @IBOutlet weak var upperSignUpView: UIView!
     
+    @IBOutlet weak var phoneView: UIView!
     
+    @IBOutlet weak var codeLabel: UILabel!
+    @IBOutlet weak var codeImage: UIImageView!
+    var phoneNumberWithCode = ""
+    var verification_id: String? = nil
     func updateUI(){
         
         signUpImage.image = Asset.signInBG.image
@@ -34,6 +39,7 @@ class SignUpView: UIView {
         upperSignUpView.setCornerRadius(radius: 8)
         upperSignUpView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         uploadStoreDesign.setBCdesign(borderWidth: 1, borderColor: ColorName.storeBorder.color, radius: 8)
+        phoneView.setBCdesign(borderWidth: 1, borderColor: ColorName.borderColor.color, radius: 8)
         signUpDesign.setCornerRadius(radius: 8)
         
     }

@@ -32,9 +32,10 @@ extension MyProductViewModel: MyProductViewModelProtocol {
             switch response {
             case .failure(let err):
                 print(err)
+                self.view.hideLoader()
             case .success(let result):
                 if result.message == "faild" {
-                    self.view.showAlert(title: "Sorry!", msg: "No Orders Found.")
+                    self.view.showAlert(title: "Sorry!", msg: "No Products Found.")
                 }
                 else {
                     print(result)
@@ -45,6 +46,4 @@ extension MyProductViewModel: MyProductViewModelProtocol {
             completion()
         }
     }
-    
-    
 }

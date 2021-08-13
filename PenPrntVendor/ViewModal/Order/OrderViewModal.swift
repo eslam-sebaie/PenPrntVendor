@@ -32,6 +32,7 @@ extension OrderViewModel: OrderViewModelProtocol {
             switch response {
             case .failure(let err):
                 print(err)
+                self.view.hideLoader()
                 self.view.showAlert(title: "Sorry!", msg: "SomeThing Went Wrong.")
             case .success(let result):
                 if result.message == "faild" {

@@ -12,6 +12,7 @@ import FirebaseAuth
 class LoginPhoneVC: UIViewController {
 
     @IBOutlet var loginPhoneView: LoginPhoneView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loginPhoneView.updateUI()

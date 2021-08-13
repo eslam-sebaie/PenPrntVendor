@@ -28,6 +28,7 @@ class NotificationVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             switch response {
             case .failure(let err):
                 print(err)
+                self.notificationView.hideLoader()
                 self.show_Alert("Sorry!", "SomeThing Went Wrong.")
             case .success(let result):
                 self.orders = []

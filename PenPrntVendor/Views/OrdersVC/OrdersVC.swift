@@ -17,7 +17,6 @@ class OrdersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         super.viewDidLoad()
         print("@#$")
         print(UserDefaultsManager.shared().Email)
-    
     }
     override func viewWillAppear(_ animated: Bool) {
         orderViewModal = OrderViewModel(view: self)
@@ -27,7 +26,6 @@ class OrdersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             self.newOrders = self.orderViewModal.returnOrder()
             self.orders = self.orders.removeDuplicates()
             self.ordersView.orderTableView.reloadData()
-            
         }
     }
    
